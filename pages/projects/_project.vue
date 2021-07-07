@@ -3,7 +3,7 @@
     class="relative overflow-hidden"
     style="background-color: rgb(240, 249, 253)"
   >
-  {{ Fases}}
+  
     <main class="mt-16 sm:mt-24">
       <div class="mx-auto max-w-7xl">
         <div class="relative mb-8">
@@ -17,7 +17,7 @@
             
             
             <p>
-            <!-- <pre>{{ Observaties }}</pre> -->
+            
             
           </p>
         </div>
@@ -40,35 +40,36 @@
                     {{ t.description }}
                   </p>
                   <ul class="divide-y divide-gray-200">
-                    <li v-for="(c, key) in t.cards" :key="`card-${key}`">
+                    <li v-for="(c, key) in t.cards" :key="`card-${c}`">
                       
                       <button
-                        @click="setActiveCard(c)"
+                        @click="setActiveCard(c-1)"
                         class="block hover:bg-gray-50 w-full"
                       >
                         <div class="flex py-4">
-
-                          <card-small
-                            :active-card="Observaties[c-1]"
-                            class="flex-grow"
-                          ></card-small>
-
+                          
+                          <div
+                          class="container mx-auto max-w-xl text-left text-sm text-gray-600"
+                          
+                        >
+                          {{ Observaties[c-1].Opmerking }}
+                        </div>
+                          
                           <div>
                             <!-- Heroicon name: solid/chevron-right -->
-                            <svg
-                            class="h-5 w-5 text-gray-400"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                            
+                        <svg
+                        class="h-5 w-5 text-gray-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
                           </div>
                         </div>
                       </button>
@@ -140,15 +141,19 @@ export default {
   },
   methods: {
     ...mapActions({
-      getSheet: 'sheets/getSheet'
+      // getPhases: 'sheets/getPhases',
+      // getObservations: 'sheets/getObservations'
+      getSheet: 'sheets/getSheet',
     }),
     setActiveCard(id) {
-      
+      console.log(id)
       console.log(this.Observaties)
-      this.activeCard = this.Observaties[id-1];
+      this.activeCard = this.Observaties[id];
     },
   },
   mounted() {
+    // this.getPhases(this.post.sheet)
+    // this.getObservations(this.post.sheet)
     this.getSheet({ spreadSheetId: this.post.sheet, sheet: 'Fases' })
     this.getSheet({ spreadSheetId: this.post.sheet, sheet: 'Observaties' })
     // axios.get(this.post.sheet).then((response) => {

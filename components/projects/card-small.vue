@@ -1,7 +1,7 @@
 <template>
   <div
     class="container mx-auto max-w-xl text-left text-sm text-gray-600"
-    v-if="action"
+    
   >
     {{ action.observation.text }}
   </div>

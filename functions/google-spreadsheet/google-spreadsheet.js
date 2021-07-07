@@ -1,6 +1,6 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 
-let sheet
+
 
 module.exports = {
   getSheet: async (speadSheetId, sheetId) => {
@@ -15,16 +15,19 @@ module.exports = {
     })
 
     await doc.loadInfo() // loads document properties and worksheets
-    // console.log(sheetId)
-    if(isNaN(sheetId)){
-      sheet = doc.sheetsByTitle[sheetId]
-    } else {
-      sheet = doc.sheetsByIndex[sheetId]
-    }
+
+    let sheet;
     
+    if(isNaN(sheetId)){
+      sheet = await doc.sheetsByTitle[sheetId]
+    } else {
+      sheet = await doc.sheetsByIndex[sheetId]
+    }
+    return sheet
     
   },
-  getRows: async () => {
+  getRows: async (sheet) => {
+    
     const rows = await sheet.getRows() // can pass in { limit, offset }
     return rows.map((row, i) => {
       let temp = {}

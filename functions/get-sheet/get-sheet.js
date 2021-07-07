@@ -19,9 +19,15 @@ if (!process.env.NETLIFY) {
 	  
 	  const spreadSheetId = data.spreadSheetId
 	  const sheetId = data.sheet
-	  await sheetAPI.getSheet(spreadSheetId, sheetId)
+	 
+	 console.log(sheetId)
 	  
-	  const rows = await sheetAPI.getRows()
+	  const sheet = await sheetAPI.getSheet(spreadSheetId, sheetId)
+	  console.log(sheet)
+	  const rows = await sheetAPI.getRows(sheet)
+	  // console.log(rows)
+	  
+	  
 	  // const filteredRows - 
 	  // console.log(sheetId, rows)
 	  
