@@ -62,4 +62,5 @@ collections:
     preview_path: 'projects/{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'text', required: true }
       - { label: 'Google Sheet', name: 'sheet', widget: 'string', required: true }

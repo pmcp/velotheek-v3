@@ -14,16 +14,22 @@ if (!process.env.NETLIFY) {
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 	
 	exports.handler = async function(event, context) {
-		console.log('here')
+	
 	  const data = JSON.parse(event.body)
-	  const spreadSheetId = data.sheetId
-	  const sheetId = 0
+	  
+	  const spreadSheetId = data.spreadSheetId
+	  const sheetId = data.sheet
 	  await sheetAPI.getSheet(spreadSheetId, sheetId)
+	  
 	  const rows = await sheetAPI.getRows()
-	  console.log(rows)
+	  // const filteredRows - 
+	  // console.log(sheetId, rows)
+	  
+	  
+	  
 	  return {
 		statusCode: 200,
-		body: JSON.stringify({ message: 'success' })
+		body: JSON.stringify(rows)
 	  }
 	}
 	

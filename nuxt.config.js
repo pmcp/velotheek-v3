@@ -86,6 +86,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    transpile: ['vue-youtube-embed'],
     extractCSS: true,
     postcss: {
       plugins: {

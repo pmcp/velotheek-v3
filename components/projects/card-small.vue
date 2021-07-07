@@ -25,50 +25,47 @@ export default {
   watch: {
     activeCard: function (newVal) {
       // watch it
-      console.log('gonna parse');
+      
       this.parseData(newVal);
     },
   },
   methods: {
     parseData(entry) {
+      
       const action = {
-        id: entry.gsx$id.$t,
+        id: entry.Id,
         report: {
-          text: entry.gsx$momentbeschrijving.$t,
+          text: entry['Moment Beschrijving'],
         },
         phase: {
-          order: entry.gsx$fasenummer.$t,
-          name: entry.gsx$fasenaam.$t,
-          descr: entry.gsx$fasebeschrijving.$t,
+          order: entry['Fase Nummer'],
+          name: entry['Fase Naam'],
+          descr: entry['Fase Beschrijving'],
         },
         observation: {
-          text: entry.gsx$opmerking.$t,
-          context: entry.gsx$momentbeschrijving.$t,
+          text: entry['Opmerking'],
+          context: entry['Moment Id'],
         },
         action: {
-          text: entry.gsx$actie.$t,
-          context: entry.gsx$momentbeschrijving.$t,
-        },
-        mission: {
-          title: entry.gsx$missienaam.$t,
-          descr: entry.gsx$missiebeschrijving.$t,
+          text: entry['Actie'],
+          context: entry['Moment Beschrijving'],
         },
         persona: {
-          name: entry.gsx$personanaam.$t,
-          descr: entry.gsx$personabeschrijving.$t,
+          name: entry['Persona Naam'],
+          descr: entry['Persona Id'],
         },
         session: {
-          date: entry.gsx$sessiedatum.$t,
+          date: entry['Sessie Datum'],
         },
         user: {
-          name: entry.gsx$gebruikernaam.$t,
-          age: entry.gsx$gebruikerleeftijd.$t,
+          name: entry['Gebruiker Naam'],
+          age: entry['Gebruiker Leeftijd'],
           // 'email': entry.gsx$.$t,
         },
         stakeholder: {
-          name: entry.gsx$stakeholdernaam.$t,
-          email: entry.gsx$stakeholderemail.$t,
-          division: entry.gsx$stakeholderafdeling.$t,
+          name: entry['Stakeholder Naam'],
+          email: entry['Stakeholder Email'],
+          division: entry['Stakeholder Afdeling'],
           // 'email': entry.gsx$.$t,
         },
       };

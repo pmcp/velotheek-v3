@@ -139,6 +139,7 @@
               <span class="font-semibold">Halte in wandeling </span>
             </p>
             <ol class="overflow-hidden">
+              <pre>{{ phases }} </pre>
               <li
                 class="relative pb-10"
                 v-for="(p, key) in phases"
@@ -309,57 +310,52 @@ export default {
     parseData(entry) {
       // Using vue-youtube-embed to get id and time (https://github.com/kaorun343/vue-youtube-embed)
 
-      const videoId = getIdFromURL(entry.gsx$momentvideo.$t);
-      const videoStartTime = getTimeFromURL(entry.gsx$momentvideo.$t);
+      const videoId = getIdFromURL(entry['Moment Video']);
+      const videoStartTime = getTimeFromURL(entry['Moment Beschrijving']);
       // console.log(entry);
-      const action = {
-        id: entry.gsx$id.$t,
-        report: {
-          text: entry.gsx$momentbeschrijving.$t,
-        },
-        phase: {
-          order: entry.gsx$fasenummer.$t,
-          name: entry.gsx$fasenaam.$t,
-          descr: entry.gsx$fasebeschrijving.$t,
-        },
-        observation: {
-          text: entry.gsx$opmerking.$t,
-          context: entry.gsx$momentbeschrijving.$t,
-        },
-        action: {
-          text: entry.gsx$actie.$t,
-          context: entry.gsx$momentbeschrijving.$t,
-        },
-        mission: {
-          title: entry.gsx$missienaam.$t,
-          descr: entry.gsx$missiebeschrijving.$t,
-        },
-        persona: {
-          name: entry.gsx$personanaam.$t,
-          descr: entry.gsx$personabeschrijving.$t,
-        },
-        session: {
-          videoId: videoId,
-          videoStartTime: videoStartTime,
-          date: entry.gsx$sessiedatum.$t,
-        },
-        user: {
-          name: entry.gsx$gebruikernaam.$t,
-          age: entry.gsx$gebruikerleeftijd.$t,
-          // 'email': entry.gsx$.$t,
-        },
-        owner: {
-          name: entry.gsx$verantwoordelijke.$t,
-          status: entry.gsx$timing.$t,
-          // 'email': entry.gsx$.$t,
-        },
-        // stakeholder: {
-        //   name: entry.gsx$stakeholdernaam.$t,
-        //   email: entry.gsx$stakeholderemail.$t,
-        //   division: entry.gsx$stakeholderafdeling.$t,
-        //   // 'email': entry.gsx$.$t,
-        // },
-      };
+   const action = {
+     id: entry.Id,
+     report: {
+       text: entry['Moment Beschrijving'],
+     },
+     phase: {
+       order: entry['Fase Nummer'],
+       name: entry['Fase Naam'],
+       descr: entry['Fase Beschrijving'],
+     },
+     observation: {
+       text: entry['Opmerking'],
+       context: entry['Moment Id'],
+     },
+     action: {
+       text: entry['Actie'],
+       context: entry['Moment Beschrijving'],
+     },
+     persona: {
+       name: entry['Persona Naam'],
+       descr: entry['Persona Id'],
+     },
+     session: {
+       date: entry['Sessie Datum'],
+     },
+     user: {
+       name: entry['Gebruiker Naam'],
+       age: entry['Gebruiker Leeftijd'],
+       // 'email': entry.gsx$.$t,
+     },
+     stakeholder: {
+       name: entry['Stakeholder Naam'],
+       email: entry['Stakeholder Email'],
+       division: entry['Stakeholder Afdeling'],
+       // 'email': entry.gsx$.$t,
+     },
+     owner: {
+        name: entry['Verantwoordelijke'],
+        status: entry['Timing'],
+        timing: entry['Status'],
+        // 'email': entry.gsx$.$t,
+      },
+   };
       this.action = action;
       // this.actions.push(action);
 

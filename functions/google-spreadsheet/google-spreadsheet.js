@@ -15,7 +15,14 @@ module.exports = {
     })
 
     await doc.loadInfo() // loads document properties and worksheets
-    sheet = doc.sheetsByIndex[sheetId]
+    // console.log(sheetId)
+    if(isNaN(sheetId)){
+      sheet = doc.sheetsByTitle[sheetId]
+    } else {
+      sheet = doc.sheetsByIndex[sheetId]
+    }
+    
+    
   },
   getRows: async () => {
     const rows = await sheet.getRows() // can pass in { limit, offset }
