@@ -111,9 +111,10 @@
             <span class="font-semibold">Context</span>
           </p>
         </div>
-
-        <div class="flex-shrink-0">
+{{ videoReady }}
+        <div class="flex-shrink-0" v-if="videoReady">
           <youtube
+            
             class="embed-container"
             :video-id="action.session.videoId"
             :player-vars="{ start: action.session.videoStartTime }"
@@ -271,6 +272,7 @@
 <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vTqMPRdrHj-Gdye1pjLYDBULmRs58bHy3U_4gO7_nL7DWgGrJ_m7ew0C2j48Uyy-8Jgpsok9StF1KBu/pubhtml -->
 <script>
 import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed';
+
 // import VueHtml2pdf from 'vue-html2pdf';
 export default {
   name: 'Card',
@@ -291,11 +293,14 @@ export default {
   data: function () {
     return {
       action: null,
+      videoReady: false
     };
   },
   watch: {
     activeCard: function (newVal) {
-      // watch it
+      // Clear Card
+      
+      // Set new data
       this.parseData(newVal);
     },
   },
@@ -307,8 +312,9 @@ export default {
     //   this.$refs.html2Pdf.generatePdf();
     // },
     parseData(entry) {
+      this.videoReady = false
       // Using vue-youtube-embed to get id and time (https://github.com/kaorun343/vue-youtube-embed)
-
+      
       const videoId = getIdFromURL(entry['Moment Video']);
       const videoStartTime = getTimeFromURL(entry['Moment Beschrijving']);
       // console.log(entry);
@@ -335,7 +341,10 @@ export default {
        descr: entry['Persona Beschrijving'],
      },
      session: {
+       videoId: videoId,
+       videoStartTime: videoStartTime,
        date: entry['Sessie Datum'],
+       
      },
      user: {
        name: entry['Gebruiker Naam'],
@@ -356,6 +365,8 @@ export default {
       },
    };
       this.action = action;
+      this.videoReady = true;
+      
       // this.actions.push(action);
 
       // });

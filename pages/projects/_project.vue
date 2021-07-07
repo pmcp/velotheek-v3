@@ -145,6 +145,7 @@ export default {
     }),
     setActiveCard(id) {
       console.log(id)
+      
       console.log(this.Observaties)
       this.activeCard = this.Observaties[id];
     },
