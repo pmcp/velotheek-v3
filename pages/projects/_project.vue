@@ -98,8 +98,7 @@
 import { mapActions, mapGetters } from 'vuex';
 // @ is an alias to /src
 import card from '@/components/projects/card.vue';
-import cardSmall from '@/components/projects/card-small.vue';
-import axios from 'axios';
+
 
 const gsheet_url =
   'https://spreadsheets.google.com/feeds/list/1hmVDMigpP_4vemHCFR4RKFdJVp30FCLqXa-_xLEzi1M/10/public/values?alt=json';
@@ -124,8 +123,7 @@ export default {
     };
   },
   components: {
-    card,
-    cardSmall,
+    card
   },
   computed: {
     Observaties(){

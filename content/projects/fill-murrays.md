@@ -1,5 +1,5 @@
 ---
-category: animals
+category: Lopend
 title: Fill Murrays
 description: Yet another placeholding project, but with Bills
 cover: https://www.fillmurray.com/g/400/200

@@ -139,7 +139,7 @@
               <span class="font-semibold">Halte in wandeling </span>
             </p>
             <ol class="overflow-hidden">
-              <pre>{{ phases }} </pre>
+              
               <li
                 class="relative pb-10"
                 v-for="(p, key) in phases"
@@ -175,9 +175,8 @@
                     <span class="ml-4 min-w-0 flex flex-col">
                       <span
                         class="text-xs font-semibold tracking-wide uppercase"
-                        >{{ p.title }}</span
-                      >
-                      <span class="text-sm text-gray-500">{{ p.descr }}</span>
+                        >{{ p.Naam }}</span>
+                      <span class="text-sm text-gray-500">{{ p.Beschrijving }}</span>
                     </span>
                   </div>
                 </template>
@@ -207,9 +206,9 @@
                     <span class="ml-4 min-w-0 flex flex-col">
                       <span
                         class="text-xs font-semibold tracking-wide uppercase"
-                        >{{ p.title }}</span
+                        >{{ p.Naam }}</span
                       >
-                      <span class="text-sm text-gray-500">{{ p.descr }}</span>
+                      <span class="text-sm text-gray-500">{{ p.Beschrijving }}</span>
                     </span>
                   </a>
                 </template>
@@ -333,7 +332,7 @@ export default {
      },
      persona: {
        name: entry['Persona Naam'],
-       descr: entry['Persona Id'],
+       descr: entry['Persona Beschrijving'],
      },
      session: {
        date: entry['Sessie Datum'],

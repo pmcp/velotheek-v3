@@ -1,5 +1,5 @@
 ---
-category: animals
+category: Afgelopen
 title: Adreswijziging
 description: Een adreswijzing kan op verschillende manieren, aan het loket, via
   telefoon of online. We onderzoeken de twee laatste opties in deze missie.

@@ -1,5 +1,5 @@
 ---
-category: animals
+category: Afgelopen
 title: Test Project
 description: Necessary to show how a project with the category test is used
 cover: https://placebear.com/400/200
