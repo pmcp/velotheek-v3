@@ -68,7 +68,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-content-placeholders.js'],
+  plugins: [
+    {src: '~/plugins/vue-content-placeholders.js', ssr: true},
+    {src: '~/plugins/vue-youtube-embed.js', ssr: false}
+  ],
+  
   /*
    ** Nuxt.js dev-modules
    */

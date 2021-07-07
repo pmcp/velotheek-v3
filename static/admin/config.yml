@@ -61,22 +61,5 @@ collections:
     slug: '{{slug}}'
     preview_path: 'projects/{{slug}}'
     fields:
-      - {
-          label: 'Project Category',
-          name: 'category',
-          widget: 'select',
-          default: 'animals',
-          options: [{ label: 'Animals', value: 'animals' }, { label: 'Food', value: 'food' }],
-        }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Description', name: 'description', widget: 'string', required: false }
-      - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
-      - { label: 'Content', name: 'body', widget: 'markdown', required: false }
-      - {
-          label: 'Gallery',
-          name: 'gallery',
-          widget: 'list',
-          required: false,
-          summary: '{{fields.image}}',
-          field: { label: 'Image', name: 'image', widget: 'image' },
-        }
+      - { label: 'Google Sheet', name: 'sheet', widget: 'string', required: true }
