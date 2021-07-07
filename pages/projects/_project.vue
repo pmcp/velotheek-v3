@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative overflow-hidden"
+    class="relative overflow-hidden w-full"
     style="background-color: rgb(240, 249, 253)"
   >
   
