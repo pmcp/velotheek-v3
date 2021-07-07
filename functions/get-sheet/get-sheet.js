@@ -14,6 +14,7 @@ if (!process.env.NETLIFY) {
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 	
 	exports.handler = async function(event, context) {
+		console.log('here')
 	  const data = JSON.parse(event.body)
 	  const spreadSheetId = data.sheetId
 	  const sheetId = 0

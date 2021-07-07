@@ -1,13 +1,17 @@
 {
-  "name": "ntn-boilerplate",
-  "version": "2.1.0",
-  "description": "Nuxt-Tailwind-NetlifyCMS boilerplate",
-  "author": "Sven Parker <sven@svenparker.com> (https://svenparker.com)",
+  "name": "Proceswandelingen",
+  "version": "1.0.0",
+  "description": "Proceswandelingen Stad Gent",
+  "author": "Maarten Lauwaert - PMCP",
+  "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "postinstall": "netlify-lambda install",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -17,10 +21,13 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "axios": "^0.21.1",
+    "cross-env": "^5.2.0",
+    "google-spreadsheet": "^3.1.15",
     "nuxt": "^2.15.7",
     "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/color-mode": "^2.0.10",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/svg": "^0.1.12",
@@ -29,6 +36,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "netlify-cli": "^3.39.1",
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^1.11.0",
     "nuxt-purgecss": "^1.0.0",
     "postcss": "^8.3.5",
     "postcss-easing-gradients": "^3.0.1",

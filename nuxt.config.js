@@ -1,9 +1,10 @@
-import postcssPresetEnv from 'postcss-preset-env'
-import postcssEasingGradients from 'postcss-easing-gradients'
-import * as SITE_INFO from './content/site/info.json'
-import { COLOR_MODE_FALLBACK } from './utils/globals.js'
+const postcssPresetEnv = require('postcss-preset-env')
+const postcssEasingGradients = require('postcss-easing-gradients')
+const SITE_INFO = require('./content/site/info.json')
+const COLOR_MODE_FALLBACK = require('./utils/globals.js')
 
-export default {
+
+module.exports = {
   target: 'static',
   components: true,
   generate: {
