@@ -111,7 +111,7 @@
             <span class="font-semibold">Context</span>
           </p>
         </div>
-{{ videoReady }}
+
         <div class="flex-shrink-0" v-if="videoReady">
           <youtube
             
@@ -146,7 +146,7 @@
                 v-for="(p, key) in phases"
                 :key="`phase-${key}`"
               >
-                <template v-if="key + 1 == action.phase.order">
+                <template v-if="key  == action.phase.order">
                   <div
                     v-if="key != Object.keys(phases).length - 1"
                     class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300"
