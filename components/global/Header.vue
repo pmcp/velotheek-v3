@@ -1,9 +1,9 @@
 <template>
-  <nav class=" fixed z-40 top-0 inset-x-0 pt-3 px-3" aria-label="Main Menu">
+  <nav class=" z-40 top-0 inset-x-0 mx-auto max-w-7xl" aria-label="Main Menu">
     <ul class="flex pt-5">
       
       <li class="flex-1 ml-2">
-        <nuxt-link class="btn block w-28 " to="/projects">Projecten</nuxt-link>
+        <nuxt-link class="btn block w-28 " to="/">Projecten</nuxt-link>
       </li>
     </ul>
   </nav>

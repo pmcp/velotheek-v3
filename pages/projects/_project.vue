@@ -1,18 +1,18 @@
 <template>
   <div
-    class="relative overflow-hidden w-full"
-    style="background-color: rgb(240, 249, 253)"
+    class="relative overflow-hidden w-full min-h-screen mx-auto"
+  
   >
   
-    <main class="mt-16 sm:mt-24">
+    <main class="mt-4 sm:mt4">
       <div class="mx-auto max-w-7xl">
         <div class="relative mb-8">
           <h2
-            class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+            class=" text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl"
           >
             {{ post.title }}
           </h2>
-          <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
+          <p class="mt-4 max-w-3xl  text-xl ">
             {{ post.description }}
             
             
@@ -24,14 +24,14 @@
 
         <div class="lg:grid lg:grid-cols-12 lg:gap-8">
           <div
-            class="px-4 sm:px-6 md:max-w-2xl md:mx-auto lg:col-span-4 lg:text-left lg:flex lg:items-start"
+            class=" md:max-w-2xl md:mx-auto lg:col-span-4 lg:text-left lg:flex lg:items-start"
           >
             <div v-if="Topics">
               <ul>
                 <li
                   v-for="(t, key) in Topics"
                   :key="`topic-${key}`"
-                  class="shadow p-5 m-5 rounded bg-white"
+                  class="shadow p-5 rounded bg-white"
                 >
                   <h3 class="text-lg mb-2 leading-6 font-medium text-gray-800">
                     {{ key }}
@@ -83,7 +83,7 @@
             
             <div
             
-              class="bg-white w-full sm:overflow-hidden shadow p-5 m-5 rounded bg-white"
+              class="bg-white w-full sm:overflow-hidden shadow p-5 rounded bg-white"
             >
               <card :active-card="activeCard" :phases="Fases"></card>
             </div>

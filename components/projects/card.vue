@@ -49,10 +49,10 @@
         </div> -->
 
         <div
-          class="flex-1 bg-white p-6 flex flex-col justify-between rounded text-white"
+          class="flex-1  p-6 flex flex-col justify-between rounded"
           style="background-color: #009de0"
         >
-          <div class="flex-1 flex flex-col justify-between font-light">
+          <div class="flex-1 flex flex-col justify-between font-light ">
             <div class="flex-1">
               <p class="text-xl">
                 <span class="font-semibold">Observatie: </span>
