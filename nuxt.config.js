@@ -70,8 +70,7 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    {src: '~/plugins/vue-content-placeholders.js', ssr: true},
-    {src: '~/plugins/vue-youtube-embed.js', ssr: false}
+    {src: '~/plugins/vue-content-placeholders.js', ssr: true}
   ],
   
   /*
@@ -86,7 +85,6 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    transpile: ['vue-youtube-embed'],
     extractCSS: true,
     postcss: {
       plugins: {

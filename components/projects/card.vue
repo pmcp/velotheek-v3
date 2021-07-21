@@ -113,12 +113,7 @@
         </div>
 
         <div class="flex-shrink-0" v-if="videoReady">
-          <youtube
-            
-            class="embed-container"
-            :video-id="action.session.videoId"
-            :player-vars="{ start: action.session.videoStartTime }"
-          ></youtube>
+
         </div>
 
         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -271,7 +266,7 @@
 <!-- https://docs.google.com/spreadsheets/d/1hmVDMigpP_4vemHCFR4RKFdJVp30FCLqXa-_xLEzi1M/edit?usp=sharing -->
 <!-- https://docs.google.com/spreadsheets/d/e/2PACX-1vTqMPRdrHj-Gdye1pjLYDBULmRs58bHy3U_4gO7_nL7DWgGrJ_m7ew0C2j48Uyy-8Jgpsok9StF1KBu/pubhtml -->
 <script>
-import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed';
+
 
 // import VueHtml2pdf from 'vue-html2pdf';
 export default {
@@ -313,7 +308,7 @@ export default {
     // },
     parseData(entry) {
       this.videoReady = false
-      // Using vue-youtube-embed to get id and time (https://github.com/kaorun343/vue-youtube-embed)
+      
       
       const videoId = getIdFromURL(entry['Moment Video']);
       const videoStartTime = getTimeFromURL(entry['Moment Beschrijving']);
