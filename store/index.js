@@ -92,11 +92,18 @@ export const actions = {
     commit('addToBookings', booking)
   },
   
-  createBookings({state, commit}) {
+  createBookings
+  ({state, commit}) {
     // Add all bookings to sheet
+    console.log(state.sessionBookings) 
+    if(state.sessionBookings.length === 0) {
+      console.log('there are no bookings')
+      return;
+    }
     
+
     const body = {
-      bookings: state.bookings,
+      bookings: state.sessionBookings,
       spreadSheetId: state.siteInfo.sheet,
       sheet: 'reservations'
     }
