@@ -45,13 +45,7 @@ module.exports = {
   },
   addRow: async data => {
     // Add the different mailing triggers, should not be hard coded
-    const triggers = {
-      inschrijving: 0,
-      betaling: 0,
-      herinnering: 0
-    }
-
-    data = { ...data, ...triggers }
+    data = { ...data}
     const addedRow = await sheet.addRow(data)
     return addedRow._rowNumber - 1 // return row number (minus the header row)
   },

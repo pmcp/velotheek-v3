@@ -24,7 +24,21 @@ if (!process.env.NETLIFY) {
 	  
 	  const sheet = await sheetAPI.getSheet(spreadSheetId, sheetId)
 	  console.log(sheet)
-	  const rows = await sheetAPI.getRows(sheet)
+	  
+	  console.log(data.bookings)
+	  
+	  var promises = bookings.map(function(obj){
+			return sheetAPI.addRow(obj).then(function(results){
+			   return results
+			})
+		  })
+ 	 Promise.all(promises).then(function(results) {
+		  console.log(results)
+	  })
+	  
+		  
+		  
+	  
 
 	  
 	  return {

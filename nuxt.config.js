@@ -8,7 +8,13 @@ module.exports = {
   target: 'static',
   components: true,
   generate: {
-    fallback: true
+    fallback: true,
+    async ready () {
+      const { $content } = require('@nuxt/content')
+      // const files = await $content().only(['slug']).fetch()
+      // console.log(files)
+    }
+  
   },
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
@@ -70,7 +76,8 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    {src: '~/plugins/vue-content-placeholders.js', ssr: true}
+    {src: '~/plugins/vue-content-placeholders.js', ssr: true},
+    { src: '~plugins/v-calendar.js', ssr: false }
   ],
   
   /*
