@@ -23,7 +23,8 @@
     "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "google-spreadsheet": "^3.1.15",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "v-calendar": "^2.3.1"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
