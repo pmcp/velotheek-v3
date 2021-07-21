@@ -1,8 +1,8 @@
 {
-  "name": "Proceswandelingen",
-  "version": "1.0.0",
-  "description": "Proceswandelingen Stad Gent",
-  "author": "Maarten Lauwaert - PMCP",
+  "name": "Velotheek",
+  "version": "3.0.0",
+  "description": "Velotheek",
+  "author": "Maarten Lauwaert AKA PMCP",
   "private": true,
   "scripts": {
     "postinstall": "netlify-lambda install",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/knogobert/ntn-boilerplate#readme"
+    "url": "https://github.com/pmcp/velotheek-v3.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,8 +23,7 @@
     "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "google-spreadsheet": "^3.1.15",
-    "nuxt": "^2.15.7",
-    "vue-youtube-embed": "^2.2.2"
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

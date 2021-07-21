@@ -1,6 +1,5 @@
 # TODO
-- [] Load youtube when click
-- [] Move logic to functions
+- [] Change site lang on change lang
 
 
 # 🏗️ Boilerplate for Nuxt, Tailwind & NetlifyCMS
