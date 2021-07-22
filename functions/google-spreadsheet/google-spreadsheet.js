@@ -43,20 +43,26 @@ module.exports = {
     const row = { ...rows[rowId], rowId: rowId }
     return rows[rowId]
   },
-  addRow: async data => {
-    // Add the different mailing triggers, should not be hard coded
-    data = { ...data}
+  addRow: async (sheet, data) => {
+    // data = { ...data}
+    console.log('Adding', data)
     const addedRow = await sheet.addRow(data)
-    return addedRow._rowNumber - 1 // return row number (minus the header row)
+    return addedRow 
+  },
+  addRows: async (sheet, data) => {
+    
+    console.log('Adding', data)
+    const addedRow = await sheet.addRows(data)
+    return addedRow 
   },
   updateRow: async data => {
-    console.log('gonna update row')
+    // console.log('gonna update row')
     const rows = await sheet.getRows()
-    console.log('All Rows', rows)
+    // console.log('All Rows', rows)
     const { rowId, ...objectForUpdate } = data
-    console.log('Row Id', rowId)
+    // console.log('Row Id', rowId)
     const selectedRow = rows[rowId]
-    console.log('SelectedRow', selectedRow)
+    // console.log('SelectedRow', selectedRow)
     Object.entries(data).forEach(([k, v]) => {
       selectedRow[k] = v
     })

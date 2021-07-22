@@ -16,36 +16,24 @@ const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 exports.handler = async function(event, context) {
 
 	const data = JSON.parse(event.body)
-console.log(data)
-// 	const spreadSheetId = data.spreadSheetId
-// 	const sheetId = data.sheet
-// 
-// 	console.log(sheetId)
-// 
-// 	const sheet = await sheetAPI.getSheet(spreadSheetId, sheetId)
-// 	console.log(sheet)
-// 
-// 	console.log(data.bookings)
-// 
-// 	var promises = bookings.map(function(obj) {
-// 		return sheetAPI.addRow(obj).then(function(results) {
-// 			return results
-// 		})
-// 	})
-// 	Promise.all(promises).then(function(results) {
-// 		console.log(results)
-// 	})
 
+	const spreadSheetId = data.spreadSheetId
+	
+	const sheetId = data.sheet
+	const bookings = data.bookings
+	
 
+	const sheet = await sheetAPI.getSheet(spreadSheetId, sheetId)
+	// console.log('sheet', sheet)
 
-	// const addedRow = await sheetAPI.addRow(booking)
-
-
+	
+	const addedRows = await sheetAPI.addRows(sheet, bookings)
+	
 	return {
-		statusCode: 200,
-		// body: JSON.stringify(rows)
-		body: 'good'
-	}
+		  statusCode: 200,
+		  body: JSON.stringify(addedRows)		
+	  }
+
 }
 
 /*

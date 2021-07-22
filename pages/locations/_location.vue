@@ -16,12 +16,12 @@
       <calendar/>
       <session-bookings/>
       <moments /> 
-      <button @click="addBooking">
+      <button @click="addBookingToSelection">
         Voeg toe
       </button>
       
       
-      <button @click="createBookings">
+      <button @click="createBooking">
         Maak boeking
       </button>
     </section>
@@ -40,7 +40,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['setLocation', 'setActiveDate', 'addBooking', 'createBookings']),
+    ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'createBooking']),
 },
   mounted(){
     
