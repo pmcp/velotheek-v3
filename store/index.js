@@ -37,8 +37,8 @@ export const mutations = {
   setLocations(state, locations) {
     state.locations = [...locations]
   },
-  setSheet(state, {id, content}) {
-    state[id] = content
+  setBookings(state, bookings) {
+    state.bookings = [...bookings]
   },
   setActiveLocation(state, location) {
     state.activeLocation = location
@@ -93,8 +93,9 @@ export const actions = {
           sheet
        })
       })
-      const content = await resultSheet.json()
-      commit('setSheet' , {id: sheet, content: content});
+      const bookings = await resultSheet.json()
+
+      commit('setBookings' , bookings);
       return;
     } catch (err) {
       console.log(err)
@@ -125,8 +126,9 @@ export const actions = {
     const moment = state.activeMoment
     const date = state.activeDate
     const booking = {
-      date: date,
-      moment: moment
+      date: state.activeDate,
+      moment: state.activeMoment,
+      location: state.activeLocation
     }
     commit('addToBookingsSelection', booking)
   },
@@ -190,19 +192,41 @@ export const getters = {
         return {...acc, [session.moment]: [...sessions, session.date]}
       }, {})
       
+      const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocation)
+      
+      console.log(bookingsForActiveLocation)
+      
+      const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc,session) => {
+        
+        const sessions = acc[session.moment] || [];
+        return {...acc, [session.moment]: [...sessions, session.date]}
+      }, {})
+      
       
       const attributes = [
         {
           highlight: {
-            class: 'datePicked-before',
+            class: 'datePicked-before-session',
           },
           dates: sessionBookingsByTimeslot[0],
         },
         {
           highlight: {
-            class: 'datePicked-after',
+            class: 'datePicked-after-session',
           },
           dates: sessionBookingsByTimeslot[1]
+        },
+        {
+          highlight: {
+            class: 'datePicked-before',
+          },
+          dates: bookingsByTimeslot[0],
+        },
+        {
+          highlight: {
+            class: 'datePicked-after',
+          },
+          dates: bookingsByTimeslot[1]
         },
         {
           highlight: {

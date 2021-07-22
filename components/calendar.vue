@@ -2,7 +2,6 @@
   <div>
   <no-ssr>
 	  <v-date-picker
-  		mode="range"
 		:value="activeDate"
 		@input="setActiveDate($event)"
 		:disabled-dates="disabledDates"
