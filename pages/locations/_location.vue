@@ -21,11 +21,14 @@
         <session-bookings/>
         <moments /> 
       
-        <button @click="addBookingToSelection">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="addBookingToSelection"
+        :class="{'opacity-50': !canAddBookingToSession}" :disabled="!canAddBookingToSession">
           Voeg toe
         </button>
       
-        <button @click="createBooking">
+        <!-- TODO: Create button component -->
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        :class="{'opacity-50': !canSendBookingToDatabase}" :disabled="!canSendBookingToDatabase" @click="createBooking">
           Maak boeking
         </button>
       </div>
@@ -52,6 +55,14 @@ export default {
     return {
       location,
     };
+  },
+  computed: {
+    canAddBookingToSession(){
+      return this.$store.getters.canAddBookingToSession
+    },
+    canSendBookingToDatabase(){
+      return this.$store.getters.canSendBookingToDatabase
+    },
   },
   methods: {
     ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'createBooking']),
@@ -80,7 +91,7 @@ export default {
    
     
     // Set date to today, so we can show calendar on today
-    this.setActiveDate(new Date())
+    // this.setActiveDate(new Date())
     
     // Get the location based on the id we are using in the database (google sheet)
     this.setLocation(this.location.idInSheet)

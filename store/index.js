@@ -312,4 +312,14 @@ export const getters = {
 
     return attributes;
   },
+
+  
+  canAddBookingToSession: state => {
+      
+    return ((state.activeLocation !== null) && (state.activeDate !== null) && (state.activeMoment !== null))
+  },
+  
+  canSendBookingToDatabase: state => {
+    return ((state.activeLocation !== null) && (state.activeDate !== null) && (state.activeMoment !== null) && state.sessionBookings.length > 0)
+  }
 }
