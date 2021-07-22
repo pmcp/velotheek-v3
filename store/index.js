@@ -42,6 +42,9 @@ export const mutations = {
   setLang(state, lang) {
     state.lang = lang
   },
+  setSessionBookings(state, val) {
+    state.sessionBookings = [...val]
+  },
   removeFromBookingsSelection(state, key) {
     const filteredBookings = state.sessionBookings.filter(function(value, index, arr) {
       return index != key;
@@ -50,7 +53,7 @@ export const mutations = {
   },
 }
 
-export const actions = {
+export const actions = {  
 
 
   async nuxtServerInit({ commit }, { $content }) {
@@ -107,12 +110,23 @@ export const actions = {
   addBookingToSelection({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
+    // find location in active location and add details for mail
+    
+    const filteredLocation = state.locations.filter(l => l.idInSheet === state.activeLocation)
+    
+    // TODO: Add address and all coming from netlify cms db
+    
     const booking = {
       date: state.activeDate,
       moment: state.activeMoment,
       location: state.activeLocation
     }
     commit('addToBookingsSelection', booking)
+    
+    // After adding to selection, reset date and moment
+    commit('setActiveDate', null)
+    commit('setActiveMoment', null)
+    
   },
 
   removeFromBookingsSelection({ state, commit }, { key, booking }) {
@@ -120,7 +134,7 @@ export const actions = {
     commit('removeFromBookingsSelection', key)
   },
 
-  createBooking({ state, commit }) {
+  createBooking({ state, commit, dispatch }) {
     // Add all bookings to sheet
 
     if (state.sessionBookings.length === 0) {
@@ -133,16 +147,21 @@ export const actions = {
       spreadSheetId: state.siteInfo.sheet,
       sheet: 'reservations'
     }
+    
+    // Send to netlify function
     fetch('/.netlify/functions/save-to-sheet', {
       method: 'POST',
       body: JSON.stringify(body)
     }).then(res => {
       console.log('RES', res)
       // TODO: check if succeeded, only then add to bookings
-      // 1. Add sessionBookings to bookings
+      
+      // 1. Reload the bookings from the db
+        dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
 
-
-      // 2. Empty sessionBookings
+      // 2. Empty the bookings saved to the session
+      commit('setSessionBookings', [])
+      
     })
   },
 
@@ -320,6 +339,6 @@ export const getters = {
   },
   
   canSendBookingToDatabase: state => {
-    return ((state.activeLocation !== null) && (state.activeDate !== null) && (state.activeMoment !== null) && state.sessionBookings.length > 0)
+    return (state.sessionBookings.length > 0)
   }
 }
