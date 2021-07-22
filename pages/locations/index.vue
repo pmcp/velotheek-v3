@@ -1,9 +1,20 @@
 <template>
   <main>
-    ?
-    
       <h1 class="title">Locations</h1>
-      <posts post-type="locations" :amount="10" />
+      
     
   </main>
 </template>
+
+<script>
+export default {
+   async asyncData({ $content }) {
+    const locations = await $content("locations").fetch();
+
+    return {
+      locations,
+    };
+  },
+};
+</script>
+

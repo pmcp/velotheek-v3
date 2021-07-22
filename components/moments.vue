@@ -3,27 +3,20 @@
 		<div
 		<div class="bg-white shadow overflow-hidden sm:rounded-md">
 		  <ul class="divide-y divide-gray-200">
-			  {{ activeMoment }}
+			  
 			<li v-for="(l, key) in moments" :key="`${key}-sessionBookings`">
 				
-			  <div class="block hover:bg-gray-50">
-				<div class="flex items-center px-4 py-4 sm:px-6">
-				  <div class="min-w-0 flex-1 flex items-center">
-					
-					<div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-					  <div>
-						<p class="text-sm font-medium text-indigo-600 truncate">Moment: {{ l.name }}</p>
-					
-					  </div>	  
-					</div>
-				  </div>
-				  <div>
-					<!-- Heroicon name: solid/chevron-right -->
-					<button @click="selectMoment(key)">Select</button>
-				  </div>
+			  <button  v-if="key == 2" class="w-full hover:bg-gray-50 " @click="selectMoment(key)" :disabled="(!moments[0].available || !moments[1].available)" :class="{'opacity-50': (!moments[0].available || !moments[1].available)}">
+				<div class="flex items-center px-4 py-4 sm:px-6 border-4 border-white" :class="{ 'border-indigo-600': activeMoment === key}">
+				  <p class="w-full text-center text-sm font-medium text-indigo-600 truncate">{{ l.name[lang] }}</p>
 				</div>
-			  </div>
-			</li>
+			  </button>
+			  <button  v-else class="w-full hover:bg-gray-50 " @click="selectMoment(key)" :disabled="!l.available" :class="{'opacity-50': !l.available}">
+				  <div class="flex items-center px-4 py-4 sm:px-6 border-4 border-white" :class="{ 'border-indigo-600': activeMoment === key}">
+					<p class="w-full text-center text-sm font-medium text-indigo-600 truncate">{{ l.name[lang] }}</p>
+				  </div>
+				</button>
+			</li>	
 		  </ul>
 		</div>	
 	</div>
@@ -36,7 +29,10 @@ import { mapActions } from 'vuex';
 	export default {
 		computed: {
 			moments(){
-			  return this.$store.state.moments
+			  return this.$store.getters.moments
+			},
+			lang(){
+				  return this.$store.state.lang
 			},
 			activeMoment (){
 				  return this.$store.state.activeMoment

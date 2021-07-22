@@ -23,12 +23,13 @@
     "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "google-spreadsheet": "^3.1.15",
+    "mapbox-gl": "^2.3.1",
     "nuxt": "^2.15.7",
     "v-calendar": "^2.3.1"
   },
   "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/color-mode": "^2.0.10",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^4.2.0",

@@ -8,6 +8,7 @@
 		:attributes="calAttributes"
 		:min-date="new Date()"
 		show-caps
+	    is-expanded 
 	  />
 	</no-ssr>
   </div>
@@ -21,7 +22,7 @@ computed: {
 	},
 	disabledDates(){
 		// TODO: might also need to be computed
-		return this.$store.state.disabledDates
+		return this.$store.getters.disabledDates
 	},
 	calAttributes(){
 	  return this.$store.getters.calAttributes

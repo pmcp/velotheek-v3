@@ -5,11 +5,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 export const state = () => ({
-  moments: [
-    { name: { nl: 'Voormiddag', fr: 'AVANT'}, available: true },
-    { name: { nl: 'Namiddag', fr: 'APRES'}, available: true },
-    { name: { nl: 'Hele dag',  fr: 'TOUTE'}, available: true }
-  ],
+  lang: 'nl',
   bookings: [],
   sessionBookings: [],
   siteInfo: {},
@@ -18,16 +14,7 @@ export const state = () => ({
   activeDate: null,
   activeMoment: null,
   selectedDates: [],
-  activeDate: null,
-  disabledDates: [
-    {
-      start: null,
-      end: new Date(),
-    },
-    {
-      weekdays: [1, 7],
-    },
-  ]
+  activeDate: null
 })
 
 export const mutations = {
@@ -52,34 +39,27 @@ export const mutations = {
   addToBookingsSelection(state, booking) {
     state.sessionBookings = [...state.sessionBookings, booking]
   },
+  setLang(state, lang) {
+    state.lang = lang
+  },
   removeFromBookingsSelection(state, key) {
-    const filteredBookings = state.sessionBookings.filter(function(value, index, arr){ 
+    const filteredBookings = state.sessionBookings.filter(function(value, index, arr) {
       return index != key;
-  });
+    });
     state.sessionBookings = [...filteredBookings]
   },
-  
-  // addToCalendarAttributes(state, {posInAttributeArray, date}){
-  //   state.calSettings.attributes[posInAttributeArray].dates = [...state.calSettings.attributes[posInAttributeArray].dates, date]
-  // },
-  // removeFromCalendarAttributes(state, {posInAttributeArray, date}){
-  //   console.log(posInAttributeArray, date)
-  //   const dates = state.calSettings.attributes[posInAttributeArray].dates
-  //   const key = dates.indexOf(date)
-  //   const filteredDates = dates.filter(function(value, index, arr){ 
-  //     return key != index;
-  // });
-  //   state.calSettings.attributes[posInAttributeArray].dates = [...filteredDates]
-  // }
 }
 
 export const actions = {
-  
+
 
   async nuxtServerInit({ commit }, { $content }) {
     // Get the info from the netlify cms
     const siteInfo = await $content('site/info').fetch()
     await commit('setSiteInfo', siteInfo)
+
+    const locations = await $content('locations').fetch()
+    await commit('setLocations', locations)
   },
 
 
@@ -91,38 +71,40 @@ export const actions = {
         body: JSON.stringify({
           spreadSheetId: spreadSheetId,
           sheet
-       })
+        })
       })
       const bookings = await resultSheet.json()
 
-      commit('setBookings' , bookings);
+      commit('setBookings', bookings);
       return;
     } catch (err) {
       console.log(err)
       throw 'Unable to fetch sheet'
-      
+
     }
   },
-  
-  setActiveDate({state, commit}, date) {
-    
-    
+
+  setActiveDate({ state, commit }, date) {
+
+    // reset activeMoment
+    commit('setActiveMoment', null)
+
     commit('setActiveDate', date)
-    
+
     // Filter on date in bookings
-    
-    
+
+
     // When bookings: set moment available = false
-    
-    
+
+
   },
-  
-  
-  selectMoment({state, commit}, moment) {
+
+
+  selectMoment({ state, commit }, moment) {
     commit('setActiveMoment', moment)
   },
-  
-  addBookingToSelection({state, commit}) {
+
+  addBookingToSelection({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
     const booking = {
@@ -132,21 +114,20 @@ export const actions = {
     }
     commit('addToBookingsSelection', booking)
   },
-  
-  removeFromBookingsSelection({state, commit}, {key, booking}) {
+
+  removeFromBookingsSelection({ state, commit }, { key, booking }) {
     console.log(booking.moment)
-    commit('removeFromBookingsSelection', key)    
+    commit('removeFromBookingsSelection', key)
   },
-  
-  createBooking
-  ({state, commit}) {
+
+  createBooking({ state, commit }) {
     // Add all bookings to sheet
-    
-    if(state.sessionBookings.length === 0) {
-      console.log('there are no bookings')  
+
+    if (state.sessionBookings.length === 0) {
+      console.log('there are no bookings')
       return;
     }
-  
+
     const body = {
       bookings: state.sessionBookings,
       spreadSheetId: state.siteInfo.sheet,
@@ -159,102 +140,176 @@ export const actions = {
       console.log('RES', res)
       // TODO: check if succeeded, only then add to bookings
       // 1. Add sessionBookings to bookings
-      
-      
-      // 2. Empty sessionBookings
-      
 
+
+      // 2. Empty sessionBookings
     })
-    
-    
-    
-    
   },
-  
+
   setLocation({ state, commit, dispatch }, idInSheet) {
     // Set active id
 
     commit('setActiveLocation', idInSheet)
-    
+
     // get all bookings for this location
     // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
-    dispatch('getSheet', {spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
+    dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
+  },
+
+
+  toggleLang({ state, commit, dispatch }) {
+
+
+    if (state.lang === 'nl') return commit('setLang', 'fr')
+    if (state.lang === 'fr') return commit('setLang', 'nl')
+
+    // get all bookings for this location
+    // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
+    dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
   }
 }
 
 export const getters = {
+  moments: state => {
+    const moments = [
+      { name: { nl: 'Voormiddag', fr: 'Matin' }, available: true },
+      { name: { nl: 'Namiddag', fr: 'Après midi' }, available: true },
+      { name: { nl: 'Hele dag', fr: 'Toute la journée' }, available: true }
+    ]
+
+    if (state.activeDate === null) return moments;
+
+    const datesAreOnSameDay = (first, second) => {
+      return first.getFullYear() === second.getFullYear() &&
+        first.getMonth() === second.getMonth() &&
+        first.getDate() === second.getDate();
+    }
+    
+    // Filter out only bookings of this day
+    const filteredBookings = state.bookings.filter(function(value, index, arr) {
+      return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
+    });
+
+
+    // If no bookings on this day, just return as is
+    if (filteredBookings.length < 1) return moments;
+
+    // If there are bookings that day, loop through bookings, and make moments unavailable
+    for (let i = 0; i < filteredBookings.length; i++) {
+      const booking = filteredBookings[i]
+      moments[booking.moment].available = false;
+      
+    }
+
+    return moments;
+
+  },
+
+  disabledDates: state => {
+    // Filter out only bookings with a full day booked (moment === 2)
+    const filteredBookings = state.bookings.filter(function(value, index, arr) {
+      return value.moment === "2"
+    });
+    
+    // Create an array with only the dates
+    const onlyDates = filteredBookings.map(b => b.date)
+    
+    // Add dates to disabled dates
+    return [{
+        start: null,
+        end: new Date()
+      },
+      {
+        weekdays: [1, 7],
+      },
+      ...onlyDates
+    ]
+
+  },
+
+
 
   calAttributes: state => {
-      
-      const sessionBookingsByTimeslot = state.sessionBookings.reduce((acc,session) => {
-        
-        const sessions = acc[session.moment] || [];
-        return {...acc, [session.moment]: [...sessions, session.date]}
-      }, {})
-      
-      const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocation)
-      
-      console.log(bookingsForActiveLocation)
-      
-      const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc,session) => {
-        
-        const sessions = acc[session.moment] || [];
-        return {...acc, [session.moment]: [...sessions, session.date]}
-      }, {})
-      
-      
-      const attributes = [
-        {
-          highlight: {
-            class: 'datePicked-before-session',
-          },
-          dates: sessionBookingsByTimeslot[0],
-        },
-        {
-          highlight: {
-            class: 'datePicked-after-session',
-          },
-          dates: sessionBookingsByTimeslot[1]
-        },
-        {
-          highlight: {
-            class: 'datePicked-before',
-          },
-          dates: bookingsByTimeslot[0],
-        },
-        {
-          highlight: {
-            class: 'datePicked-after',
-          },
-          dates: bookingsByTimeslot[1]
-        },
-        {
-          highlight: {
-            class: 'velo-today',
-          },
-          dates: new Date()
-        },
-        {
-          highlight: {
-            class: 'velo-normalDay',
-          },
-          dates: [
-            {
-              start: new Date(),
-              end: null,
-              weekdays: [2, 3, 4, 5, 6],
-            },
-          ]
-        },
-        {
-          highlight: {
-            class: 'velo-selected',
-          },
-          dates: []
-        },
-      ]
-      
 
-      return attributes;
-    },
+    const sessionBookingsByTimeslot = state.sessionBookings.reduce((acc, session) => {
+
+      const sessions = acc[session.moment] || [];
+      return { ...acc, [session.moment]: [...sessions, session.date] }
+    }, {})
+
+    const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocation)
+
+    console.log(bookingsForActiveLocation)
+
+    const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc, session) => {
+
+      const sessions = acc[session.moment] || [];
+      return { ...acc, [session.moment]: [...sessions, session.date] }
+    }, {})
+
+
+    const attributes = [
+      {
+        highlight: {
+          class: 'datePicked-before',
+        },
+        dates: bookingsByTimeslot[0],
+      },
+      {
+        highlight: {
+          class: 'datePicked-after',
+        },
+        dates: bookingsByTimeslot[1]
+      },
+      {
+        highlight: {
+          class: 'datePicked-full',
+        },
+        dates: bookingsByTimeslot[2],
+      },
+      {
+        highlight: {
+          class: 'datePicked-before-session',
+        },
+        dates: sessionBookingsByTimeslot[0],
+      },
+      {
+        highlight: {
+          class: 'datePicked-after-session',
+        },
+        dates: sessionBookingsByTimeslot[1]
+      },
+      {
+        highlight: {
+          class: 'datePicked-full-session',
+        },
+        dates: sessionBookingsByTimeslot[2],
+      },
+      {
+        highlight: {
+          class: 'velo-today',
+        },
+        dates: new Date()
+      },
+      {
+        highlight: {
+          class: 'velo-normalDay',
+        },
+        dates: [{
+          start: new Date(),
+          end: null,
+          weekdays: [2, 3, 4, 5, 6],
+        }, ]
+      },
+      {
+        highlight: {
+          class: 'velo-selected',
+        },
+        dates: []
+      },
+    ]
+
+
+    return attributes;
+  },
 }
