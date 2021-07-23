@@ -60,11 +60,11 @@ export const actions = {
     // Get the info from the netlify cms
     const siteInfo = await $content('site/info').fetch()
     await commit('setSiteInfo', siteInfo)
-
+    
     const locations = await $content('locations').fetch()
+    console.log(locations)
     await commit('setLocations', locations)
   },
-
 
 
   async getSheet({ state, dispatch, commit }, { spreadSheetId, sheet }) {

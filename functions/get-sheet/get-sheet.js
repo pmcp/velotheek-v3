@@ -8,32 +8,20 @@ if (!process.env.NETLIFY) {
 	  throw new Error('no GOOGLE_SERVICE_ACCOUNT_EMAIL env var set')
 	if (!process.env.GOOGLE_PRIVATE_KEY)
 	  throw new Error('no GOOGLE_PRIVATE_KEY env var set')
-	
-	// const mailgun = require('../mailgun/mailgun')
-	// const email = require('../email/email')
+
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 	
 	exports.handler = async function(event, context) {
-	
 	  const data = JSON.parse(event.body)
 	  
 	  const spreadSheetId = data.spreadSheetId
 	  const sheetId = data.sheet
 	 
-	  console.log(sheetId)
-	  
 	  const sheet = await sheetAPI.getSheet(spreadSheetId, sheetId)
-	  console.log(sheet)
 	  const rows = await sheetAPI.getRows(sheet)
 
-	  
 	  return {
 		statusCode: 200,
 		body: JSON.stringify(rows)
 	  }
 	}
-	
-	/*
-	 * utils
-	 */
-	
