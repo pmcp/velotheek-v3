@@ -24,9 +24,9 @@ nl:
     outline of us represents it so much. Shed envy is full of one face, one cut
     of every pure. Nothing society is what it godlike as my poor men have."
   location: '{"type":"Point","coordinates":[23.6444365,48.3888392]}'
-  title: test singlefile
+  title: Peter Pan
   description: the description
-  idInSheet: testSinglefile
+  idInSheet: peterpan
 fr:
   zip: 1060
   body: >-
@@ -53,7 +53,7 @@ fr:
     pure. Nothing society is what it godlike as my poor men have. Of may contain
     to it, — though I was misunderstood, and Copernicus, and.
   location: '{"type":"Point","coordinates":[23.6444365,48.3888392]}'
-  title: and test in french
+  title: Peter Pan
   description: description in french
-  idInSheet: testSinglefile
+  idInSheet: peterpan
 ---
