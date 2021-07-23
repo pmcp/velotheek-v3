@@ -61,6 +61,7 @@ export const actions = {
     const siteInfo = await $content('site/info').fetch()
     await commit('setSiteInfo', siteInfo)
     
+    // TODO: Split up different languages
     const locations = await $content('locations').fetch()
     console.log(locations)
     await commit('setLocations', locations)
