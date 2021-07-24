@@ -3,15 +3,15 @@
 	  <ul class="divide-y divide-gray-200">
 		<li v-for="(l, key) in locations" :key="`${key}-locations`">
 			<nuxt-link
-			:to="`/locations/${l.slug}`"
-		  >
-		  
+			:to="l.path"
+		  > 
+		  {{ l }}
 			<div class="flex items-center px-4 py-4 sm:px-6">
 			  <div class="min-w-0 flex-1 flex items-center">
 				
 				<div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
 				  <div>
-					<p class="text-sm font-medium text-indigo-600 truncate">{{ l.title }}</p>
+					<p class="text-sm font-medium text-indigo-600 truncate">{{ l.slug }}</p>
 
 				  </div>	  
 				</div>
@@ -35,8 +35,11 @@
 	export default {
 		computed: {
 			locations(){
-			  return this.$store.state.locations
+			  return this.$store.state.locations[this.lang]
 			},
+			lang(){
+				  return this.$store.state.lang
+				},
 		}
 	}
 </script>

@@ -114,7 +114,8 @@ module.exports = {
    */
   // ? The content property: https://content.nuxtjs.org/configuration
   content: {
-    dir: 'content'
+    dir: 'content',
+    
   },
   tailwindcss: {
     viewer: false, // disabled because it causes `Error: Cannot find module 'tailwindcss/resolveConfig'`, fixed in https://github.com/nuxt-community/tailwindcss-module/pull/303

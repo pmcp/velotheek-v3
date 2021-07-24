@@ -1,6 +1,6 @@
 <template>
   <main>
-    Hier
+    <locations />
     
 
   </main>

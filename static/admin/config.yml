@@ -2,7 +2,7 @@ site_url: https://velotheek.be/
 logo_url: https://ntn-boilerplate.netlify.app/icon.png
 
 i18n:
-  structure: single_file
+  structure: multiple_files
   locales: [nl, fr]
 
 backend:
@@ -48,7 +48,8 @@ collections:
     folder: 'content/locations'
     create: true
     format: 'frontmatter'
-    slug: '{{slug}}'
+    slug: '{{idInSheet}}'
+    locale: '{{locale}}'
     # editor:
     #   preview: true
     fields:
