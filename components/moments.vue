@@ -23,9 +23,7 @@
 					<div v-if="key == 2" class="w-full hover:bg-gray-50 flex  px-4 py-4 sm:px-6" :class="{'opacity-50': (!moments[0].available || !moments[1].available)}">
 						<div class="flex-1 flex">
 							<div class="flex flex-col">
-								<p class="mt-1 text-sm text-gray-500 italic">
-									{{ date.name}}
-								  </p>
+					
 						<p class="text-sm font-medium text-indigo-600 ">{{ l.name[lang] }}</p>
 						<p class="mt-1 text-sm text-gray-500 italic">
 							{{ l.descr[lang] }}
@@ -85,10 +83,7 @@ import { mapActions } from 'vuex';
 			},
 			activeDate (){
 				  return this.$store.state.activeDate
-			},
-			date (){
-				  return this.$store.getters.date
-			},
+			}
 		},
 		methods: {
 			 ...mapActions(['selectMoment'])

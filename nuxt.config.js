@@ -77,7 +77,8 @@ module.exports = {
    */
   plugins: [
     {src: '~/plugins/vue-content-placeholders.js', ssr: true},
-    { src: '~plugins/v-calendar.js', ssr: false }
+    { src: '~plugins/v-calendar.js', ssr: false },
+    { src: '~plugins/filters.js', ssr: false }
   ],
   
   /*

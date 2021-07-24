@@ -1,43 +1,31 @@
 <template>
-<main>
-  <section v-if="location" class="w-full max-w-5xl mx-auto">
-    <locations />
-    
-    <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-      <div>
-        <div class="text-lg max-w-prose mx-auto">
+  <main class="grid grid-cols-2 gap-4">
+      <section>
         <h1>
-          <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">{{ location.title }}</span>
+          <span class="block text-xxl font-semibold ">{{ location.title }}</span>
         </h1>
-      </div>
-        <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-        <nuxt-content :document="location" />
-      </div>
-      </div>
-      <div>
-      <calendar/>
-      <div class="flex flex-col">
-        <moments class="my-5"/> 
-        <session-bookings/>
-      </div>
       
-    
-      <!-- TODO: Create button component -->
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      :class="{'opacity-50': !canSendBookingToDatabase}" :disabled="!canSendBookingToDatabase" @click="createBooking
-      ">
-        Maak boeking
-      </button>
-    </div>
-    </div>
-  </section>
-</main>
+        <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+          <nuxt-content :document="location" />
+        </div>
+      </section>
+      <section>
+        <calendar/>
+        <moments class="my-5"/> 
+      </section>    
+  </main>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 
 export default {
+head: {
+link: [{
+  rel: 'stylesheet',
+  href: 'https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css',
+}, ],
+},
 async asyncData({ $content, params, error }) {
   const location = await $content(`locations/${params.location}`).fetch()
   return {
@@ -45,19 +33,17 @@ async asyncData({ $content, params, error }) {
   };
 },
 computed: {
-  canAddBookingToSession(){
-    return this.$store.getters.canAddBookingToSession
-  },
-  canSendBookingToDatabase(){
-    return this.$store.getters.canSendBookingToDatabase
-  },
+locations() {
+  return this.$store.getters.locations
+},
+activeLocationId(){
+return this.$store.state.activeLocationId
+}
 },
 methods: {
-  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'createBooking']),
+  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection']),
 },
 mounted(){
-
-  
   this.setLocation(this.location.idInSheet)
   }
 };

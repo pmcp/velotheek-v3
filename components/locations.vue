@@ -1,4 +1,5 @@
 <template>
+
 	<div class="bg-white shadow overflow-hidden sm:rounded-md">
 	  <ul class="divide-y divide-gray-200">
 		<li v-for="(l, key) in locations" :key="`${key}-locations`">
@@ -25,7 +26,7 @@
 		  </nuxt-link>
 		</li>
 	  </ul>
-	  <map :locations="locations" :activeLocationId="activeLocationId" />
+	  
 	</div>
 
 </template>

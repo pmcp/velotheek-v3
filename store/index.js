@@ -1,8 +1,5 @@
 // TODO: show bookings in calendar
 // I'm using https://date-fns.org/ for date manipulations
-import { format } from 'date-fns';
-import { nl, fr } from 'date-fns/locale'
-
 
 import Vue from 'vue'
 import axios from 'axios'
@@ -109,6 +106,7 @@ export const actions = {
     commit('setActiveMoment', null)
     commit('setActiveDate', date)
   },
+
   
   selectMoment({ state, commit, dispatch }, moment) {
     console.log('selecting moment', moment)
@@ -356,20 +354,7 @@ export const getters = {
     return (state.sessionBookings.length > 0)
   },
   
-  date: state => {
-    console.log(state.lang)
-    console.log(state.activeDate)
-    if(state.activeDate == null) return '';
-    let locale = nl
-    if(state.lang ==='nl') {
-      locale = nl
-    } else {
-      locale = fr
-    }
-    console.log(locale)
-    return {
-      name: format(new Date(state.activeDate), 'EEEE', {locale: locale} ),
-      long: format(new Date(state.activeDate), 'P', {locale: locale} )
-    }
+  localisedLocations: state => {
+    return state.locations[state.lang]
   }
 }
