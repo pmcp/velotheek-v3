@@ -1,4 +1,7 @@
 // TODO: show bookings in calendar
+// I'm using https://date-fns.org/ for date manipulations
+import { format } from 'date-fns';
+import { nl, fr } from 'date-fns/locale'
 
 
 import Vue from 'vue'
@@ -10,7 +13,7 @@ export const state = () => ({
   sessionBookings: [],
   siteInfo: {},
   locations: [],
-  activeLocation: null,
+  activeLocationId: null,
   activeDate: null,
   activeMoment: null,
   selectedDates: [],
@@ -22,13 +25,13 @@ export const mutations = {
     state.siteInfo = siteInfo
   },
   setLocations(state, locations) {
-    state.locations = [...locations]
+    state.locations = locations
   },
   setBookings(state, bookings) {
     state.bookings = [...bookings]
   },
-  setActiveLocation(state, location) {
-    state.activeLocation = location
+  setActiveLocationId(state, location) {
+    state.activeLocationId = location
   },
   setActiveDate(state, date) {
     state.activeDate = date
@@ -62,12 +65,23 @@ export const actions = {
     await commit('setSiteInfo', siteInfo)
     
     
-    const allLocations = await $content('locations').fetch()
+    const allLocations = await $content('locations').fetch()  
+      // TODO: This solution (altho not scalable), might be too easy 
+      // Can make it scalable and more cool looking with a reducer
+      // But don't really have the time. Almost holiday!
+      // ¯\_(ツ)_/¯ 
+      // Will probably drive for three weeks through Croatia
+      // ᕕ( ᐛ )ᕗ
+      
+    const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
+    const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
     
-
-    console.log(allLocations)
-
-    await commit('setLocations', allLocations)
+    const locByLang = {
+      fr: [...locationsFR],
+      nl: [...locationsNL]
+    }
+    
+    await commit('setLocations', locByLang)
   },
 
 
@@ -92,44 +106,37 @@ export const actions = {
   },
 
   setActiveDate({ state, commit }, date) {
-
-    // reset activeMoment
     commit('setActiveMoment', null)
-
     commit('setActiveDate', date)
-
-    // Filter on date in bookings
-
-
-    // When bookings: set moment available = false
-
-
   },
-
-
-  selectMoment({ state, commit }, moment) {
+  
+  selectMoment({ state, commit, dispatch }, moment) {
+    console.log('selecting moment', moment)
     commit('setActiveMoment', moment)
+    dispatch('addBookingToSelection')
   },
 
   addBookingToSelection({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
     // find location in active location and add details for mail
+    const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
     
-    const filteredLocation = state.locations.filter(l => l.idInSheet === state.activeLocation)
+    console.log(state.activeLocationId)
     
     // TODO: Add address and all coming from netlify cms db
-    
     const booking = {
-      date: state.activeDate,
-      moment: state.activeMoment,
-      location: state.activeLocation
+      date: date,
+      moment: moment,
+      location: state.activeLocationId
     }
+    
     commit('addToBookingsSelection', booking)
     
     // After adding to selection, reset date and moment
-    commit('setActiveDate', null)
+    // commit('setActiveDate', null)
     commit('setActiveMoment', null)
+    
     
   },
 
@@ -171,8 +178,7 @@ export const actions = {
 
   setLocation({ state, commit, dispatch }, idInSheet) {
     // Set active id
-
-    commit('setActiveLocation', idInSheet)
+    commit('setActiveLocationId', idInSheet)
 
     // get all bookings for this location
     // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
@@ -193,15 +199,25 @@ export const actions = {
 }
 
 export const getters = {
-  moments: state => {
+  combinedBookings: state => {
+    // Sometimes we want to see the created bookings + the bookings the user is creating
+    return [...state.bookings, ...state.sessionBookings];
+  },
+  
+  bookingsForActiveLocation: state => {
+    if(state.activeLocationId === null) return null;
+    return state.combinedBookings.filter(l => l.location === state.activeLocationId)
+  },
+  
+  moments: (state, getters) => {
     const moments = [
-      { name: { nl: 'Voormiddag', fr: 'Matin' }, available: true },
-      { name: { nl: 'Namiddag', fr: 'Après midi' }, available: true },
-      { name: { nl: 'Hele dag', fr: 'Toute la journée' }, available: true }
+      { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: {nl: 'Van 8u tot 12u', fr: 'de 8h a 12h'}, available: true },
+      { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
+      { name: { nl: 'Hele dag', fr: 'Toute la journée' }, descr: {nl: 'Van 9u tot 18u', fr: 'de 9h a 18h'}, available: true }
     ]
-
+    
     if (state.activeDate === null) return moments;
-
+    
     const datesAreOnSameDay = (first, second) => {
       return first.getFullYear() === second.getFullYear() &&
         first.getMonth() === second.getMonth() &&
@@ -209,11 +225,11 @@ export const getters = {
     }
     
     // Filter out only bookings of this day
-    const filteredBookings = state.bookings.filter(function(value, index, arr) {
+    const filteredBookings = getters.combinedBookings.filter(function(value, index, arr) {
       return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
     });
 
-
+    console.log({filteredBookings})
     // If no bookings on this day, just return as is
     if (filteredBookings.length < 1) return moments;
 
@@ -227,10 +243,10 @@ export const getters = {
     return moments;
 
   },
-
-  disabledDates: state => {
+  
+  disabledDates: (state, getters) => {    
     // Filter out only bookings with a full day booked (moment === 2)
-    const filteredBookings = state.bookings.filter(function(value, index, arr) {
+    const filteredBookings = getters.combinedBookings.filter(function(value, index, arr) {
       return value.moment === "2"
     });
     
@@ -260,9 +276,7 @@ export const getters = {
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})
 
-    const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocation)
-
-    console.log(bookingsForActiveLocation)
+    const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocationId)
 
     const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc, session) => {
 
@@ -331,18 +345,31 @@ export const getters = {
         dates: []
       },
     ]
-
-
     return attributes;
   },
 
-  
   canAddBookingToSession: state => {
-      
-    return ((state.activeLocation !== null) && (state.activeDate !== null) && (state.activeMoment !== null))
+    return ((state.activeLocationId !== null) && (state.activeDate !== null) && (state.activeMoment !== null))
   },
   
   canSendBookingToDatabase: state => {
     return (state.sessionBookings.length > 0)
+  },
+  
+  date: state => {
+    console.log(state.lang)
+    console.log(state.activeDate)
+    if(state.activeDate == null) return '';
+    let locale = nl
+    if(state.lang ==='nl') {
+      locale = nl
+    } else {
+      locale = fr
+    }
+    console.log(locale)
+    return {
+      name: format(new Date(state.activeDate), 'EEEE', {locale: locale} ),
+      long: format(new Date(state.activeDate), 'P', {locale: locale} )
+    }
   }
 }

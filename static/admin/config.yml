@@ -49,7 +49,6 @@ collections:
     create: true
     format: 'frontmatter'
     slug: '{{idInSheet}}'
-    locale: '{{locale}}'
     # editor:
     #   preview: true
     fields:
