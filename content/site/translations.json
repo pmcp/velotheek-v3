@@ -1,8 +1,12 @@
 {
-  "translations": [
-    {
-      "fr": "Sélectionnez d'abord un jour",
-      "nl": "Selecteer eerst een dag"
-    }
-  ]
+  "nl": {
+    "translations": [
+      "adfadfafd"
+    ]
+  },
+  "fr": {
+    "translations": [
+      "asdf"
+    ]
+  }
 }
