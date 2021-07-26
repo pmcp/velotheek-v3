@@ -3,6 +3,9 @@
   <nav class=" z-40 top-0 inset-x-0 mx-auto max-w-7xl" aria-label="Main Menu">
     <ul class="flex pt-5">
     <li>
+      <user-login />
+    </li>
+    <li>
       <button  v-if="lang === 'nl'" class="btn block " @click="toggleLang">
         FR
       </button>

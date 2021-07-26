@@ -76,9 +76,10 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    {src: '~/plugins/vue-content-placeholders.js', ssr: true},
-    { src: '~plugins/v-calendar.js', ssr: false },
-    { src: '~plugins/filters.js', ssr: false }
+    {src: '~plugins/vue-content-placeholders.js', mode: 'server'},
+    {src: '~plugins/filters.js', mode: 'server'},
+    {src: '~plugins/v-calendar.js', mode: 'client'},
+    {src: '~/plugins/netlify-identity-widget.js', mode: 'client' },
   ],
   
   /*

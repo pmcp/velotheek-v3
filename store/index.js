@@ -82,14 +82,11 @@ export const actions = {
   },
 
 
-  async getSheet({ state, dispatch, commit }, { spreadSheetId, sheet }) {
+  async getSheet({ state, dispatch, commit }, { sheet }) {
     try {
       const resultSheet = await fetch('/.netlify/functions/get-sheet', {
         method: 'POST',
-        body: JSON.stringify({
-          spreadSheetId: spreadSheetId,
-          sheet
-        })
+        body: JSON.stringify(sheet)
       })
       const bookings = await resultSheet.json()
 
@@ -153,7 +150,6 @@ export const actions = {
 
     const body = {
       bookings: state.sessionBookings,
-      spreadSheetId: state.siteInfo.sheet,
       sheet: 'reservations'
     }
     
@@ -166,7 +162,7 @@ export const actions = {
       // TODO: check if succeeded, only then add to bookings
       
       // 1. Reload the bookings from the db
-        dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
+        dispatch('getSheet', { sheet: 'reservations' })
 
       // 2. Empty the bookings saved to the session
       commit('setSessionBookings', [])
@@ -180,7 +176,7 @@ export const actions = {
 
     // get all bookings for this location
     // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
-    dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
+    dispatch('getSheet', { sheet: 'reservations' })
   },
 
 
@@ -192,7 +188,7 @@ export const actions = {
 
     // get all bookings for this location
     // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
-    dispatch('getSheet', { spreadSheetId: state.siteInfo.sheet, sheet: 'reservations' })
+    dispatch('getSheet', { sheet: 'reservations' })
   }
 }
 

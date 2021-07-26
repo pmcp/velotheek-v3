@@ -3,9 +3,9 @@ const { GoogleSpreadsheet } = require('google-spreadsheet')
 
 
 module.exports = {
-  getSheet: async (speadSheetId, sheetId) => {
+  getSheet: async (sheetId) => {
     // Get doc based on id
-    const doc = new GoogleSpreadsheet(speadSheetId)
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET)
 
     // Auth using service account (GOOGLE_SERVICE_ACCOUNT_EMAIL should be added to "share" in google sheets )
     // https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
