@@ -14,7 +14,7 @@ if (!process.env.GOOGLE_SHEET)
 
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 
-exports.handler = function(event, context, callback) {
+exports.handler = async function(event, context, callback) {
   const data = JSON.parse(event.body);
   const { user } = data;
 
@@ -26,32 +26,46 @@ exports.handler = function(event, context, callback) {
 	
 	// filter out this user
 	console.log(rows)
-	const filteredUsers = rows.filter(r => r.email === user.user_metadata.email)
+	const filteredUsers = rows.filter(r => r.email === user.email)
 	
+	let role = ''
 	// If user exists, add roles
+	if(filteredUsers.length == 1) {
+		role = filteredUsers[0].role
+		
+			
+		  const responseBody = {
+			app_metadata: {
+			  // TODO: maybe not hardcoded?
+			  roles: role,
+			},
+			user_metadata: {
+			  ...user.user_metadata, // append current user metadata
+			}
+		  };
+		  callback(null, {
+			statusCode: 200,
+			body: JSON.stringify(responseBody)
+		  });
+	} else {
+			
+	// TODO: for now I'm just returning a 403 error code, as Netlify doesn't have a flow in place for error messages
+	// https://github.com/netlify/netlify-identity-widget/issues/173
+		  callback(null, {
+			statusCode: 403,
+			body: 'not in list'
+		  });
+	}
+	
 	// If user doesn't exist, add this user to the spreadsheet with role "visitor"
 	console.log(filteredUsers)
 	
+	
+	
+	
+	
 
-	
-	
-	
 
 
-	const role = await 
-	
-	  const responseBody = {
-		app_metadata: {
-		  // TODO: maybe not hardcoded?
-		  roles: role,
-		},
-		user_metadata: {
-		  ...user.user_metadata, // append current user metadata
-		}
-	  };
-	  callback(null, {
-		statusCode: 200,
-		body: JSON.stringify(responseBody)
-	  });
 	};
 	
