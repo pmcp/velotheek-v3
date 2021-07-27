@@ -1,5 +1,7 @@
 <template>
-	<div class=" h-full w-full rounded "  id="map"></div>
+	<client-only>
+	<div class=" h-full w-full rounded "  id="map"></div>	
+	</client-only>
 </template>
 
 <script>
