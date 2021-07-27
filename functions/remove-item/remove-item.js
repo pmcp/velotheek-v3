@@ -20,6 +20,6 @@ if (!process.env.NETLIFY) {
 
 	  return {
 		statusCode: 200,
-		body: JSON.stringify(rows)
+		body: JSON.stringify(`removed item with id ${data.id}`)
 	  }
 	}

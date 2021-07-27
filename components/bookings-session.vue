@@ -25,7 +25,7 @@
 				  <div class="hover:bg-gray-50">
 					<div class="flex items-center items-stretch">
 						
-					 <div class="p-8 bg-gray-100  flex items-center "><booking-date :date="new Date(b.date)"/></div>
+					 <div class="p-8 bg- bg-blue-100 w-40 flex items-center "><booking-date :date="new Date(b.date)"/></div>
 					  <div class="flex-1 flex px-4 py-4 sm:px-6">
 						  <div>
 							

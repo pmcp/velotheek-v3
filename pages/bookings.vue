@@ -1,21 +1,29 @@
 <template>
-  <main class="flex flex-col">
+  <main class="flex flex-col mt-5">
     
+    
+    
+      <h1 class="text-xl py-5"><translation :id="7"/></h1>
     <bookings-all :bookings="userBookings"/>
+        
+
+  </main>
+    
     
     
     
 
-  </main>
+  
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-
+// TODO: Importing vue here for the filter, don't know if this is good practice
+import Vue from 'vue'
 export default {
   computed: {
     userBookings(){
-      return this.$store.getters.userBookings
+      return Vue.filter('orderBy')(this.$store.getters.userBookings, 'date');
     }
   },
 methods: {
