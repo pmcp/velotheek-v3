@@ -8,9 +8,6 @@
 			  <location-map />
 		  </div>
 		  </template>
-		  <template v-slot:closed>
-			  CLOSED MAP
-			 </template>
 	  </card>
 	  
 		  
@@ -24,7 +21,7 @@
 					
 				  <li v-for="(l, key) in locations" :key="`${key}-locations`" class=" p-1">
 					  <nuxt-link :to="l.path"> 
-					  <div class="rounded px-3 py-2 h-full w-full border-2 " :class="{ 'border-blue-500': (l.idInSheet === activeLocationId) }">
+					  	<div class="rounded px-3 py-2 h-full w-full border-2 " :class="{ 'border-blue-500': (l.idInSheet === activeLocationId) }">
 						  <h3 class="">{{ l.title }}</h3>
 						  <location-address :location="l.idInSheet"/>
 						  </div>

@@ -42,7 +42,7 @@ async asyncData({ $content, params, error }) {
 },
 computed: {
 locations() {
-  return this.$store.getters.locations
+  return this.$store.getters.localisedLocations
 },
 activeLocationId(){
 return this.$store.state.activeLocationId
