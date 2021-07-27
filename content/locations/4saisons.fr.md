@@ -1,7 +1,7 @@
 ---
 title: 4 Saisons
 idInSheet: 4saisons
-location: '{"type":"Point","coordinates":[4.1503628,50.843586]}'
+location: '{"type":"Point","coordinates":[4.3557185,50.8404802]}'
 info: Le jour de la réservation vous devrez sonner au secrétariat de l’école
   Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner votre
   identité et le fait que vous venez pour la Vélotheek. La porte vous sera
