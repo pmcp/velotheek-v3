@@ -12,8 +12,15 @@
 			  CLOSED MAP
 			 </template>
 	  </card>
+	  <div class="absolute top-5 right-10  ml-5">
+		  <div class="pl-4 h-14 rounded-full bg-white grid grid-cols-2 gap-4 text-center p-1">
+		  <user />
+	  	<language-toggle />
+		  </div>
+	  </div>
+		  
 <div class="absolute top-0 left-0 w-1/4 h-full ml-5">
-	  <div class="flex items-center h-full">
+	  <div class="mt-5">
 <card position="bottom" class="w-full " open open-text="Close" close-text="Open" open-class="" close-class="">
 	  <template v-slot:opened >
 		  <div class="">
@@ -36,6 +43,8 @@
 				  
 				  
 			  </div>
+			  
+			  
 	  </template>
 	  <template v-slot:closed>
 	  </template>

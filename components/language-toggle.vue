@@ -1,12 +1,10 @@
 <template>
-<div>
-<button  v-if="lang === 'nl'" class="btn block " @click="toggle">
-FR
-</button>
-<button  v-else class="btn block " @click="toggle">
-NL
-</button>
-</div>
+
+	<button class="w-14 h-14 py-2 px-1  h-full rounded-full hover:border-blue-500 w-full border-2" @click="toggle">
+		<span v-if="lang === 'fr'" >NL</span>
+		<span v-if="lang === 'nl'" >FR</span>
+	</button>
+
 </template>
 
 

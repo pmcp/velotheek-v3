@@ -93,7 +93,6 @@ export const actions = {
         body: JSON.stringify({ sheet: sheet})
       })
       const bookings = await resultSheet.json()
-
       commit('setBookings', bookings);
       return;
     } catch (err) {
@@ -385,7 +384,15 @@ export const getters = {
     return (state.sessionBookings.length > 0)
   },
   
+  
   localisedLocations: state => {
     return state.locations[state.lang]
-  }
+  },
+  
+  userBookings: (state, rootState) => {
+    if(state.bookings) {
+      return state.bookings.filter(b => b.email === rootState.auth.user.email )
+    }
+    
+  },
 }

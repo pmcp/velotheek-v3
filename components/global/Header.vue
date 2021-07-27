@@ -16,7 +16,7 @@
         <nuxt-link class="btn block" :to="`/locations/4saisons.${lang}`">4 Saisons</nuxt-link>
       </li>
     <li class="ml-4">
-      <user-login />
+      <user />
     </li>
     </ul>
   </nav>
