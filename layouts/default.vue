@@ -8,7 +8,7 @@
       <div class="max-w-6xl mx-auto flex items-center relative -top-40">
         <card position="bottom" class="w-full" open open-text="Close" close-text="Open" open-class="" close-class="">
           <template v-slot:opened >
-            <session-bookings/>
+            <bookings-session/>
           </template>    
           </card>
       </div>

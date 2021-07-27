@@ -7,8 +7,10 @@
         <card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class=""  >
           <template v-slot:opened >
             <!-- TODO: Remove border of v-calendar -->
+            <div class="bg-blue-50">
             <booking-calendar/>
             <booking-moments/> 
+            </div>
           </template>
             <template v-slot:closed>
             CLOSED MAP
@@ -47,12 +49,13 @@ return this.$store.state.activeLocationId
 }
 },
 methods: {
-  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations' ]),
+  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations','getBookings' ]),
 },
 mounted(){
   if (process.client) {
     this.getLocations()
-    this.getTranslations()  
+    this.getTranslations() 
+    this.getBookings()   
   }
   
   this.setLocation(this.location.idInSheet)

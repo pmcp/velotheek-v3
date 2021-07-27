@@ -101,6 +101,23 @@ export const actions = {
 
     }
   },
+  
+  async removeBooking({ state, dispatch, commit }, { id }) {
+    try {
+      const resultSheet = await fetch('/.netlify/functions/remove-item', {
+        method: 'POST',
+        body: JSON.stringify({ sheet: 'reservations', id: id})
+      })
+      
+      await dispatch('getSheet', { sheet: 'reservations' })
+      
+      return;
+    } catch (err) {
+      console.log(err)
+      throw 'Unable to remove item'
+
+    }
+  },
 
 
   async getTranslations({ state, commit }) {
@@ -148,7 +165,7 @@ async getLocations({ state, commit }) {
     dispatch('addBookingToSelection')
   },
 
-  addBookingToSelection({ state, commit, rootState }) {
+  addBookingToSelection({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
     // find location in active location and add details for mail
@@ -161,8 +178,8 @@ async getLocations({ state, commit }) {
       moment: moment,
       location: state.activeLocationId,
       language: state.lang,
-      email: rootState.auth.user.email,
-      name: rootState.auth.user.username
+      email: state.auth.user.email,
+      name: state.auth.user.username
     }
     
     commit('addToBookingsSelection', booking)
@@ -218,11 +235,20 @@ async getLocations({ state, commit }) {
     dispatch('getSheet', { sheet: 'reservations' })
   },
 
+  getBookings({state, dispatch}){
+    dispatch('getSheet', { sheet: 'reservations' })
+  },
 
   async toggleLang({ state, commit, dispatch }) {
     let lang = 'fr'
     if(state.lang === 'fr') { lang = 'nl' }
     return commit('setLang', lang)
+  },
+  
+  removeFromBookingDb({dispatch}, id) {
+    dispatch('removeBooking', { id: id })
+    
+    
   }
 }
 
@@ -388,11 +414,12 @@ export const getters = {
   localisedLocations: state => {
     return state.locations[state.lang]
   },
-  
+
   userBookings: (state, rootState) => {
-    if(state.bookings) {
-      return state.bookings.filter(b => b.email === rootState.auth.user.email )
+    if(state.auth.user) {
+      if(state.bookings) {
+        return state.bookings.filter(b => b.email === state.auth.user.email )
+      }
     }
-    
   },
 }

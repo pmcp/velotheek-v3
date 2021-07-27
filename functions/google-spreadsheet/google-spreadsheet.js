@@ -62,7 +62,7 @@ module.exports = {
     await selectedRow.save()
     return
   },
-  deleteRow: async rowId => {
+  deleteRow: async (sheet, rowId) => {
     const rows = await sheet.getRows()
     await rows[rowId].delete()
     return `removed row with id ${rowId}`

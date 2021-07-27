@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col">
     
-    <bookings-all />
+    <bookings-all :bookings="userBookings"/>
     
     
     
@@ -15,16 +15,17 @@ import { mapActions } from 'vuex';
 export default {
   computed: {
     userBookings(){
-      
+      return this.$store.getters.userBookings
     }
   },
 methods: {
-  ...mapActions(['getLocations', 'getTranslations' ]),
+  ...mapActions(['getLocations', 'getTranslations', 'getBookings' ]),
 },  
 mounted(){
   if (process.client) {
     this.getLocations()
     this.getTranslations()  
+    this.getBookings()  
   }
   
   
