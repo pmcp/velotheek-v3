@@ -1,8 +1,8 @@
 <template>
+	<div class="flex items-center">
 		<client-only>
-			
 				<template v-if="user">
-					<button class="" @click.prevent="onLogout">
+					<button class="underline hover:text-blue-500" @click.prevent="onLogout">
 						Log out
 					</button>
 				</template>
@@ -16,6 +16,8 @@
 				</template>
 			
 		</client-only>
+		
+	</div>
 </template>
 
 <script>
@@ -24,12 +26,15 @@
 	  computed: {
 		...mapGetters({
 		  user: 'auth/user'
-		})
+		}),
+		bookingsRoute(){
+			return this.$router.path != '/bookings'
+		}
 	  },
 	  methods: {
 		onLogout() {
 		  this.logout()
-		  if (this.$route.path !== '/') {
+		  if (this.$router.path !== '/') {
 			this.$router.push('/')
 		  }
 		},

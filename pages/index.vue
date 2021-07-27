@@ -1,16 +1,13 @@
 <template>
-  <main class="flex flex-col">
+  <main class="grid grid-rows-2 gap-8">
     
-    <locations />
-    
-    <card position="bottom" open padding open-text="Close" close-text="Open" open-class="" close-class="" >
-      <template v-slot:opened>
+    <locations  class="my-5"/>
+    <div>
+      <h1 class="text-lg">
+        Velotheek
+        </h1>
         <content-wrapper :content="content" />
-      </template>
-      <template v-slot:closed>
-        
-      </template>
-    </card>
+        </div>
     
 
   </main>

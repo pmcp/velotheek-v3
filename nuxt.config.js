@@ -83,7 +83,7 @@ module.exports = {
     {src: '~plugins/vue-content-placeholders.js', mode: 'server'},
     {src: '~plugins/filters.js', mode: 'client'},
     {src: '~plugins/v-calendar.js', mode: 'client'},
-    {src: '~/plugins/netlify-identity-widget.js', mode: 'client' },
+    {src: '~/plugins/netlify-identity-widget.js', mode: 'client' }
   ],
   
   /*
