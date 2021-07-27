@@ -6,7 +6,7 @@
 </template>
 <script>
   
-  
+  import { mapActions } from 'vuex';
   export default {
   head: {
   link: [{
@@ -25,9 +25,6 @@
   locations() {
     return this.$store.getters.locations
   },
-  activeLocationId(){
-  return this.$store.state.activeLocationId
-  }
   },
   methods: {
     ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations','getBookings' ]),
