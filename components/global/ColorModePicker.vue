@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-0 left-0 m-3">
+  <div class="fixed top-0 right-0 m-4">
     <component :is="`icon-${color}`" @click="changeColorMode" @keypress.enter="changeColorMode" title="Toggle background color" tabindex="0" />
   </div>
 </template>
@@ -17,11 +17,7 @@ export default {
     IconLight,
     IconDark
   },
-  data() {
-    return {
-      color: COLOR_MODE_FALLBACK
-    }
-  },
+  
   watch: {
     '$colorMode.value': {
       immediate: true,
@@ -48,7 +44,6 @@ export default {
           return (this.$colorMode.preference = 'light')
         case 'system':
           return (this.$colorMode.preference = this.$colorMode.value === 'dark' ? 'light' : 'dark')
-
         default:
           return (this.$colorMode.preference = COLOR_MODE_FALLBACK)
       }
@@ -58,7 +53,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.icon {
+/* .icon {
   width: 44px;
   height: 44px;
   background-color: var(--bg-secondary);
@@ -68,7 +63,7 @@ export default {
   &:hover {
     transform: translateY(-1px);
     border-color: var(--border-color-secondary);
-    @apply text-white;
+    
   }
   &.selected {
     color: var(--color-primary);
@@ -85,6 +80,6 @@ export default {
       @apply text-primary-900 bg-primary-200;
     }
   }
-}
+} */
 
 </style>

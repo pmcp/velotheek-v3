@@ -1,14 +1,32 @@
 {
-  "nl": {
-    "translations": [
-      "1",
-      "2"
-    ]
-  },
-  "fr": {
-    "translations": [
-      "1",
-      "2"
-    ]
-  }
+  "translations": [
+    {
+      "fr": "Sélectionnez d'abord un jour",
+      "nl": "Selecteer eerst een dag"
+    },
+    {
+      "fr": "Choisissez le moment où vous souhaitez réserver des vélos",
+      "nl": "Kies het moment waarop je fietsen wil reserveren"
+    },
+    {
+      "fr": "Horaire",
+      "nl": "Momenten"
+    },
+    {
+      "fr": "Aucune réservation n'a été enregistrée.",
+      "nl": "Je hebt nog geen boekingen"
+    },
+    {
+      "fr": "Ajouter une réservation en choisissant une date et une heure.",
+      "nl": "Voeg een boeking toe door een datum en een moment te kiezen."
+    },
+    {
+      "fr": "Réservations",
+      "nl": "Boekingen"
+    },
+    {
+      "fr": "Réserver",
+      "nl": "Reserveer"
+    }
+  ]
 }

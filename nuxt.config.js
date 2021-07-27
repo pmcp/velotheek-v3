@@ -10,6 +10,10 @@ module.exports = {
   generate: {
     fallback: true,
     async ready () {
+      // TODO: Generate pages correctly
+      // (pages are not generated)
+      // And inject translations
+      // https://www.netlifycms.org/docs/nuxt/#generating-pages-with-the-generate-property
       const { $content } = require('@nuxt/content')
       // const files = await $content().only(['slug']).fetch()
       // console.log(files)
@@ -77,7 +81,7 @@ module.exports = {
    */
   plugins: [
     {src: '~plugins/vue-content-placeholders.js', mode: 'server'},
-    {src: '~plugins/filters.js', mode: 'server'},
+    {src: '~plugins/filters.js', mode: 'client'},
     {src: '~plugins/v-calendar.js', mode: 'client'},
     {src: '~/plugins/netlify-identity-widget.js', mode: 'client' },
   ],
@@ -119,11 +123,11 @@ module.exports = {
     dir: 'content',
     
   },
-  tailwindcss: {
-    viewer: false, // disabled because it causes `Error: Cannot find module 'tailwindcss/resolveConfig'`, fixed in https://github.com/nuxt-community/tailwindcss-module/pull/303
-    cssPath: '~/assets/css/main.pcss',
-    exposeConfig: false // enables `import { theme } from '~tailwind.config'`
-  },
+  // tailwindcss: {
+  //   viewer: false, // disabled because it causes `Error: Cannot find module 'tailwindcss/resolveConfig'`, fixed in https://github.com/nuxt-community/tailwindcss-module/pull/303
+  //   cssPath: '~/assets/css/main.pcss',
+  //   exposeConfig: true // enables `import { theme } from '~tailwind.config'`
+  // },
   purgeCSS: {
     mode: 'postcss',
     // ? Safelisting docs: https://purgecss.com/safelisting.html

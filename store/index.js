@@ -1,11 +1,9 @@
-// TODO: show bookings in calendar
-// I'm using https://date-fns.org/ for date manipulations
-
 import Vue from 'vue'
 import axios from 'axios'
 
 export const state = () => ({
   lang: 'nl',
+  translations: null,
   bookings: [],
   sessionBookings: [],
   siteInfo: {},
@@ -20,6 +18,9 @@ export const state = () => ({
 export const mutations = {
   setSiteInfo(state, siteInfo) {
     state.siteInfo = siteInfo
+  },
+  setTranslations(state, translations) {
+    state.translations = [...translations]
   },
   setLocations(state, locations) {
     state.locations = locations
@@ -56,20 +57,21 @@ export const mutations = {
 export const actions = {  
 
 
-  async nuxtServerInit({ commit }, { $content }) {
-    // Get the info from the netlify cms
+  async nuxtServerInit({ commit, dispatch }, { $content }) {
+    // Get info from netlify cms
     const siteInfo = await $content('site/info').fetch()
-    await commit('setSiteInfo', siteInfo)
+    commit('setSiteInfo', siteInfo)
     
+    await dispatch('getTranslations')
+    // await dispatch('getLocations')
+    const allLocations = await this.$content('locations').fetch() 
+    // TODO: This solution (altho not scalable), might be too easy 
+    // Can make it scalable and more cool looking with a reducer
+    // But don't really have the time. Almost holiday!
+    // ¯\_(ツ)_/¯ 
+    // Will probably drive for three weeks through Croatia
+    // ᕕ( ᐛ )ᕗ
     
-    const allLocations = await $content('locations').fetch()  
-      // TODO: This solution (altho not scalable), might be too easy 
-      // Can make it scalable and more cool looking with a reducer
-      // But don't really have the time. Almost holiday!
-      // ¯\_(ツ)_/¯ 
-      // Will probably drive for three weeks through Croatia
-      // ᕕ( ᐛ )ᕗ
-      
     const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
     const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
     
@@ -78,15 +80,17 @@ export const actions = {
       nl: [...locationsNL]
     }
     
-    await commit('setLocations', locByLang)
+    return commit('setLocations', locByLang)
+    
   },
+
 
 
   async getSheet({ state, dispatch, commit }, { sheet }) {
     try {
       const resultSheet = await fetch('/.netlify/functions/get-sheet', {
         method: 'POST',
-        body: JSON.stringify(sheet)
+        body: JSON.stringify({ sheet: sheet})
       })
       const bookings = await resultSheet.json()
 
@@ -99,10 +103,44 @@ export const actions = {
     }
   },
 
+
+  async getTranslations({ state, commit }) {
+    try {
+      const translations = await this.$content('site/translations').fetch()
+      commit('setTranslations', translations.translations)
+      return;
+    } catch (err) {
+      console.log('GOT AN ERROR GETTING TRANSLATIONS', err)
+      throw 'Unable to fetch translations'
+    }
+  },
+
+async getLocations({ state, commit }) {
+  const allLocations = await this.$content('locations').fetch() 
+  // TODO: This solution (altho not scalable), might be too easy 
+  // Can make it scalable and more cool looking with a reducer
+  // But don't really have the time. Almost holiday!
+  // ¯\_(ツ)_/¯ 
+  // Will probably drive for three weeks through Croatia
+  // ᕕ( ᐛ )ᕗ
+  console.log('allLocations', allLocations)
+  const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
+  const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
+  
+  const locByLang = {
+    fr: [...locationsFR],
+    nl: [...locationsNL]
+  }
+  console.log('gonna set locaations', locByLang)
+  return commit('setLocations', locByLang)
+},
+
+
   setActiveDate({ state, commit }, date) {
     commit('setActiveMoment', null)
     commit('setActiveDate', date)
   },
+
 
   
   selectMoment({ state, commit, dispatch }, moment) {
@@ -111,19 +149,21 @@ export const actions = {
     dispatch('addBookingToSelection')
   },
 
-  addBookingToSelection({ state, commit }) {
+  addBookingToSelection({ state, commit, rootState }) {
     const moment = state.activeMoment
     const date = state.activeDate
     // find location in active location and add details for mail
+    console.log('LOCATIONA', state.locations)
     const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
     
-    console.log(state.activeLocationId)
     
-    // TODO: Add address and all coming from netlify cms db
     const booking = {
       date: date,
       moment: moment,
-      location: state.activeLocationId
+      location: state.activeLocationId,
+      language: state.lang,
+      email: rootState.auth.user.email,
+      name: rootState.auth.user.username
     }
     
     commit('addToBookingsSelection', booking)
@@ -180,15 +220,10 @@ export const actions = {
   },
 
 
-  toggleLang({ state, commit, dispatch }) {
-
-
-    if (state.lang === 'nl') return commit('setLang', 'fr')
-    if (state.lang === 'fr') return commit('setLang', 'nl')
-
-    // get all bookings for this location
-    // TODO: Might have to move this to mounted, somewhere. Maybe the layout.
-    dispatch('getSheet', { sheet: 'reservations' })
+  async toggleLang({ state, commit, dispatch }) {
+    let lang = 'fr'
+    if(state.lang === 'fr') { lang = 'nl' }
+    return commit('setLang', lang)
   }
 }
 

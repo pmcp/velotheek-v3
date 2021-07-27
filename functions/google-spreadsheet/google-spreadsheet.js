@@ -5,6 +5,7 @@ const { GoogleSpreadsheet } = require('google-spreadsheet')
 module.exports = {
   getSheet: async (sheetId) => {
     // Get doc based on id
+    
     const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET)
 
     // Auth using service account (GOOGLE_SERVICE_ACCOUNT_EMAIL should be added to "share" in google sheets )
@@ -17,7 +18,6 @@ module.exports = {
     await doc.loadInfo() // loads document properties and worksheets
 
     let sheet;
-    
     if(isNaN(sheetId)){
       sheet = await doc.sheetsByTitle[sheetId]
     } else {

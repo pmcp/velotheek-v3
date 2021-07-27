@@ -14,7 +14,7 @@ if (!process.env.NETLIFY) {
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 	
 	exports.handler = async function(event, context) {
-	  const data = JSON.parse(event.body) 
+	  const data = JSON.parse(event.body)
 	  const sheet = await sheetAPI.getSheet(data.sheet)
 	  const rows = await sheetAPI.getRows(sheet)
 

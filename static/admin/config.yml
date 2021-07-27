@@ -27,7 +27,6 @@ collections:
         editor:
           preview: false
         fields:
-          - { label: 'Google Sheet Id', name: 'sheet', widget: 'string', required: true }
           - { label: Site Name, name: sitename, widget: string, hint: 'This is used for the site title' }
           - {
               label: Site Description,
@@ -41,7 +40,20 @@ collections:
               widget: string,
               pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
             }
-          # - { label: Site Email, name: siteemail, widget: string, required: false }
+      - label: 'Translations'
+        name: 'translations'
+        file: 'content/site/translations.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - label: "Translations"
+            name: "translations"
+            widget: "list"
+            summary: '{{fields.fr}} - {{fields.nl}}'
+            fields:
+              - {label: FR, name: fr, widget: string}
+              - {label: NL, name: nl, widget: string}
   - name: 'locations'
     i18n: true
     label: 'Locations'
@@ -60,4 +72,16 @@ collections:
       - {label: "Street + number", name: "street", widget: "string", required: true, i18n: true}
       - {label: "Zip", name: "zip", widget: "number", required: true, i18n: true}
       - {label: "City", name: "city", widget: "string", required: true, i18n: true}
-      
+  - name: 'pages'
+    i18n: true
+    label: 'Pages'
+    label_singular: 'Page'
+    folder: 'content/pages'
+    create: true
+    format: 'frontmatter'
+    # editor:
+    #   preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true, i18n: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true, i18n: true }
+        

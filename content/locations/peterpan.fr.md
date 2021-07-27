@@ -1,5 +1,5 @@
 ---
-title: asdf
+title: Peter Pan
 idInSheet: peterpan
 location: '{"type":"Point","coordinates":[4.3503628,50.843586]}'
 info: Le jour de la réservation vous devrez sonner au secrétariat de l’école

@@ -1,27 +1,23 @@
 <template>
-	
-		
-		<div class="bg-white shadow overflow-hidden sm:rounded-md h-16"  :class="{'h-auto': open}">
-			
-			  <ul  class="divide-y divide-gray-200">
-				  <li v-if="sessionBookings.length == 0 " class="p-2 pl-8">
-					  <div class="italic text-base font-bold">
-					  Je hebt nog geen boekingen
-					  </div>
-					  <div class="italic">
-						  Voeg een boeking toe door een datum en een moment te kiezen
-					  </div>
-				  </li>
+	<div   :class="{'h-auto': open}">		
+		<ul  class="divide-y divide-gray-200">
+	  		<li v-if="sessionBookings.length == 0 " class="p-2 pl-8">
+			  <div class="italic text-base font-bold">				  
+			  	<translation :id="3"/>	  
+			  </div>
+			  <div class="italic">
+				  <translation :id="4"/>			  
+			  </div>
+			 </li>
 			  	<li v-else class="flex justify-between">
-					  <h2 class="p-4 pl-8">
-					 
-					  Boekingen <span class="text-base align-top">({{ sessionBookings.length}})</span>
+					  <h2 class="text-xl p-4 pl-8">
+					 <translation :id="5"/>
+					   <span class="text-base align-top">({{ sessionBookings.length}})</span>
 				  </h2>
 				  <button class="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" :class="{'opacity-50': !canSendBookingToDatabase}" :disabled="!canSendBookingToDatabase" @click="createBooking">
-						Maak boeking
+				  		<translation :id="6"/>
+						
 					  </button>
-					  <!-- <button v-if="!open" class="m-4 py-2 px-4 rounded" @click="toggle">Toon boekingen</button>
-					  <button v-else class="m-4 py-2 px-4 rounded" @click="toggle">Toon boekingen</button> -->
 				  </li>
 				<li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`">
 	
@@ -52,7 +48,7 @@
 									  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
 									  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 									</svg>
-									<location-address :location="getLocationById(b.location)"/>
+									<location-address :location="b.location"/>
 								<!-- Look up location based on id.	 -->
 								
 								
@@ -72,10 +68,6 @@
 			  </ul>
 		</div>	
 		
-		
-
-			
-	
 </template>
 
 <script>
@@ -85,6 +77,7 @@ export default {
 		return { open: true }
 	  },
 	computed: {
+
 		sessionBookings() {
 			return this.$store.state.sessionBookings
 		},

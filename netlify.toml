@@ -2,6 +2,3 @@
 command = "npm run generate"
 functions = "./functions/"
 publish = "dist"
-
-# [[plugins]]
-# package = "netlify-plugin-subfont"

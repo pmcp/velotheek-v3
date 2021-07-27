@@ -1,6 +1,9 @@
 # TODO
 - [] Change site lang on change lang
 
+# ENHANCE!
+- https://katiekodes.com/auth0-netlify-backend/
+
 
 # 🏗️ Boilerplate for Nuxt, Tailwind & NetlifyCMS
 

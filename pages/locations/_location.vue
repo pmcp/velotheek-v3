@@ -1,18 +1,23 @@
 <template>
-  <main class="grid grid-cols-2 gap-4">
-      <section>
-        <h1>
-          <span class="block text-xxl font-semibold ">{{ location.title }}</span>
-        </h1>
-      
-        <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-          <nuxt-content :document="location" />
-        </div>
+  <main class="flex flex-col">
+    <locations class="my-5"/>
+    <div class="grid grid-cols-3 gap-4 pb-5 relative">
+      <location-content class="col-span-2" :content="location"/>
+      <section class="relative -top-20 z-10 mr-10">
+        <card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class=""  >
+          <template v-slot:opened >
+            <!-- TODO: Remove border of v-calendar -->
+            <booking-calendar/>
+            <booking-moments/> 
+          </template>
+            <template v-slot:closed>
+            CLOSED MAP
+             </template>
+        </card>
+        
+        
       </section>
-      <section>
-        <calendar/>
-        <moments class="my-5"/> 
-      </section>    
+    </div>
   </main>
 </template>
 
@@ -28,8 +33,9 @@ link: [{
 },
 async asyncData({ $content, params, error }) {
   const location = await $content(`locations/${params.location}`).fetch()
+  
   return {
-    location,
+    location
   };
 },
 computed: {
@@ -41,10 +47,17 @@ return this.$store.state.activeLocationId
 }
 },
 methods: {
-  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection']),
+  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations' ]),
 },
 mounted(){
-  this.setLocation(this.location.idInSheet)
+  if (process.client) {
+    this.getLocations()
+    this.getTranslations()  
   }
+  
+  this.setLocation(this.location.idInSheet)
+},
+  middleware: 'auth'
 };
 </script>
+

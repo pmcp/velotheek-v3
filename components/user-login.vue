@@ -1,35 +1,21 @@
 <template>
-<div>
-	<client-only>
-	  <div class="flex justify-center mt-10">
-		<template v-if="user">
-		  <a
-			href="#"
-			class="button button--primary lg:w-1/2"
-			@click.prevent="onLogout"
-		  >
-			Logout
-		  </a>
-		</template>
-		<template v-else>
-		  <a
-			href="#"
-			class="button button--primary mr-2 lg:w-1/2 lg:ml-10"
-			@click.prevent="openLogin"
-		  >
-			Login
-		  </a>
-		  <a
-			href="#"
-			class="button button--primary lg:w-1/2 lg:mr-10"
-			@click.prevent="openSignup"
-		  >
-			Sign up
-		  </a>
-		</template>
-	  </div>
-	</client-only>
-</div>
+		<client-only>
+			<div class="flex">
+				<template v-if="user">
+					<button class="btn block " @click.prevent="onLogout">
+						Log out
+					</button>
+				</template>
+				<template v-else>
+					<button class="btn block " @click.prevent="openLogin">
+						Log In
+					</button>
+					<button class="btn block " @click.prevent="openSignup">
+						Sign up
+					</button>
+				</template>
+			</div>
+		</client-only>
 </template>
 
 <script>
