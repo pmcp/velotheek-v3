@@ -138,7 +138,9 @@ module.exports = {
     // ? Safelisting docs: https://purgecss.com/safelisting.html
     safelist: {
       
-      standard: ['vc-bg-blue-600', 'velo-normalDay', 'velo-today', 'velo-selected'],
+  
+      
+      standard: ['vc-bg-blue-600', 'velo-normalDay', 'velo-today', 'velo-selected','dt__range__beginEnd', 'dt-range__selected', 'vc-text-white', 'datePicked-before', 'datePicked-after', 'datePicked-full', 'datePicked-before-session', 'datePicked-after-session', 'datePicked-full-session', 'vc-day-content::selection', 'velo-selected'],
       deep: [/dark/, /light/, /btn/, /icon/, /main/],
       greedy: [
         /^card/,
