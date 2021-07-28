@@ -1,7 +1,7 @@
 <template>
 <div>
 	<p class="text-sm text-gray-500">
-		<!-- <span class="font-sm font-semibold">{{loc.title}}</span> -->
+		<span class="font-sm font-semibold">{{loc.title}}</span>
 		  <span class="block">{{ loc.street }}</span>
 		  <span class="block">{{loc.zip}} {{ location.city}}</span>
 		</p>

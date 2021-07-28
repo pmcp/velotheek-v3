@@ -27,7 +27,7 @@ module.exports = {
     
   },
   getRows: async (sheet) => {
-    
+    console.log('here', sheet)
     const rows = await sheet.getRows() // can pass in { limit, offset }
     return rows.map((row, i) => {
       let temp = {}

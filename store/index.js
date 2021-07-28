@@ -86,7 +86,8 @@ export const actions = {
 
 
 
-  async getSheet({ state, dispatch, commit }, { sheet }) {
+  async getSheet({ state, dispatch, commit }, { sheet: sheet }) {
+    
     try {
       const resultSheet = await fetch('/.netlify/functions/get-sheet', {
         method: 'POST',

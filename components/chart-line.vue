@@ -1,87 +1,5 @@
 <template>
-	  <div class="chartElem">
-		<div class="row">
-		  <div class="col-3-auto col-md-3">
-			<div id="chartType">
-			  <label>Chart Type</label>
-			  <b-form-select
-				v-model="chartType"
-				:options="chartTypes"
-			  />
-			</div>
-			<div id="animationDuration">
-			  <label>Animation Duration</label>
-			  <b-form-select v-model.number="animationDuration" :options="durations" />
-			</div>
-			<div id="yAxis">
-			  <label>y-axis Title</label>
-			  <input
-				v-model="yAxis"
-				class="form-control centered"
-				@focus="watchers = ['options.yAxis']"
-				@blur="watchers = undefined"
-			  >
-			</div>
-			<div id="seriesName">
-			  <label>Series Name</label>
-			  <input
-				v-model="seriesName"
-				class="form-control centered"
-				@focus="watchers = ['options.series']"
-				@blur="watchers = undefined"
-			  >
-			</div>
-			<div id="seriesColor">
-			  <label>Series Color</label>
-			  <div>
-				<input
-				  v-if="colorInputIsSupported"
-				  id="colorPicker"
-				  v-model="seriesColor"
-				  type="color"
-				>
-				<b-form-select v-else v-model="seriesColor" :options="colors" />
-			  </div>
-			  <p>Current color: {{ seriesColor }}</p>
-			</div>
-			<div id="sexy-bkg">
-			  <b-form-checkbox v-model="sexy">
-				Make it sexy
-			  </b-form-checkbox>  
-			</div>      
-			<div id="last-point-info">
-			  <label>Click a point to trigger event</label>
-			  <div>
-				<div>x: {{ lastPointClicked.x }}</div>
-				<div>y: {{ lastPointClicked.y }}</div>
-			  </div>
-			</div>
-			<div id="caption">
-			  <label>Set chart caption</label>
-			  <input v-model="caption" 
-				class="form-control centered"
-				@focus="watchers = ['options.caption']"
-				@blur="watchers = undefined"
-			  />
-			</div>
-		  </div>
-		  <div class="col-9-auto col-md-9">
-			<label>Set the chart title (reactively)</label>
-			<input
-			  v-model="title"
-			  class="form-control centered"
-			  @focus="watchers = ['options.title']"
-			  @blur="watchers = undefined"
-			>
-			<input
-			  v-model="subtitle"
-			  class="form-control centered"
-			  @focus="watchers = ['options.subtitle']"
-			  @blur="watchers = undefined"
-			>
-			<button class="btn btn-primary" @click="setBoth()">
-			  Set two things at once
-			</button>
+
 			<highchart
 			  :options="chartOptions"
 			  :animation="{duration: animationDuration}"
@@ -89,32 +7,12 @@
 			  :update="watchers"
 			  @chartLoaded="chartLoaded"
 			/>
-			<div>
-			  <b-input-group class="mt-3">
-				<b-form-input
-				  v-for="index in points.length"
-				  :key="index"
-				  v-model.number="points[index-1]"
-				  class="centered"
-				  type="number"
-				  @focus="watchers = ['options.series']"
-				  @blur="watchers = undefined"
-				/>
-			  </b-input-group>
-			  <label>^^------------ Modify the series data (reactively) ------------^^</label>
-			</div>
-		  </div>
-		</div>
-	  </div>
 	</template>
 	
 	<script>
 	export default {
 	  data() {
 		return {
-		  caption: 'Chart caption here',
-		  title: 'Basic Chart',
-		  subtitle: 'More details here',
 		  points: [10, 0, 8, 2, 6, 4, 5, 5],
 		  seriesColor: '',
 		  animationDuration: 1000,
@@ -123,7 +21,6 @@
 		  chartTypes: [],
 		  durations: [0, 500, 1000, 2000],
 		  seriesName: 'My Data',
-		  yAxis: 'My Values',
 		  watchers: undefined,
 		  colors: [
 			'Red',
@@ -139,34 +36,64 @@
 			timestamp: '',
 			x: '',
 			y: ''
-		  },
-		  sexy: false
+		  }
 		}
 	  },
+	  props: {
+		bookings: {
+			default: [],
+			type: Array
+		}  
+	  },
 	  computed: {
-		invertedColor() {
-		  return (offset = 0) => '#' 
-		  + ((parseInt(`0x${this.seriesColor.split('#')[1]}`) ^ 0xffffff) + offset)
-			.toString(16)
-		},
+	  	plottedBookings(){
+			 if(this.bookings.length == 0) return { data: []}
+			 
+			 const bookingsPerLocation = this.bookings.reduce((acc, val) => {
+				 const dates = acc[val.location] || []
+				 return {...acc, [val.location]: [...dates, val.date] }
+				 
+			 }, {})
+
+			 // TODO: less verbose
+			 let allSeries = []
+			 for (const key in bookingsPerLocation) {
+			  	const valPerMonth = bookingsPerLocation[key].reduce((acc, d) => {
+						const date = new Date(d);
+						const month = ("0" + date.getMonth()).slice(-2);
+						const year = date.getFullYear();
+						const key = year + '' + month
+						const val = acc[key] || 0;
+						return { ...acc, [key]: val+1 }
+					},{})
+			  	
+				 const onlyValues = Object.values(valPerMonth);
+				   const firstMonth = Object.keys(valPerMonth).sort()[0]
+				   
+				   const dateString = firstMonth.toString()
+				   const startYear = firstMonth.substring(0, 4);
+				   const startMonth = firstMonth.slice(-2)
+				   
+				 const res = {
+					   name: key,
+					   data: onlyValues,
+					   pointStart: Date.UTC(startYear, startMonth, 1),
+					   pointInterval: 2592000000
+				   }
+				   allSeries.push(res)
+				   
+				   
+			 }
+
+			  return allSeries
+			
+		  }
+		  ,
 		chartOptions() {
 		  const ctx = this
 		  return {
-			caption: {
-			  text: this.caption,
-			  style: {
-				color: this.sexy ? this.invertedColor(0) : '#black'
-			  },
-			},
 			chart: {
-			  backgroundColor: this.sexy ? {
-				linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
-				stops: [
-					[0, this.seriesColor],
-					[0.5, '#ffffff'],
-					[1, this.seriesColor]
-				]
-			  } : '#ffffff',
+			  backgroundColor: '#ffffff',
 			  className: 'my-chart',
 			  type: this.chartType.toLowerCase()
 			},
@@ -190,82 +117,43 @@
 				}
 			  }
 			}],
-			title: {
-			  style: {
-				color: this.sexy ? this.invertedColor(0) : '#black'
-			  },
-			  text: `${this.title} ` +
-				(this.lastPointClicked.timestamp !== ''
-				  ? `(Point clicked: ${this.lastPointClicked.timestamp})`
-				  : '')
+			xAxis: {
+				type: 'datetime',
+				labels: {
+					// format: '{value:%m-%Y}',
+					rotation: 45,
+					align: 'left'
+				}
 			},
-			subtitle: {
-				style: {
-				color: this.sexy ? this.invertedColor(0) : '#black'
-			  },
-			  text: `${this.subtitle}`
-			},
+			title: false,
+			subtitle: false,
 			legend: {
 			  itemStyle: {
-				color: this.sexy ? this.invertedColor(0) : '#black'
+				color: '#black'
 			  }
 			},
-			series: [{
-			  name: this.seriesName,
-			  data: this.points,
-			  color: this.seriesColor
-			}]
+			series: this.plottedBookings
+				
+				
 		  }
 		}
 	  },
 	  mounted() {
-		const i = document.createElement('input')
-		i.setAttribute('type', 'color')
-		this.colorInputIsSupported = (i.type === 'color')
-		console.log(this.$highcharts)
-		this.chartTypes = this.$highcharts.chartTypes
-		this.chartType = this.chartTypes[0]
-		this.seriesColor = this.colorInputIsSupported ? '#6020cd' : this.colors[0]
-		this.$on('pointClicked', (evt) => {
-		  this.$nextTick(() => {
-			this.doubleIt(evt.x, evt.y)
+		  this.chartTypes = this.$highcharts.chartTypes
+		  this.chartType = this.chartTypes[0]
+		  this.$on('pointClicked', (evt) => {
+			this.$nextTick(() => {
+			  
+			})
 		  })
-		})
-	  },
+		},
 	  methods: {
 		chartLoaded(chart) {
-		  // eslint-disable-next-line no-console
-		  console.log('Chart Loaded! ')
-		  console.log('If you need to interact with the API directly, here you go!', chart)
-		  console.log('Helpul tip: away from the docs? chart.__proto__ in dev tools will show you the methods:', chart.__proto__)  
-		},
-		doubleIt(x, y) {
-		  Object.assign(this.lastPointClicked, { x, y })
-		  this.lastPointClicked.timestamp = (new Date()).toUTCString()
-		  this.points[x] *= 2
-		},
-		setBoth() {
-		  this.title = 'New Title'
-		  this.points[5] = 0
-		  this.points = [...this.points]
-		  setTimeout(() => {
-			this.points[5] = 100
-			this.points = [...this.points]
-		  }, 500)
 		}
 	  }
 	}
 	</script>
 	
 	<style scoped>
-	input[type="color"]::-webkit-color-swatch-wrapper {
-	  padding: 0;
-	}
-	 #colorPicker {
-	  border: 0;
-	  padding: 0;
-	  margin: 0;
-	  width: 30px;
-	  height: 30px;
-	}
+	
 	</style>
