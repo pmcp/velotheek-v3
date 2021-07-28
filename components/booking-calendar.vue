@@ -38,6 +38,7 @@ computed: {
 
 <style lang="postcss" scoped>
 /* purgecss start ignore */
+
 .vc-bg-blue-600 {
 	  background-color: rgb(238, 42, 123);
 	  color: white !important;

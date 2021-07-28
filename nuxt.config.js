@@ -137,7 +137,8 @@ module.exports = {
     mode: 'postcss',
     // ? Safelisting docs: https://purgecss.com/safelisting.html
     safelist: {
-      // standard: [],
+      
+      standard: ['vc-bg-blue-600', 'velo-normalDay', 'velo-today', 'velo-selected'],
       deep: [/dark/, /light/, /btn/, /icon/, /main/],
       greedy: [
         /^card/,
