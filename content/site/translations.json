@@ -31,6 +31,18 @@
     {
       "fr": "Vos réservations",
       "nl": "Jouw reservaties"
+    },
+    {
+      "fr": "Tout va bien",
+      "nl": "Alles is ok"
+    },
+    {
+      "fr": "Envoi en cours...",
+      "nl": "Aan het versturen..."
+    },
+    {
+      "fr": "Envoyé",
+      "nl": "Verstuurd"
     }
   ]
 }

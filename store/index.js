@@ -12,7 +12,14 @@ export const state = () => ({
   activeDate: null,
   activeMoment: null,
   selectedDates: [],
-  activeDate: null
+  activeDate: null,
+  activeStatus: 0,
+  status: [
+    {description: 'all good',
+  translationId: 8},
+    {description: 'sending', translationId: 9},
+    {description: 'send', translationId: 10}
+  ]
 })
 
 export const mutations = {
@@ -45,6 +52,9 @@ export const mutations = {
   },
   setSessionBookings(state, val) {
     state.sessionBookings = [...val]
+  },
+  setActiveStatus(state, val) {
+    state.activeStatus = val
   },
   removeFromBookingsSelection(state, key) {
     const filteredBookings = state.sessionBookings.filter(function(value, index, arr) {
@@ -197,7 +207,9 @@ async getLocations({ state, commit }) {
     commit('removeFromBookingsSelection', key)
   },
 
-  createBooking({ state, commit, dispatch }) {
+  async createBooking({ state, commit, dispatch }) {
+    
+    commit('setActiveStatus', 1)
     // Add all bookings to sheet
 
     if (state.sessionBookings.length === 0) {
@@ -211,21 +223,29 @@ async getLocations({ state, commit }) {
     }
     
     // Send to netlify function
-    fetch('/.netlify/functions/save-to-sheet', {
+    await fetch('/.netlify/functions/save-to-sheet', {
       method: 'POST',
       body: JSON.stringify(body)
-    }).then(res => {
-      console.log('RES', res)
-      // TODO: check if succeeded, only then add to bookings
-      
-      // 1. Reload the bookings from the db
-        dispatch('getSheet', { sheet: 'reservations' })
-
-      // 2. Empty the bookings saved to the session
-      commit('setSessionBookings', [])
-      
     })
-  },
+    
+    // TODO: check if succeeded, only then add to bookings
+    // 1. Reload the bookings from the db
+      await dispatch('getSheet', { sheet: 'reservations' })
+   
+   commit('setActiveStatus', 2)
+   setTimeout(function(){
+     commit('setActiveStatus', 0)
+     },500);
+
+setTimeout(function(){
+    commit('setSessionBookings', [])
+   },500);        
+      // 2. Empty the bookings saved to the session
+      
+      
+   
+    },
+  
 
   setLocation({ state, commit, dispatch }, idInSheet) {
     // Set active id
@@ -414,6 +434,11 @@ export const getters = {
   
   localisedLocations: state => {
     return state.locations[state.lang]
+  },
+  
+  statusDescription: state => {
+    const translationId = state.status[state.activeStatus].translationId
+    return state.translations[translationId][state.lang];
   },
   
   userBookings: (state, rootState) => {

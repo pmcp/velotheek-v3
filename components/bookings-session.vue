@@ -15,8 +15,10 @@
 					   <span class="text-base align-top">({{ sessionBookings.length}})</span>
 				  </h2>
 				  <button class="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" :class="{'opacity-50': !canSendBookingToDatabase}" :disabled="!canSendBookingToDatabase" @click="createBooking">
-				  		<translation :id="6"/>
-						
+					  <span v-if="activeStatus === 0">
+				  		<translation :id="6"/></span>
+							  
+						  <span v-else >{{ statusDescription}}</span>
 					  </button>
 				  </li>
 				<li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`">
@@ -97,6 +99,12 @@ export default {
 		canSendBookingToDatabase(){
 			return this.$store.getters.canSendBookingToDatabase
 		  },
+		  activeStatus(){
+			  return this.$store.state.activeStatus
+			},
+			statusDescription(){
+				return this.$store.getters.statusDescription
+			  },
 
 	},
 	methods: {
