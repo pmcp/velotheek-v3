@@ -437,6 +437,7 @@ export const getters = {
   },
   
   statusDescription: state => {
+
     const translationId = state.status[state.activeStatus].translationId
     return state.translations[translationId][state.lang];
   },
