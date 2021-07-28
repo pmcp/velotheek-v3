@@ -98,7 +98,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/content', 'nuxt-purgecss'],
+  modules: ['@nuxt/content', 'nuxt-purgecss', 'nuxt-highcharts'],
   /*
    ** Build configuration
    */

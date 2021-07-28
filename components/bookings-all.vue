@@ -2,6 +2,7 @@
 	<div >
 		<card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class="">
 			  <template v-slot:opened >
+				  <!-- <chart-line :bookings="bookings" /> -->
 				  <ul  class="divide-y divide-gray-200">
 					  <li v-for="(b, key) in bookings" :key="`${key}-bookings`">
 		  

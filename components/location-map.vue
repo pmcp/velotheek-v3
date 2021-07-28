@@ -1,5 +1,5 @@
 <template>
-	<div class=" h-full w-full rounded "  id="map"></div>
+	<div class=" h-full w-full rounded " id="map"></div>
 </template>
 
 <script>
