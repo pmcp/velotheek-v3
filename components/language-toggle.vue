@@ -19,8 +19,9 @@ import { mapActions } from 'vuex';
 	methods: {
 		toggle(){			
 			this.toggleLang()
-			const path = this.$route.path.slice(0,-2) + this.lang
-			this.$router.push(path)
+			console.log(this.$route)
+			// const path = this.$route.path.slice(0,-2) + this.lang
+			// this.$router.push(path)
 		},
 	   ...mapActions(['toggleLang'])
 	}

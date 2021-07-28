@@ -8,12 +8,6 @@
 
 
     <!-- <Header class="w-full max-w-7xl mx-auto "/> -->
-    <div class="w-full relative z-20">
-      <div class="absolute top-0 right-10 mt-10">
-
-
-      </div>
-    </div>
     <nuxt class=" mb-40" />
 
     <div v-if="sessionBookings.length > 0 " class="sticky top-100 w-full pb-8">

@@ -1,5 +1,5 @@
 <template>
-  
+  <!-- TODO: Disable when not logged in -->
   <client-only>
 	  <v-date-picker
 		:value="activeDate"

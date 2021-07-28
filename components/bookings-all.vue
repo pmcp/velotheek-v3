@@ -7,6 +7,7 @@
 					  <li v-for="(b, key) in bookings" :key="`${key}-bookings`">
 		  
 						  <!-- TODO: Make component (cos also in session page -->
+						  <!-- TODO: when user is admin, show user who made the reservation -->
 						<div class="hover:bg-gray-50">
 						  <div class="flex items-center items-stretch">
 							  

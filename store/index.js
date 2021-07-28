@@ -415,12 +415,14 @@ export const getters = {
   localisedLocations: state => {
     return state.locations[state.lang]
   },
-
+  
   userBookings: (state, rootState) => {
+    // TODO: make object with passed / upcoming / today bookings
     if(state.auth.user) {
       if(state.bookings) {
         return state.bookings.filter(b => b.email === state.auth.user.email )
       }
     }
   },
+  
 }
