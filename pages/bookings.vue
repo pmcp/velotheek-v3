@@ -4,8 +4,9 @@
     
     
       <h1 class="text-xl py-5"><translation :id="7"/></h1>
+    <client-only>
     <bookings-all :bookings="userBookings"/>
-        
+  </client-only>    
 
   </main>
     
@@ -23,6 +24,7 @@ import Vue from 'vue'
 export default {
   computed: {
     userBookings(){
+      if(this.$store.getters.userBookings)
       return Vue.filter('orderBy')(this.$store.getters.userBookings, 'date');
     }
   },
@@ -40,6 +42,6 @@ mounted(){
   
   
 },
-  middleware: 'auth'
+  // middleware: 'auth'
 };</script>
 

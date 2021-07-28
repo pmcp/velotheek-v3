@@ -4,21 +4,26 @@ const SITE_INFO = require('./content/site/info.json')
 const COLOR_MODE_FALLBACK = require('./utils/globals.js')
 
 
+
 module.exports = {
   target: 'static',
-  components: true,
-  generate: {
-    fallback: true,
-    async ready () {
-      // TODO: Generate pages correctly
-      // (pages are not generated)
-      // And inject translations
-      // https://www.netlifycms.org/docs/nuxt/#generating-pages-with-the-generate-property
-      const { $content } = require('@nuxt/content')
-      // const files = await $content().only(['slug']).fetch()
-      // console.log(files)
-    }
   
+  components: true,
+  generate: {     
+    crawler: false,
+    async routes () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content('locations').fetch()  
+      // console.log('FILES', files)
+      const generatedRoutes = files.map((file) => {
+      return {
+          route: `/locations/${file.slug}`,
+          payload: file,
+      };
+    });
+    console.log('generatedRoutes', generatedRoutes)
+      return generatedRoutes
+    }
   },
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
@@ -26,7 +31,7 @@ module.exports = {
       process.env.NODE_ENV === 'production'
         ? process.env.URL || 'http://createADotEnvFileAndSetURL'
         : 'http://localhost:3000',
-    lang: SITE_INFO.sitelang || 'en-US'
+    lang: SITE_INFO.sitelang || 'fr_BE'
   },
   /*
    ** Headers of the page

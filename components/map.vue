@@ -9,6 +9,7 @@ export default {
 	locations: Array
   },
   mounted() {
+	  if (process.client) {
   	// TODO: add all markers
 	const mapboxgl = require('mapbox-gl')
 	const activeLocationObject = this.locations.filter(l => l.idInSheet === this.activeLocationId)
@@ -32,5 +33,6 @@ export default {
 
 	// Get the location based on the id we are using in the database (google sheet)
 	this.setLocation(this.loc.idInSheet)
+  }
   }
 };</script>
