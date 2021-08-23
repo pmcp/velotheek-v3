@@ -17,7 +17,6 @@ const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 exports.handler = async function(event, context, callback) {
   const data = JSON.parse(event.body);
   const { user } = data;
-  const { user } = data;
 	// Check role in google sheet
 	const sheet = await sheetAPI.getSheet('users')
     const rows = await sheetAPI.getRows(sheet)
@@ -27,7 +26,7 @@ exports.handler = async function(event, context, callback) {
 	
 	let role = ''
 	// If user exists, add roles
-	if(filteredUsers.length == 1) {
+	if(filteredUsers.length === 1) {
 		role = filteredUsers[0].role
 		
 			

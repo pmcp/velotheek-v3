@@ -12,7 +12,6 @@ export const state = () => ({
   activeDate: null,
   activeMoment: null,
   selectedDates: [],
-  activeDate: null,
   activeStatus: 0,
   status: [
     {description: 'all good',
@@ -57,8 +56,8 @@ export const mutations = {
     state.activeStatus = val
   },
   removeFromBookingsSelection(state, key) {
-    const filteredBookings = state.sessionBookings.filter(function(value, index, arr) {
-      return index != key;
+    const filteredBookings = state.sessionBookings.filter(function(value, index) {
+      return index !== key;
     });
     state.sessionBookings = [...filteredBookings]
   },
@@ -104,8 +103,7 @@ export const actions = {
         body: JSON.stringify({ sheet: sheet})
       })
       const bookings = await resultSheet.json()
-      commit('setBookings', bookings);
-      return;
+      return commit('setBookings', bookings);
     } catch (err) {
       console.log(err)
       throw 'Unable to fetch sheet'
@@ -115,14 +113,11 @@ export const actions = {
   
   async removeBooking({ state, dispatch, commit }, { id }) {
     try {
-      const resultSheet = await fetch('/.netlify/functions/remove-item', {
+      await fetch('/.netlify/functions/remove-item', {
         method: 'POST',
         body: JSON.stringify({ sheet: 'reservations', id: id})
       })
-      
-      await dispatch('getSheet', { sheet: 'reservations' })
-      
-      return;
+      return await dispatch('getSheet', { sheet: 'reservations' })
     } catch (err) {
       console.log(err)
       throw 'Unable to remove item'
@@ -131,18 +126,17 @@ export const actions = {
   },
 
 
-  async getTranslations({ state, commit }) {
+  async getTranslations({ commit }) {
     try {
       const translations = await this.$content('site/translations').fetch()
-      commit('setTranslations', translations.translations)
-      return;
+      return commit('setTranslations', translations.translations)
     } catch (err) {
       console.log('GOT AN ERROR GETTING TRANSLATIONS', err)
       throw 'Unable to fetch translations'
     }
   },
 
-async getLocations({ state, commit }) {
+async getLocations({ commit }) {
   const allLocations = await this.$content('locations').fetch() 
   // TODO: This solution (altho not scalable), might be too easy 
   // Can make it scalable and more cool looking with a reducer
@@ -178,7 +172,7 @@ async getLocations({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
     // find location in active location and add details for mail
-    const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
+    // const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
     
     
     const booking = {
@@ -199,7 +193,7 @@ async getLocations({ state, commit }) {
     
   },
 
-  removeFromBookingsSelection({ state, commit }, { key, booking }) {
+  removeFromBookingsSelection({ state, commit }, { key }) {
     commit('removeFromBookingsSelection', key)
   },
 
@@ -252,11 +246,11 @@ setTimeout(function(){
     dispatch('getSheet', { sheet: 'reservations' })
   },
 
-  getBookings({state, dispatch}){
+  getBookings({dispatch}){
     dispatch('getSheet', { sheet: 'reservations' })
   },
 
-  async toggleLang({ state, commit, dispatch }) {
+  async toggleLang({ state, commit }) {
     let lang = 'fr'
     if(state.lang === lang) { lang = 'nl' }
 
@@ -303,14 +297,14 @@ export const getters = {
     
     // Filter out only bookings of this day
     console.log('getters.combinedBookings', getters.combinedBookings)
-    const bookingsForActiveDate = getters.combinedBookings.filter(function(value, index, arr) {
+    const bookingsForActiveDate = getters.combinedBookings.filter(function(value) {
       return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
     });
 
     // Filter out bookings for this location
-    const filteredBookings = bookingsForActiveDate.filter(function(value, index, arr) {
+    const filteredBookings = bookingsForActiveDate.filter(function(value) {
       console.log('activeLocationId', state.activeLocationId)
-      return (state.activeLocationId == value.location)
+      return (state.activeLocationId === value.location)
     });
 
 
@@ -330,7 +324,7 @@ export const getters = {
   
   disabledDates: (state, getters) => {    
     // Filter out only bookings with a full day booked (moment === 2)
-    const filteredBookings = getters.combinedBookings.filter(function(value, index, arr) {
+    const filteredBookings = getters.combinedBookings.filter(function(value) {
       return value.moment === "2"
     });
     
@@ -369,7 +363,7 @@ export const getters = {
     }, {})
 
 
-    const attributes = [
+    return [
       {
         highlight: {
           class: 'datePicked-before',
@@ -428,8 +422,7 @@ export const getters = {
         },
         dates: []
       },
-    ]
-    return attributes;
+    ];
   },
 
   canAddBookingToSession: state => {
@@ -451,7 +444,7 @@ export const getters = {
     return state.translations[translationId][state.lang];
   },
   
-  userBookings: (state, rootState) => {
+  userBookings: (state) => {
     // TODO: make object with passed / upcoming / today bookings
     if(state.auth.user) {
       if(state.bookings) {
