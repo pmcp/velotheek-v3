@@ -13,15 +13,14 @@ module.exports = {
     crawler: false,
     async routes () {
       const { $content } = require('@nuxt/content')
-      const files = await $content('locations').fetch()  
-      // console.log('FILES', files)
+      const files = await $content('locations').fetch()
       const generatedRoutes = files.map((file) => {
       return {
           route: `/locations/${file.slug}`,
           payload: file,
       };
     });
-    console.log('generatedRoutes', generatedRoutes)
+
       return generatedRoutes
     }
   },

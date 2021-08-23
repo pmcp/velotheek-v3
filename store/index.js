@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import axios from 'axios'
+// import Vue from 'vue'
+// import axios from 'axios'
 
 export const state = () => ({
   lang: 'nl',
@@ -150,7 +150,6 @@ async getLocations({ state, commit }) {
   // ¯\_(ツ)_/¯ 
   // Will probably drive for three weeks through Croatia
   // ᕕ( ᐛ )ᕗ
-  console.log('allLocations', allLocations)
   const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
   const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
   
@@ -158,7 +157,6 @@ async getLocations({ state, commit }) {
     fr: [...locationsFR],
     nl: [...locationsNL]
   }
-  console.log('gonna set locaations', locByLang)
   return commit('setLocations', locByLang)
 },
 
@@ -180,7 +178,6 @@ async getLocations({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
     // find location in active location and add details for mail
-    console.log('LOCATIONA', state.locations)
     const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
     
     
@@ -203,7 +200,6 @@ async getLocations({ state, commit }) {
   },
 
   removeFromBookingsSelection({ state, commit }, { key, booking }) {
-    console.log(booking.moment)
     commit('removeFromBookingsSelection', key)
   },
 
@@ -262,7 +258,12 @@ setTimeout(function(){
 
   async toggleLang({ state, commit, dispatch }) {
     let lang = 'fr'
-    if(state.lang === 'fr') { lang = 'nl' }
+    if(state.lang === lang) { lang = 'nl' }
+
+    // Change route when changing language.
+    // TODO: Should get lang on route change
+
+
     return commit('setLang', lang)
   },
   
@@ -285,6 +286,7 @@ export const getters = {
   },
   
   moments: (state, getters) => {
+    // TODO: move to state
     const moments = [
       { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: {nl: 'Van 8u tot 12u', fr: 'de 8h a 12h'}, available: true },
       { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
@@ -300,11 +302,18 @@ export const getters = {
     }
     
     // Filter out only bookings of this day
-    const filteredBookings = getters.combinedBookings.filter(function(value, index, arr) {
+    console.log('getters.combinedBookings', getters.combinedBookings)
+    const bookingsForActiveDate = getters.combinedBookings.filter(function(value, index, arr) {
       return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
     });
 
-    console.log({filteredBookings})
+    // Filter out bookings for this location
+    const filteredBookings = bookingsForActiveDate.filter(function(value, index, arr) {
+      console.log('activeLocationId', state.activeLocationId)
+      return (state.activeLocationId == value.location)
+    });
+
+
     // If no bookings on this day, just return as is
     if (filteredBookings.length < 1) return moments;
 

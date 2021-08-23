@@ -20,7 +20,6 @@
 			  return this.$store.getters.localisedLocations
 		  },
 		  loc(){
-			  console.log(this.locations)
 			  const filteredLocations = this.locations.filter(l => this.location == l.idInSheet)
 			  return filteredLocations[0]
 		  }

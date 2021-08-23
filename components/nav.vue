@@ -26,7 +26,6 @@
 		bookingsRoute(){
 			return this.$router.path != '/bookings'
 		}
-	  },
-	  mounted(){console.log('')}
+	  }
 	}
 	</script>

@@ -16,9 +16,7 @@ if (!process.env.NETLIFY) {
 	
 	exports.handler = async function(event, context) {
 	  const data = JSON.parse(event.body)
-	  console.log('the data', data)
 	  const sheet = await sheetAPI.getSheet(data.sheet)
-	  console.log('got sheet', sheet)
 	  const rows = await sheetAPI.getRows(sheet)
 
 	  return {

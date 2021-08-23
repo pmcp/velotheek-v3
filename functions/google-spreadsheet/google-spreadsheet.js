@@ -27,7 +27,6 @@ module.exports = {
     
   },
   getRows: async (sheet) => {
-    console.log('here', sheet)
     const rows = await sheet.getRows() // can pass in { limit, offset }
     return rows.map((row, i) => {
       let temp = {}
@@ -41,26 +40,22 @@ module.exports = {
   getRow: async rowId => {
     const rows = await sheet.getRows()
     const row = { ...rows[rowId], rowId: rowId }
-    return rows[rowId]
+    return row
   },
   addRow: async (sheet, data) => {
-    // data = { ...data}
-    const addedRow = await sheet.addRow(data)
-    return addedRow 
+    return await sheet.addRow(data)
   },
   addRows: async (sheet, data) => {
-    const addedRow = await sheet.addRows(data)
-    return addedRow 
+    return await sheet.addRows(data)
   },
   updateRow: async data => {
     const rows = await sheet.getRows()
-    const { rowId, ...objectForUpdate } = data
+    const { rowId } = data
     const selectedRow = rows[rowId]
     Object.entries(data).forEach(([k, v]) => {
       selectedRow[k] = v
     })
-    await selectedRow.save()
-    return
+    return await selectedRow.save()
   },
   deleteRow: async (sheet, rowId) => {
     const rows = await sheet.getRows()
@@ -72,7 +67,7 @@ module.exports = {
 /*
  * utils
  */
-function serializeRow(row) {
-  let temp = {}
-  return temp
-}
+// function serializeRow(row) {
+//   let temp = {}
+//   return temp
+// }

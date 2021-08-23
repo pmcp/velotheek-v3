@@ -16,11 +16,9 @@ export default {
   	// TODO: add all markers
 
 	const mapboxgl = require('mapbox-gl')
-	console.log('active location:', this.activeLocationId)
+
 	if(this.activeLocationId != null) {
-		console.log(this.locations)
 		const activeLocationObject = this.locations.filter(l => l.idInSheet === this.activeLocationId)[0]
-		console.log(activeLocationObject)
 		const coordinates = JSON.parse(activeLocationObject.location).coordinates
 	
 		const map = new mapboxgl.Map({
