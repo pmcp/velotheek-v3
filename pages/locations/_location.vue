@@ -56,7 +56,7 @@ mounted(){
   // 
   this.setLocation(this.location.idInSheet)
 },
-  // middleware: 'auth'
+
 };
 </script>
 

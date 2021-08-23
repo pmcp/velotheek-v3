@@ -30,18 +30,7 @@ export default {
   },
 methods: {
   ...mapActions(['getLocations', 'getTranslations', 'getBookings' ]),
-},  
-mounted(){
-  if (process.client) {
-    this.getLocations()
-    this.getTranslations()  
-    this.getBookings()  
-  }
-  
-  
-  
-  
-},
-  // middleware: 'auth'
+}
+
 };</script>
 

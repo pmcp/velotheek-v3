@@ -73,8 +73,8 @@ export const actions = {
     
     await dispatch('getTranslations')
     // await dispatch('getLocations')
-    const allLocations = await this.$content('locations').fetch() 
-    // TODO: This solution (altho not scalable), might be too easy 
+    const allLocations = await this.$content('locations').fetch()
+    // TODO: This solution (altho not scalable), might be too easy
     // Can make it scalable and more cool looking with a reducer
     // But don't really have the time. Almost holiday!
     // ¯\_(ツ)_/¯ 
@@ -88,7 +88,7 @@ export const actions = {
       fr: [...locationsFR],
       nl: [...locationsNL]
     }
-    
+
     return commit('setLocations', locByLang)
     
   },

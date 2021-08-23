@@ -21,7 +21,8 @@ export const actions = {
 	  if (user) {
 		commit('SET_USER', {
 		  username: user.user_metadata.full_name,
-		  email: user.email
+		  email: user.email,
+			roles: user.app_metadata.roles
 		})
 	  }
 	})
@@ -30,7 +31,8 @@ export const actions = {
 	  if (user) {
 		commit('SET_USER', {
 		  username: user.user_metadata.full_name,
-		  email: user.email
+		  email: user.email,
+			roles: user.app_metadata.roles
 		})
 	  }
 	})
@@ -51,9 +53,11 @@ export const actions = {
   open({ commit }, action) {
 	this.$netlifyIdentity.open(action)
 	this.$netlifyIdentity.on(action, (user) => {
+		console.log(user)
 	  commit('SET_USER', {
 		username: user.user_metadata.full_name,
-		email: user.email
+		email: user.email,
+			roles: user.app_metadata.roles
 	  })
 	  this.$netlifyIdentity.close()
 	})

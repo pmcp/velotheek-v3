@@ -24,6 +24,7 @@ module.exports = {
       return generatedRoutes
     }
   },
+
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
   env: {
     url:
@@ -31,6 +32,10 @@ module.exports = {
         ? process.env.URL || 'http://createADotEnvFileAndSetURL'
         : 'http://localhost:3000',
     lang: SITE_INFO.sitelang || 'fr_BE'
+  },
+
+  router: {
+    middleware: 'auth'
   },
   /*
    ** Headers of the page

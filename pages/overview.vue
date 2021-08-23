@@ -36,7 +36,6 @@
 	  
 	  
 	},
-	  // middleware: 'auth'
 	};</script>
 	
 	

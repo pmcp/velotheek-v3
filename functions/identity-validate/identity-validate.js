@@ -25,12 +25,11 @@ exports.handler = async function(event, context, callback) {
 	const filteredUsers = rows.filter(r => r.email === user.email)
 	
 	let role = ''
-	// If user exists, add roles
+	// If user exists, add roles & register
 	if(filteredUsers.length === 1) {
 		role = filteredUsers[0].role
 		  const responseBody = {
 			app_metadata: {
-			  // TODO: maybe not hardcoded?
 			  roles: [role],
 			},
 			user_metadata: {
