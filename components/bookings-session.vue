@@ -1,7 +1,7 @@
 <template>
 	<div   :class="{'h-auto': open}">		
 		<ul  class="divide-y divide-gray-200">
-	  		<li v-if="sessionBookings.length == 0 " class="p-2 pl-8">
+	  		<li v-if="sessionBookings.length === 0 " class="p-2 pl-8">
 			  <div class="italic text-base font-bold">				  
 			  	<translation :id="3"/>	  
 			  </div>
@@ -61,7 +61,7 @@
 					  </div>
 					  <div class="group flex items-center px-4 py-4 sm:px-6">
 						
-						<button @click="removeFromBookingsSelection({key, booking: b})" class=" rounded-full p-3 border-2 border-grey group-hover:bg-red-100 group-hover:border-red-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<button @click="removeFromBookingsSelection({key})" class=" rounded-full p-3 border-2 border-grey group-hover:bg-red-100 group-hover:border-red-100"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 							</svg></button>
 					  </div>
@@ -113,7 +113,7 @@ export default {
 	},
 			
 		getLocationById(id) {
-			const filteredLocations = this.locations[this.lang].filter(l => l.idInSheet == id)
+			const filteredLocations = this.locations[this.lang].filter(l => l.idInSheet === id)
 			return filteredLocations[0]
 		},
 		...mapActions(['removeFromBookingsSelection', 'createBooking']),
