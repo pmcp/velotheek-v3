@@ -73,9 +73,6 @@ import { mapActions } from 'vuex';
 			translations(){
 			  return this.$store.state.translations
 			},
-			translations(){
-			  return this.$store.state.translations
-			},
 			moments(){
 			  return this.$store.getters.moments
 			},

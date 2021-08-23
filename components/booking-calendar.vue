@@ -61,8 +61,7 @@ computed: {
 	  background: red;
 	  opacity: 0.3;
 	}
-	.vc-grid-container {
-	  
+
 	  .vc-header {
 	  color: #dadada;
 	  padding: 20px 15px 10px 15px;
@@ -92,14 +91,14 @@ computed: {
 	  margin: 8px 8px;
 	  color: rgba(0, 0, 0, 0.87);
 	  position: relative;
-	  &::selection {
-		color: white;
-	  }
-	
-	  }
 	}
-	
-	.dt__range__beginEnd {
+
+.vc-day-content::selection {
+  color: white;
+}
+
+
+.dt__range__beginEnd {
 	  background-color: rgb(238, 42, 123);
 	  color: white;
 	}
