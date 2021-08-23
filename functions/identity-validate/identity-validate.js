@@ -28,12 +28,10 @@ exports.handler = async function(event, context, callback) {
 	// If user exists, add roles
 	if(filteredUsers.length === 1) {
 		role = filteredUsers[0].role
-		
-			
 		  const responseBody = {
 			app_metadata: {
 			  // TODO: maybe not hardcoded?
-			  roles: role,
+			  roles: [role],
 			},
 			user_metadata: {
 			  ...user.user_metadata, // append current user metadata
