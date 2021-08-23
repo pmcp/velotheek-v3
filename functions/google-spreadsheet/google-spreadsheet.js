@@ -37,26 +37,26 @@ module.exports = {
       return temp
     })
   },
-  getRow: async rowId => {
-    const rows = await sheet.getRows()
-    const row = { ...rows[rowId], rowId: rowId }
-    return row
-  },
+  // getRow: async rowId => {
+  //   const rows = await sheet.getRows()
+  //   const row = { ...rows[rowId], rowId: rowId }
+  //   return row
+  // },
   addRow: async (sheet, data) => {
     return await sheet.addRow(data)
   },
   addRows: async (sheet, data) => {
     return await sheet.addRows(data)
   },
-  updateRow: async data => {
-    const rows = await sheet.getRows()
-    const { rowId } = data
-    const selectedRow = rows[rowId]
-    Object.entries(data).forEach(([k, v]) => {
-      selectedRow[k] = v
-    })
-    return await selectedRow.save()
-  },
+  // updateRow: async data => {
+  //   const rows = await sheet.getRows()
+  //   const { rowId } = data
+  //   const selectedRow = rows[rowId]
+  //   Object.entries(data).forEach(([k, v]) => {
+  //     selectedRow[k] = v
+  //   })
+  //   return await selectedRow.save()
+  // },
   deleteRow: async (sheet, rowId) => {
     const rows = await sheet.getRows()
     await rows[rowId].delete()
