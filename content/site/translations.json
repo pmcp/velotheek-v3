@@ -43,6 +43,10 @@
     {
       "fr": "Envoyé",
       "nl": "Verstuurd"
+    },
+    {
+      "fr": "Afficher les moments sélectionnés",
+      "nl": "Toon je geselecteerde momenten"
     }
   ]
 }
