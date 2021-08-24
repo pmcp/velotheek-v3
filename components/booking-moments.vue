@@ -1,13 +1,9 @@
 <template>
-	<div class="bg-blue-50">
+  <div>
 
+  <custom-transition :id="2">
+	<div v-if="activeDate != null" class="bg-blue-50 rounded-lg pt-4 relative -top-5">
 		<ul class="divide-y divide-gray-200 relative ">
-			<div v-if="activeDate == null" class="absolute p-8 top-0 left-0 h-full w-full flex items-center bg-white">
-				<div class="w-full text-center italic">
-					<translation :id="0"/>
-				</div>
-			</div>
-			
 			<li >
 				<div class="px-4 py-4 sm:px-6">
 					<h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -61,8 +57,11 @@
 
 			</li>
 		</ul>
-	
+</div>
+  </custom-transition>
+
 	</div>
+
 </template>
 
 

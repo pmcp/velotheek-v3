@@ -5,6 +5,7 @@
 		:value="activeDate"
 		@input="setActiveDate($event)"
 		:disabled-dates="disabledDates"
+    is-expanded
 		:attributes="calAttributes"
 		:min-date="new Date()"
 		show-caps

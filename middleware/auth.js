@@ -1,6 +1,8 @@
 export default function ({ route, store, redirect }) {
-	  if (!store.state.auth.user) {
-		// return redirect('/')
+	console.log('route', route)
+
+	  if (route.path !== '/' && !store.state.auth.user) {
+		return redirect('/')
 	  }
 
 	}

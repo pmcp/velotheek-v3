@@ -1,5 +1,5 @@
 <template>
-<div class="relative">
+<div class="relative px-3">
 	
 	<div class="w-full h-80 " >
 		<card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class=""  >

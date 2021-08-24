@@ -2,19 +2,16 @@
   <main class="flex flex-col">
 
    <locations class="my-5"/>
-     <div class="grid grid-cols-3 gap-4 pb-5 relative">
-       <location-content class="col-span-2" :content="location"/>
-       <section class="absolute -top-20 right-0 z-10 mr-10">
-         <card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class=""  >
-           <template v-slot:opened >
-             <!-- TODO: Remove border of v-calendar -->
-             <div class="bg-blue-50">
-             <booking-calendar/>
-             <booking-moments/>
-             </div>
-           </template>
-         </card>
-       </section>
+     <div class="flex relative">
+       <location-content class="w-3/5" :content="location"/>
+       <div class="px-6 w-2/5">
+         <div class="sticky top-20">
+           <div class="relative">
+          <booking-calendar class="z-20 "/>
+          <booking-moments class="z-10"/>
+           </div>
+         </div>
+       </div>
      </div>
   </main>
 </template>

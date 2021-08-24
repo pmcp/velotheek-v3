@@ -1,12 +1,7 @@
 <template>
-  <div class="w-full">
-    <transition enter-active-class="duration-200 ease-out"
-                enter-class="-translate-x-full opacity-0"
-                enter-to-class="translate-x-0 opacity-100"
-                leave-active-class="duration-200 ease-in"
-                leave-class="translate-x-0 opacity-100"
-                leave-to-class="-translate-x-full opacity-0">
-    <div v-if="open" class="bg-blue-100 border-gray-300 shadow rounded-t-lg overflow-hidden mx-2 max-h-128 overflow-y-auto">
+  <div class="w-full relative">
+    <custom-transition :id="1">
+    <div v-if="open" class="relative z-10 bg-blue-100 border-gray-300 shadow rounded-t-lg overflow-hidden mx-2 max-h-128 overflow-y-auto">
     <ul class="w-full divide-y divide-gray-200 " >
       <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class='"w-full'>
         <!-- TODO: Make component (cos also in bookings page) -->
@@ -88,13 +83,9 @@
       </li>
     </ul>
     </div>
-    </transition>
-    <div class="flex justify-between bg-blue-500 border-gray-300 shadow rounded-t-lg">
+    </custom-transition>
+    <div class="relative z-20 flex justify-between items-center bg-blue-500 border-gray-300 shadow rounded-t-lg ">
 
-      <h2 class="text-xl p-4 pl-8">
-        <translation :id="5" class="text-white"/>
-        <span class="text-base align-top text-white">({{ sessionBookings.length }})</span>
-      </h2>
 
 <!--      <div class="italic text-base font-bold">-->
 <!--        <translation :id="3" />-->
@@ -103,37 +94,45 @@
 <!--        <translation :id="4" />-->
 <!--      </div>-->
 
-      <button
-        v-if="!open"
-        class="m-4 underline text-white font-bold py-2 px-4 rounded"
-        @click="open = !open"
-      >
-        <translation :id="11" />
-
-
-      </button>
-
-
-      <button
-        v-else
-        class="m-4 underline text-white font-bold py-2 px-4 rounded"
-        @click="open = !open"
-      >
-        <translation :id="12" />
-
-
-      </button>
+      <div v-if="sessionBookings.length < 1 " class="text-white italic pl-8" >
+        <translation :id="13"/>
+      </div>
+      <div v-else>
 
         <button
-          class="m-4  bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
-          :class="{ 'opacity-50': !canSendBookingToDatabase }"
-          :disabled="!canSendBookingToDatabase"
-          @click="createBooking"
+          v-if="!open"
+          class="m-4 underline text-white font-bold pl-4"
+          @click="open = !open"
         >
-          <span v-if="activeStatus === 0"> <translation :id="6" /></span>
+          <translation :id="11" /> ({{ sessionBookings.length }})
 
-          <span v-else>{{ statusDescription }}</span>
+
         </button>
+
+
+        <button
+          v-else
+          class="m-4 underline text-white font-bold pl-4"
+          @click="open = !open"
+        >
+          <translation :id="12" /> ({{ sessionBookings.length }})
+
+
+        </button>
+
+
+      </div>
+      <button
+        class="m-4  bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
+        :class="{ 'opacity-50': !canSendBookingToDatabase }"
+        :disabled="!canSendBookingToDatabase"
+        @click="createBooking"
+      >
+        <span v-if="activeStatus === 0"> <translation :id="6" /></span>
+
+        <span v-else>{{ statusDescription }}</span>
+      </button>
+
     </div>
   </div>
 </template>
