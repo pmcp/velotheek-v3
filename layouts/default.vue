@@ -10,13 +10,9 @@
     <!-- <Header class="w-full max-w-7xl mx-auto "/> -->
     <div>
       <nuxt class="mb-40" />
-      <div v-if="sessionBookings.length > 0 " class=" bottom-0 w-full pb-8 ">
-        <div class=" flex items-center relative">
-          <card position="bottom" class="w-full" open open-text="Close" close-text="Open" open-class="" close-class="">
-            <template v-slot:opened>
-              <bookings-session />
-            </template>
-          </card>
+      <div v-if="sessionBookings.length > 0 " class="sticky bottom-0 w-full z-50">
+        <div class=" flex items-center relative w-full">
+          <bookings-session />
         </div>
       </div>
     </div>
