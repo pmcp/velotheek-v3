@@ -47,6 +47,10 @@
     {
       "fr": "Afficher les moments sélectionnés",
       "nl": "Toon je geselecteerde momenten"
+    },
+    {
+      "fr": "Masquer les moments sélectionnés",
+      "nl": "Verberg je geselecteerde momenten"
     }
   ]
 }
