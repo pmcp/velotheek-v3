@@ -51,6 +51,10 @@
     {
       "fr": "Masquer les moments sélectionnés",
       "nl": "Verberg je geselecteerde momenten"
+    },
+    {
+      "fr": "Vous n'avez ajouté aucune moment",
+      "nl": "Je hebt nog geen moment toegevoegd"
     }
   ]
 }
