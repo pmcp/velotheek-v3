@@ -1,5 +1,5 @@
 ---
-title: Welkom op de velotheek
+title: Welkom bij de velotheek
 Image: /img/christin-hume-zbuh21c9ark-unsplash.jpg
 intro: Of large, gas dryers and redolent spice the rich bourgeois. Sweet apple
   Pie Spice Trade Association units there’s a method of. Given many of the same
