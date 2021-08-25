@@ -6,11 +6,6 @@
 	
 	  <div class="mt-6">
 		<content-wrapper :content="content" />
-      <content-wrapper :content="content" />
-      <content-wrapper :content="content" />
-      <content-wrapper :content="content" />
-      <content-wrapper :content="content" />
-      <content-wrapper :content="content" />
 	  </div>
 	</section>
 </template>

@@ -2,6 +2,7 @@ const postcssPresetEnv = require('postcss-preset-env')
 const postcssEasingGradients = require('postcss-easing-gradients')
 const SITE_INFO = require('./content/site/info.json')
 const COLOR_MODE_FALLBACK = require('./utils/globals.js')
+const { $content } = require('@nuxt/content')
 
 
 
@@ -13,15 +14,27 @@ module.exports = {
     crawler: false,
     async routes () {
       const { $content } = require('@nuxt/content')
-      const files = await $content('locations').fetch()
-      const generatedRoutes = files.map((file) => {
-      return {
+      const locations = await $content('locations').fetch()
+      const generatedLocations = locations.map((file) => {
+        return {
           route: `/locations/${file.slug}`,
           payload: file,
-      };
-    });
+        };
 
-      return generatedRoutes
+
+      });
+
+      const pages = await $content('pages').fetch()
+      const generatedPages = pages.map((file) => {
+        console.log(file.slug)
+        return {
+          route: `/${file.slug}`,
+          payload: file,
+        };
+
+
+      })
+      return [...generatedLocations, ...generatedPages]
     }
   },
 

@@ -15,7 +15,6 @@
     <custom-transition :id="1">
     <div v-if="user" class="sticky bottom-0 w-full z-10">
 
-
       <div class=" flex items-center relative w-full">
         <bookings-session />
       </div>

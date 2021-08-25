@@ -4,14 +4,14 @@
 		<ClientOnly>
 
     <template v-if="user">
-		<nuxt-link to="/locations">
+		<nuxt-link :to="`/locations/4saisons.${lang}`">
 			<translation :id="6" class="underline hover:text-blue-500 mr-5" />
 		</nuxt-link>
     </template>
 		<!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration -->
 
 		<template v-if="user">
-			<nuxt-link  to="/bookings" class="mr-5 underline hover:text-blue-500">
+			<nuxt-link  :to="`/bookings.${lang}`" class="mr-5 underline hover:text-blue-500">
 				<translation :id="7" /> ({{userBookings}})
 			</nuxt-link>
 		</template>
@@ -26,6 +26,9 @@
 	export default {
 
 	  computed: {
+      lang(){
+        return this.$store.state.lang
+      },
       userBookings(){
         if(this.$store.getters.userBookings)
           return this.$store.getters.userBookings.length
