@@ -45,12 +45,6 @@ methods: {
   ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations','getBookings' ]),
 },
 mounted(){
-  // if (process.client) {
-  //   this.getLocations()
-  //   this.getTranslations() 
-  //   this.getBookings()   
-  // }
-  // 
   this.setLocation(this.location.idInSheet)
 },
 

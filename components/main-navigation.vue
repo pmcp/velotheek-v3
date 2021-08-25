@@ -1,21 +1,19 @@
 <template>	
 	<div class="flex justify-center flex-row items-center">
 		<!-- TODO: Problems with hydration, so made it client only. Makes no sense. -->
-		<ClientOnly>
 
-    <template v-if="user">
+    <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
+
 		<nuxt-link :to="`/locations/4saisons.${lang}`">
-			<translation :id="6" class="underline hover:text-blue-500 mr-5" />
+			<translation :id="6" class="underline hover:text-blue-500 mr-5" :class="{'hidden': !user }"/>
 		</nuxt-link>
-    </template>
-		<!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration -->
 
-		<template v-if="user">
-			<nuxt-link  :to="`/bookings.${lang}`" class="mr-5 underline hover:text-blue-500">
+		  <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
+			<nuxt-link  :to="`/bookings.${lang}`" class="mr-5 underline hover:text-blue-500" :class="{'hidden': !user }">
 				<translation :id="7" /> ({{userBookings}})
 			</nuxt-link>
-		</template>
-		</ClientOnly>
+
+
 	
 	</div>
 </template>

@@ -5,11 +5,17 @@
 
 <script>
 export default {
-  mounted () {
-    console.log('here')
-    const path = '/homepage.' + this.$store.state.lang
-    console.log('path', path)
-    this.$router.push(path)
-  }
+  created () {
+    // let path = '/homepage.' + this.$store.state.lang
+    // if(this.$store.state.lang) {
+    //   this.$router.push('/homepage.' + this.$store.state.lang)
+    // } else {
+    //   this.$router.push('/homepage.nl')
+    // }
+
+    // this.$router.push(path)
+
+  },
+
 }
 </script>
