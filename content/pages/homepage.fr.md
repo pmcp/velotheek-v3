@@ -6,6 +6,6 @@ intro: >-
   auprès de Véronique Gallet (vgallet@stgilles.brussels)
 
 
-  School est subsidié par la Commune de St Gilles, Bruxelles mobilité et la fondation roi Baudouin.
+  School Velotek est subsidié par la Commune de St Gilles, Bruxelles mobilité et la fondation roi Baudouin.
 image: /img/img_0541.jpg
 ---
