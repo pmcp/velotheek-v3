@@ -1,11 +1,7 @@
 ---
-title: Bienvenue à la School Velotek
-intro: >-
-  School Velotek est un projet qui permet aux professeurs des écoles d'avoir
-  accès à une flotte de vélos. Pour vous inscrire, veuillez faire votre demande
-  auprès de Véronique Gallet (vgallet@stgilles.brussels)
-
-
-  School Velotek est subsidié par la Commune de St Gilles, Bruxelles mobilité et la fondation roi Baudouin.
+title: Bienvenue chez School Velotek
+intro: School Velotek est un projet qui permet aux professeurs des écoles de
+  St-Gilles d'avoir accès à une flotte de vélos. Pour vous inscrire, veuillez
+  faire votre demande auprès de Véronique Gallet (vgallet@stgilles.brussels)
 image: /img/img_0541.jpg
 ---
