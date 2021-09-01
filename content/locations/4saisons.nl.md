@@ -1,7 +1,7 @@
 ---
 title: 4 Saisons
 idInSheet: 4saisons
-location: '{"type":"Point","coordinates":[4.3463856,50.8275243]}'
+location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
 info: >
   Op de dag van uw reservatie, belt u aan bij het secretariaat van de school
   Peter Pan (Retoricastraat 13). Gelieve uzelf te identificeren en te melden dat
