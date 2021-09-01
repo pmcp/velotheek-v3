@@ -2,33 +2,13 @@
 title: 4 Saisons
 idInSheet: 4saisons
 location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
-info: Le jour de la réservation vous devrez sonner au secrétariat de l’école
-  Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner votre
-  identité et le fait que vous venez pour la Vélotheek. La porte vous sera
-  ouverte. Les clefs de la Vélotheek se trouvent dans une boîte à clef situé
-  dans le hall d'entrée de l'école à gauche de la porte d'entrée en entrant. Le
-  code d’accès est le 1060. Merci de bien faire attention de ne pas divulguer le
-  code et de brouiller le code sur la boîte à clef. Les vélos sont stockés dans
-  un local dont l’accès se fait deux portes plus à droite que l’entrée
-  principale de l’école Peter Pan derrière une porte métallique blanche. Les
-  vélos se trouvent au fond du couloir. Une fois que vous aurez pris les vélos
-  que vous désirez, vous sortirez sur le trottoir en n’oubliant pas d'éteindre
-  la lumière et de fermer la porte à clef derrière vous. Vous garderez les clefs
-  pendant votre formation. Une fois votre formation terminée, remettez les vélos
-  dans la Vélotheek et le matériel à sa place. Eteignez les lumières et fermez à
-  clef la porte en sortant ! Vous sonnerez ensuite à nouveau à la sonnette du
-  secrétariat de l’école Peter pan pour remettre la clef dans la boîte à clef
-  pour les prochains utilisateurs en oubliant pas de brouiller le code. Si vous
-  avez des questions veuillez contacter Véronique Gallet
-  (vgallet@stgilles.brussels, 0488/878623). Merci !
+info: ""
 street: Place Bethléem 10
 zip: 1060
 city: Saint-Gilles
 ---
-Le jour de votre réservation, vous devrez sonner au secrétariat de l’école Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner votre identité et le fait que vous venez pour la Vélotheek. La porte vous sera ouverte. Les clefs de la Vélotheek se trouvent dans une boîte à clef situé dans le hall d'entrée de l'école à gauche de la porte d'entrée en entrant.
+Le jour de votre réservation, vous devrez sonner au secrétariat de l’école 4 saisons (10 place Bethléem 1060 St Gilles). Veuillez décliner votre identité et le fait que vous venez pour la Vélotheek. Vous irez chercher les clefs de la Vélotheek au secrétariat de l’école, ressortirez de l’école pour vous diriger un peu plus bas sur la rue du Danemark. La porte donnant accès à la Vélotheek se trouve sur la rue du Danemark deux portes plus bas que l’entrée de l’école. On peut lire au dessus de celle-ci: “Cité des jeunes”. 
 
-***Le code de la boîte à clef vous sera envoyé lors du rappel de votre réservation 2 jours avant celle-ci.*** ***Le code de sécurité sera changé régulièrement afin de garantir un maximum de sécurité.*** Merci de bien faire attention de ne pas divulguer le code et de le brouiller sur la boîte à clef. 
+Les vélos sont stockés dans un local sur la gauche environ 20 mètres plus loin dans le couloir. Un panneau Vélotheek sur la porte indique que vous êtes bien au bon endroit. L'interrupteur de la lumière du local se situe sur la gauche 2 m après la porte. N’oubliez pas en sortant de bien éteindre la lumière du local et de fermer à clefs la porte du local ainsi que la porte donnant sur la rue. Vous remettrez ensuite les clefs au secrétariat avant de faire votre formation.
 
-Les vélos sont stockés dans un local dont l’accès se fait deux portes plus à droite que l’entrée principale de l’école Peter Pan ***(9 rue de la Rhétorique 1060 St Gilles, porte métallique blanche)***. Les vélos se trouvent au fond du couloir. Une fois que vous aurez pris les vélos que vous désirez, vous sortirez sur le trottoir en n’oubliant pas d'éteindre la lumière et de fermer la porte à clef derrière vous. ***Vous pouvez garder les clefs pendant votre formation.***
-
-Une fois votre formation terminée, remettez les vélos dans la Vélotheek et le matériel à sa place. Éteignez les lumières et fermez à clef la porte en sortant ! Vous sonnerez ensuite à nouveau à la sonnette du secrétariat de l’école Peter pan pour remettre la clef dans la boîte à clef pour les prochains utilisateurs en oubliant pas de brouiller le code. Si vous avez des questions veuillez contacter Véronique Gallet (vgallet@stgilles.brussels, 0488/878623). Merci !
+Pour remettre les vélos, vous sonnerez à nouveau au secrétariat de l’école pour chercher les clefs qui vous permettront de remettre les vélos. Une fois les vélos et le matériel remis, n’oubliez pas de bien éteindre la lumière du local et de fermer à clefs la porte du local ainsi que la porte donnant sur la rue. Vous remettrez ensuite les clefs au secrétariat.
