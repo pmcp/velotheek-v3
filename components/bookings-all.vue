@@ -1,9 +1,9 @@
 <template>
-	<div >
+	<div class="mb-20" >
 		<card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class="">
 			  <template v-slot:opened >
-				  <chart-line :bookings="bookings" />
-				  <ul  class="divide-y divide-gray-200">
+<!--				  <chart-line :bookings="bookings" />-->
+				  <ul  class="divide-y divide-gray-200 ">
 					  <li v-for="(b, key) in bookings" :key="`${key}-bookings`">
 		  
 						  <!-- TODO: Make component (cos also in session page -->
@@ -20,9 +20,9 @@
 									  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2"  style="margin-top:.1rem"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
 										  </svg>
-										  
+
 										  <p class="text-sm text-gray-500">
-											  
+
 											  <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
 											  <span class="block">{{ moments[b.moment].descr[lang] }}</span>
 											  </p>
