@@ -1,7 +1,7 @@
 ---
 title: Home
 intro: |-
-  Bienvenue\
+  Bienvenue
   chez School Vélotek
 image: /img/img_0541.jpg
 ---
