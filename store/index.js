@@ -3,6 +3,11 @@
 
 export const state = () => ({
   lang: 'nl',
+  moments: [
+    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: {nl: 'Van 8u tot 12u', fr: 'de 8h a 12h'}, available: true },
+    { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
+    { name: { nl: 'Hele dag', fr: 'Toute la journée' }, descr: {nl: 'Van 9u tot 18u', fr: 'de 9h a 18h'}, available: true }
+  ],
   translations: null,
   bookings: [],
   sessionBookings: [],
@@ -238,7 +243,10 @@ async getLocations({ commit }) {
 
     const body = {
       bookings: state.sessionBookings,
-      sheet: 'reservations'
+      sheet: 'reservations',
+      settings: {
+        moments: state.moments
+      }
     }
     
     // Send to netlify function
@@ -309,13 +317,10 @@ export const getters = {
   },
   
   moments: (state, getters) => {
-    // TODO: move to state
-    const moments = [
-      { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: {nl: 'Van 8u tot 12u', fr: 'de 8h a 12h'}, available: true },
-      { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
-      { name: { nl: 'Hele dag', fr: 'Toute la journée' }, descr: {nl: 'Van 9u tot 18u', fr: 'de 9h a 18h'}, available: true }
-    ]
-    
+    // Don't know why, but my spread operator was still returning a "do not mutate vuex store state outside mutation handlers" error.
+    // So changed it to parse/stringify
+    const moments = JSON.parse(JSON.stringify(state.moments));
+
     if (state.activeDate === null) return moments;
     
     const datesAreOnSameDay = (first, second) => {
@@ -325,14 +330,12 @@ export const getters = {
     }
     
     // Filter out only bookings of this day
-    console.log('getters.combinedBookings', getters.combinedBookings)
     const bookingsForActiveDate = getters.combinedBookings.filter(function(value) {
       return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
     });
 
     // Filter out bookings for this location
     const filteredBookings = bookingsForActiveDate.filter(function(value) {
-      console.log('activeLocationId', state.activeLocationId)
       return (state.activeLocationId === value.location)
     });
 

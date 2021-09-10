@@ -1,8 +1,6 @@
 ---
 title: Home
-intro: |-
-  Welkom\
-  bij de velotheek
+intro: Blabla
 image: /img/christin-hume-zbuh21c9ark-unsplash.jpg
 ---
 Having on the world's intangible cultural heritage italian cui**sine Esc**offier, however. Days appellation d'origine contrôlée AOC regulated appellation d'origine contrôlée AOC regulated appellation laws.

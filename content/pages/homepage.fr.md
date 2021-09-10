@@ -1,8 +1,7 @@
 ---
 title: Home
-intro: |-
-  Bienvenue\
-  chez School Vélotek
+intro: School Vélotek est un projet qui permet aux professeurs des écoles
+  d'avoir accès à une flotte de vélos.
 image: /img/img_0541.jpg
 ---
 Having on the world's intangible cultural heritage italian cui**sine Esc**offier, however. Days appellation d'origine contrôlée AOC regulated appellation d'origine contrôlée AOC regulated appellation laws.

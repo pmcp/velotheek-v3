@@ -17,10 +17,14 @@
           >
             <span class="block xl:inline">{{ content.title }}</span>
           </h1>
-          <p class="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-            {{ content.intro }}
-          </p>
-          <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+          <div class="prose prose-indigo prose-lg text-gray-500 mx-auto">
+            <nuxt-content :document="content" />
+          </div>
+
+<!--          <p class="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">-->
+<!--            {{ content.body }}-->
+<!--          </p>-->
+          <div class="mt-10 sm:flex sm:justify-center lg:justify-start" v-if="user">
             <div class="rounded-md shadow">
               <nuxt-link
                 :to="`/locations/4saisons.${lang}`"
@@ -55,12 +59,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   // TODO: Check all heads
   computed: {
     lang() {
       return this.$store.state.lang
     },
+    ...mapGetters({
+      user: 'auth/user'
+    }),
   },
   async asyncData({ $content, params, error, payload }) {
     if (payload) {

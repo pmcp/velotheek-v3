@@ -4,9 +4,9 @@ if (!process.env.NETLIFY) {
 	  // if in CI i expect its already set via the Netlify UI
 	  require('dotenv').config()
 	}
-
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
-	
+	const {format} = require('date-fns');
+
 	exports.handler = async function(event, context) {
 	  const data = JSON.parse(event.body)
 	  const sheet = await sheetAPI.getSheet(data.sheet)

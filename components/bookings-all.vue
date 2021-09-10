@@ -2,7 +2,6 @@
 	<div class="mb-20" >
 		<card position="bottom" class="w-full h-full" open open-text="Close" close-text="Open" open-class="" close-class="">
 			  <template v-slot:opened >
-<!--				  <chart-line :bookings="bookings" />-->
 				  <ul  class="divide-y divide-gray-200 ">
 					  <li v-for="(b, key) in bookings" :key="`${key}-bookings`">
 		  
@@ -22,7 +21,6 @@
 										  </svg>
 
 										  <p class="text-sm text-gray-500">
-
 											  <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
 											  <span class="block">{{ moments[b.moment].descr[lang] }}</span>
 											  </p>
