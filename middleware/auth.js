@@ -4,7 +4,7 @@ export default function ({ route, store, redirect }) {
 	if (route.path === '/') {
 		return redirect(safeRoute)
 	} else {
-		if (!store.state.auth.user && route.path !== safeRoute ) {
+		if (!store.state.auth.user && ( route.path.includes("locations") || route.path.includes("bookings"))) {
 			return redirect(safeRoute)
 		}
 	}
