@@ -83,7 +83,7 @@ collections:
     #   preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true, i18n: true }
-      - { label: 'Intro', name: 'intro', widget: 'markdown', required: true, i18n: true }
+      - { label: 'Intro', name: 'intro', widget: 'text', required: true, i18n: true }
       - { label: 'Content', name: 'body', widget: 'markdown', required: true, i18n: true }
       - label: "Featured Image"
         name: "image"
