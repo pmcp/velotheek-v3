@@ -1,11 +1,10 @@
 # DOING
-- "reserveren" → omzetten naar  "Nouvelle reservation" (en aanpasbaar in admin)
+- Pagina flow (in admin + pagina maken + in menu)
 
 # TODO
 - Change site lang on change lang
 - Logo's toevoegen voor homepage
 - Indien ingelogd, meteen naar reserveren
-- Pagina flow (in admin + pagina maken + in menu)
 - Nav kleurrijk maken
 - Algemeen design flow (op basis van design cedric)
 - Kaart: kleiner maken

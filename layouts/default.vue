@@ -10,15 +10,9 @@
 
     <nuxt class="min-h-screen" />
 
-<!--            <custom-transition :id="1">-->
-              <div class="sticky bottom-0 w-full z-10" :class="{'hidden': !user }">
-                <div class="flex items-center relative w-full">
-                  <bookings-session />
-                </div>
-              </div>
 
 
-<!--            </custom-transition>-->
+
   </div>
 </template>
 
@@ -31,9 +25,6 @@ export default {
       return this.$store.state.sessionBookings
     },
 
-    ...mapGetters({
-      user: 'auth/user',
-    }),
   },
   methods: {
     ...mapActions(['getLocations', 'getTranslations', 'getBookings']),

@@ -86,6 +86,7 @@ collections:
       - { label: 'Intro', name: 'intro', widget: 'text', required: true, i18n: true }
       - { label: 'Content', name: 'body', widget: 'markdown', required: true, i18n: true }
       - label: "Featured Image"
+        required: false
         name: "image"
         widget: "image"
         choose_url: true

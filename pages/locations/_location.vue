@@ -1,5 +1,6 @@
 <template>
-  <main class="flex flex-col">
+  <div class="">
+  <main class="flex flex-col min-h-screen">
 
    <locations class="my-5"/>
      <div class="flex relative">
@@ -13,11 +14,18 @@
          </div>
        </div>
      </div>
+
   </main>
+    <div class="sticky bottom-0 w-full z-10" :class="{'hidden': !user }">
+      <div class="flex items-center relative w-full">
+        <bookings-session />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
 head: {
@@ -37,6 +45,10 @@ computed: {
 locations() {
   return this.$store.getters.localisedLocations
 },
+
+  ...mapGetters({
+    user: 'auth/user',
+  }),
 activeLocationId(){
 return this.$store.state.activeLocationId
 }

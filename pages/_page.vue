@@ -1,5 +1,7 @@
 <template>
   <main class="relative bg-gray-50">
+
+    <template v-if="content.title === 'Home'">
     <div class="lg:relative">
       <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
         <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
@@ -17,7 +19,7 @@
             "
           >
 
-          <span class="block xl:inline whitespace-pre ">{{ content.intro }}</span>
+          <span class="block xl:inline">{{ content.intro }}</span>
           </h1>
           <div class="prose prose-indigo prose-lg text-gray-500 mx-auto">
             <nuxt-content class="prose lg:prose-xl" :document="content" />
@@ -57,6 +59,34 @@
         <img class="absolute inset-0 w-full h-full object-cover" :src="content.image" alt="" />
       </div>
     </div>
+    </template>
+    <template v-else>
+
+      <div class="text-base max-w-prose mx-auto pt-10">
+      <h1
+        class="
+              py-5
+              text-4xl
+              tracking-tight
+              font-extrabold
+              text-gray-900
+              sm:text-5xl
+              md:text-6xl
+              lg:text-5xl
+              xl:text-6xl
+              mb-10
+            "
+      >
+
+        <span class="block xl:inline whitespace-pre ">{{ content.title }}</span>
+      </h1>
+
+
+            <nuxt-content :document="content" />
+          </div>
+
+
+    </template>
   </main>
 </template>
 
