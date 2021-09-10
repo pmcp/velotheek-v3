@@ -55,6 +55,10 @@
     {
       "fr": "Vous n'avez ajouté aucune période",
       "nl": "Je hebt nog geen moment toegevoegd"
+    },
+    {
+      "fr": "Nouvelle reservation",
+      "nl": "Nieuwe reservatie"
     }
   ]
 }

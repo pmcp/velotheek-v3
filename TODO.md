@@ -1,11 +1,10 @@
 # DOING
-- Titel homepage veranderen naar rich text zodat er een enter mogelijk is
+- "reserveren" → omzetten naar  "Nouvelle reservation" (en aanpasbaar in admin)
 
 # TODO
 - Change site lang on change lang
 - Logo's toevoegen voor homepage
 - Indien ingelogd, meteen naar reserveren
-- "reserveren" → omzetten naar  "Nouvelle reservation" (en aanpasbaar in admin)
 - Pagina flow (in admin + pagina maken + in menu)
 - Nav kleurrijk maken
 - Algemeen design flow (op basis van design cedric)

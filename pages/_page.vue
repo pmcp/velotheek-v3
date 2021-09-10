@@ -13,10 +13,11 @@
               md:text-6xl
               lg:text-5xl
               xl:text-6xl
+              mb-10
             "
           >
 
-          <span class="block xl:inline whitespace-pre">{{ content.intro }}</span>
+          <span class="block xl:inline whitespace-pre ">{{ content.intro }}</span>
           </h1>
           <div class="prose prose-indigo prose-lg text-gray-500 mx-auto">
             <nuxt-content class="prose lg:prose-xl" :document="content" />
@@ -46,7 +47,7 @@
                   md:py-4 md:text-lg md:px-10
                 "
               >
-                <translation :id="6" class="" />
+                <translation :id="14" class="" />
               </nuxt-link>
             </div>
           </div>

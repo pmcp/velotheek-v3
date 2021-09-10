@@ -5,7 +5,7 @@
     <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
 
 		<nuxt-link :to="`/locations/4saisons.${lang}`">
-			<translation :id="6" class="underline hover:text-blue-500 mr-5" :class="{'hidden': !user }"/>
+			<translation :id=14 class="underline hover:text-blue-500 mr-5" :class="{'hidden': !user }"/>
 		</nuxt-link>
 
 		  <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
