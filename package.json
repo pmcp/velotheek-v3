@@ -19,6 +19,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@braid/vue-formulate": "^2.5.2",
     "@mapbox/mapbox-gl-geocoder": "^4.7.2",
     "@nuxt/content": "^1.14.0",
     "@tailwindcss/typography": "^0.4.1",

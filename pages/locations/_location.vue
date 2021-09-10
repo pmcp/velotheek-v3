@@ -8,13 +8,26 @@
        <div class="px-6 w-2/5">
          <div class="sticky top-20">
            <div class="relative">
+             <FormulateInput
+               :options="grades"
+               type="select"
+               placeholder="Selecteer"
+               v-model="activeGrade"
+               @input="setActiveGrade"
+             >
+               <template #label="{ id }">
+                 <div class="pb-2">
+                   <span class="font-semibold"><translation :id="15" />: </span>
+                 </div>
+               </template>
+             </FormulateInput>
           <booking-calendar class="z-20 "/>
+
           <booking-moments class="z-10"/>
            </div>
          </div>
        </div>
      </div>
-
   </main>
     <div class="sticky bottom-0 w-full z-10" :class="{'hidden': !user }">
       <div class="flex items-center relative w-full">
@@ -41,6 +54,11 @@ async asyncData({  $content, params, error, payload }) {
     return {location: location}
   }
 },
+  data() {
+    return {
+      activeGrade: null
+    }
+  },
 computed: {
 locations() {
   return this.$store.getters.localisedLocations
@@ -48,13 +66,14 @@ locations() {
 
   ...mapGetters({
     user: 'auth/user',
+    grades: 'gradesForUser'
   }),
 activeLocationId(){
 return this.$store.state.activeLocationId
 }
 },
 methods: {
-  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations','getBookings' ]),
+  ...mapActions(['setLocation', 'setActiveDate', 'addBookingToSelection', 'getLocations', 'getTranslations','getBookings', 'setActiveGrade' ]),
 },
 mounted(){
   this.setLocation(this.location.idInSheet)

@@ -8,7 +8,22 @@ export const state = () => ({
     { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
     { name: { nl: 'Hele dag', fr: 'Toute la journée' }, descr: {nl: 'Van 9u tot 18u', fr: 'de 9h a 18h'}, available: true }
   ],
+  grades: [
+    { name: { nl: 'Eerste Leerjaar', fr: 'Première année' }},
+    { name: { nl: 'Tweede Leerjaar', fr: 'Deuxième année' }},
+    { name: { nl: 'Derde Leerjaar', fr: 'Troisième année' }},
+    { name: { nl: 'Vierde Leerjaar', fr: 'Quatrième année' }},
+    { name: { nl: 'Vijfde Leerjaar', fr: 'Cinquième année' }},
+    { name: { nl: 'Zesde Leerjaar', fr: 'Sixième année' }},
+    { name: { nl: 'Eerste Middelbaar', fr: 'Premier lycée' }},
+    { name: { nl: 'Tweede Middelbaar', fr: 'Deuxième lycée' }},
+    { name: { nl: 'Derde Middelbaar', fr: 'Troisième lycée' }},
+    { name: { nl: 'Vierde Middelbaar', fr: 'Quatrième lycée' }},
+    { name: { nl: 'Vijfde Middelbaar', fr: 'Cinquième lycée' }},
+    { name: { nl: 'Zesde Middelbaar', fr: 'Sixième lycée' }},
+  ],
   translations: null,
+  activeGrade: null,
   bookings: [],
   sessionBookings: [],
   siteInfo: {},
@@ -88,6 +103,9 @@ export const mutations = {
   },
   setActiveStatus(state, val) {
     state.activeStatus = val
+  },
+  setActiveGrade(state, val) {
+    state.activeGrade = val
   },
   removeFromBookingsSelection(state, key) {
     const filteredBookings = state.sessionBookings.filter(function(value, index) {
@@ -194,8 +212,10 @@ async getLocations({ commit }) {
     commit('setActiveDate', date)
   },
 
+  setActiveGrade({ state, commit }, val) {
+    commit('setActiveGrade', val)
+  },
 
-  
   selectMoment({ state, commit, dispatch }, moment) {
     console.log('selecting moment', moment)
     commit('setActiveMoment', moment)
@@ -205,6 +225,7 @@ async getLocations({ commit }) {
   addBookingToSelection({ state, commit }) {
     const moment = state.activeMoment
     const date = state.activeDate
+    const grade = state.activeGrade
     // find location in active location and add details for mail
     // const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
     
@@ -215,7 +236,8 @@ async getLocations({ commit }) {
       location: state.activeLocationId,
       language: state.lang,
       email: state.auth.user.email,
-      name: state.auth.user.username
+      name: state.auth.user.username,
+      grade: grade
     }
     
     commit('addToBookingsSelection', booking)
@@ -474,6 +496,13 @@ export const getters = {
 
     const translationId = state.status[state.activeStatus].translationId
     return state.translations[translationId][state.lang];
+  },
+
+  gradesForUser: state => {
+    return state.grades.map(g => {
+      return g.name[state.lang]
+
+    })
   },
   
   userBookings: (state) => {
