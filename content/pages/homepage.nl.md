@@ -1,6 +1,5 @@
 ---
 title: Welkom bij de velotheek
-Image: /img/christin-hume-zbuh21c9ark-unsplash.jpg
 intro: Blabla
 image: /img/christin-hume-zbuh21c9ark-unsplash.jpg
 ---
