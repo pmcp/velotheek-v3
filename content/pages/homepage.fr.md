@@ -5,4 +5,7 @@ intro: |-
   chez School Vélotek
 image: /img/img_0541.jpg
 ---
+# Bienvenue\
+chez School Vélotek
+
 School Vélotek est un projet qui permet aux professeurs des écoles d'avoir accès à une flotte de vélos.
