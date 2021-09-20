@@ -2,6 +2,7 @@
 
 # TODO
 - Change lang for vue formulate
+- Disable button for send when sending
 - Check form before continuing
 - Change site lang on change lang
 - Logo's toevoegen voor homepage
