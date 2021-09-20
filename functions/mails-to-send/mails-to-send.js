@@ -10,11 +10,12 @@ const {format} = require('date-fns');
 exports.handler = async function(event, context) {
   const data = JSON.parse(event.body)
   console.log('here', data)
-  // const sheet = await sheetAPI.getSheet(data.sheet)
-  // const rows = await sheetAPI.getRows(sheet)
+
+  const sheet = await sheetAPI.getSheet('reservations')
+  const rows = await sheetAPI.getRows(sheet)
 
   return {
     statusCode: 200,
-    body: JSON.stringify('done')
+    body: JSON.stringify(rows)
   }
 }
