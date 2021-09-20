@@ -21,6 +21,7 @@ const emailFn = {}
 
 
 emailFn.sendEmail = function ({ copy: copy, to: to, replyTo: replyTo, subject: subject }) {
+  console.log({ copy }, { to }, { replyTo }, { subject })
   return new Promise(resolve => {
     const data = {
       from: replyTo,

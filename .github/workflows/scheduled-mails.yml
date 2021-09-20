@@ -1,0 +1,13 @@
+name: Check for mails to be send
+
+on:
+  schedule:
+    # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    - cron: '55 * * * *'
+jobs:
+  build:
+    name: Trigger Mail Actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: curl -X POST -d {} https://tender-ardinghelli-7a28d1.netlify.app/.netlify/functions/mails-to-send

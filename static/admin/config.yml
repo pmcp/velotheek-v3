@@ -54,6 +54,20 @@ collections:
             fields:
               - {label: FR, name: fr, widget: string}
               - {label: NL, name: nl, widget: string}
+      - label: 'Emails'
+        name: 'emails'
+        file: 'functions/check-bookings/emails.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - label: "Emails"
+            name: "Emails"
+            widget: "list"
+            summary: '{{fields.fr}} - {{fields.nl}}'
+            fields:
+              - { label: FR, name: fr, widget: text }
+              - { label: NL, name: nl, widget: text }
   - name: 'locations'
     i18n: true
     label: 'Locations'

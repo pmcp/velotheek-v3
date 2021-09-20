@@ -17,7 +17,6 @@ export default {
     IconLight,
     IconDark
   },
-  
   watch: {
     '$colorMode.value': {
       immediate: true,
@@ -33,6 +32,7 @@ export default {
       }
     }
   },
+
   methods: {
     changeColorMode() {
       if (this.$colorMode.unknown) return (this.$colorMode.preference = COLOR_MODE_FALLBACK)

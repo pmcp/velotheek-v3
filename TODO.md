@@ -2,6 +2,7 @@
 
 # TODO
 - Change lang for vue formulate
+- Check form before continuing
 - Change site lang on change lang
 - Logo's toevoegen voor homepage
 - Indien ingelogd, meteen naar reserveren
