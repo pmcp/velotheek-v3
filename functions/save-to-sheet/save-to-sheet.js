@@ -26,20 +26,24 @@ exports.handler = async function (event, context) {
     const confirmationSend = false
     const confirmationDate = format(new Date(), 'yyyy/MM/dd')
 
-		const reminderDate = add(new Date(b.date), { days: 2 })
+    const reminderDate = add(new Date(b.date), { days: 2 })
 
     // If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
     let reminderSend = false
-    if(isEqual(add(new Date(b.date), { days: 2 }), new Date())) reminderSend = true
+    if (isEqual(add(new Date(b.date), { days: 2 }), new Date())) reminderSend = true
 
     return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate }
   })
+  const addedRows = await sheetAPI.addRows(sheet, updatedBookings)
 
-  const rows = await sheetAPI.addRows(sheet, updatedBookings)
+  // After adding, check for mails to be send
+  // First get the rows again
+  const rows = await sheetAPI.getRows(sheet)
+  // Filter out the one where confirmation hasn't been send
+  const rowsNotConfirmed = rows.filter((r) => r.confirmationSend == 'FALSE')
+  console.log({ rowsNotConfirmed })
 
-  // Send email when added
-  const unresolved = rows.map(async (b) => {
-		console.log('row', b)
+  const unresolved = rowsNotConfirmed.map(async (b) => {
     const copy = {
       nl: `Je maakte een nieuwe reservatie aan: ${b.date}, ${b.momentReadable}`,
       fr: `Vous avez effectué une nouvelle réservation: ${b.date}, ${b.momentReadable}`,
@@ -57,12 +61,11 @@ exports.handler = async function (event, context) {
         subject: subject[b.language],
       })
 
-      //	Set sheet as "send"
-			const updatedRow = { ...b, confirmationSend: true}
-			await sheetAPI.updateRow(sheet, updatedRow)
+      const updatedRow = { ...b, confirmationSend: true }
+      await sheetAPI.updateRow(sheet, updatedRow)
     } catch (error) {
       console.error('there was an error', error)
-			// const updatedRow = { ...b, confirmationSend: 'error'}
+      const updatedRow = { ...b, confirmationSend: 'error'}
       process.exit(1)
     }
     return
