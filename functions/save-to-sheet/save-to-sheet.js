@@ -30,8 +30,7 @@ exports.handler = async function (event, context) {
 
     // If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
     let reminderSend = false
-    If(isEqual(add(new Date(b.date), { days: 2 }), new Date()))
-      reminderSend = true
+    if(isEqual(add(new Date(b.date), { days: 2 }), new Date())) reminderSend = true
 
     return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate }
   })
