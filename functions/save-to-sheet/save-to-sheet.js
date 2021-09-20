@@ -6,7 +6,7 @@ if (!process.env.NETLIFY) {
 
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { emailFn } = require('../send-mail/send-mail')
-const { format, add } = require('date-fns')
+const { format, add, isEqual } = require('date-fns')
 
 exports.handler = async function (event, context) {
   const data = JSON.parse(event.body)
@@ -25,8 +25,13 @@ exports.handler = async function (event, context) {
     const created = format(new Date(), 'yyyy/MM/dd, HH:mm')
     const confirmationSend = false
     const confirmationDate = format(new Date(), 'yyyy/MM/dd')
+
 		const reminderDate = add(new Date(b.date), { days: 2 })
-    const reminderSend = false
+
+    // If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
+    let reminderSend = false
+    If(isEqual(add(new Date(b.date), { days: 2 }), new Date()))
+      reminderSend = true
 
     return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate }
   })

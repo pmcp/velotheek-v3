@@ -16,7 +16,7 @@ exports.handler = async function (event, context) {
   const rows = await sheetAPI.getRows(sheet)
 
   // find rows of which date to be send reminders is today
-  const todayReminders = rows.filter((r) => isEqual(r.reminderSend, new Date()) && !r.reminderSend)
+  const todayReminders = rows.filter((r) => (isEqual(r.reminderSend, new Date()) && !r.reminderSend)
 
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
