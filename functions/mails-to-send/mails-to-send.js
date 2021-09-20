@@ -5,19 +5,23 @@ if (!process.env.NETLIFY) {
   require('dotenv').config()
 }
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
-const { isEqual, format } = require('date-fns')
+const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
 
 exports.handler = async function (event, context) {
-  const data = JSON.parse(event.body)
-  console.log('here', data)
+  // const data = JSON.parse(event.body)
+  // console.log('here', data)
 
   const sheet = await sheetAPI.getSheet('reservations')
   const rows = await sheetAPI.getRows(sheet)
 
   // find rows of which date to be send reminders is today
-  const todayReminders = rows.filter((r) => isEqual(r.reminderSend, new Date()) && !r.reminderSend)
 
+  const todayReminders = rows.filter((r) => {
+    console.log(r.reminderDate, new Date())
+    return isSameDay(new Date(r.reminderDate), new Date()) && (r.reminderSend == 'FALSE')
+  })
+  console.log(todayReminders)
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
       const copy = {
