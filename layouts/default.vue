@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-6xl mx-auto mt-5">
+  <div class="relative max-w-6xl mx-auto mt-5 bg-gray">
     <div class="sticky top-0 z-20 bg-white pb-2">
       <div class="flex flex-row justify-end">
                     <main-navigation />

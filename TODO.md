@@ -10,7 +10,6 @@
 - Nav kleurrijk maken
 - Algemeen design flow (op basis van design cedric)
 - Kaart: kleiner maken
-- Analyse email flow
 - colours voor calendar analyseren en verbeteren
     - misschien een legende voor alle kleuren
     - rood veranderen in roze
