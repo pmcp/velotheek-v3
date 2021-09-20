@@ -59,10 +59,10 @@ exports.handler = async function (event, context) {
 
       //	Set sheet as "send"
 			const updatedRow = { ...b, confirmationSend: true}
-			await sheetAPI.updateRow(sheet, cardData)
+			await sheetAPI.updateRow(sheet, updatedRow)
     } catch (error) {
       console.error('there was an error', error)
-			const updatedRow = { ...b, confirmationSend: 'error'}
+			// const updatedRow = { ...b, confirmationSend: 'error'}
       process.exit(1)
     }
     return
