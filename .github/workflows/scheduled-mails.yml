@@ -3,6 +3,7 @@ name: Check for mails to be send
 on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    # TODO: Change interval to every day at specific time
     - cron: '40 * * * *'
 jobs:
   build:

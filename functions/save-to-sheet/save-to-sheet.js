@@ -23,11 +23,12 @@ exports.handler = async function (event, context) {
     const momentReadable = moments[b.moment].name.fr
     const time = moments[b.moment].descr.fr
     const created = format(new Date(), 'yyyy/MM/dd, HH:mm')
-    const confirmationSend = true
+    const confirmationSend = false
+    const confirmationDate = format(new Date(), 'yyyy/MM/dd')
 		const reminderDate = add(new Date(b.date), { days: 2 })
-    const reminderSend = format(reminderDate, 'yyyy/MM/dd')
+    const reminderSend = false
 
-    return { ...b, date, momentReadable, time, created, confirmationSend, reminderSend }
+    return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate }
   })
 
   const rows = await sheetAPI.addRows(sheet, updatedBookings)
