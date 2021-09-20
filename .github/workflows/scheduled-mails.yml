@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
     # TODO: Change interval to every day at specific time
-    - cron: '2 * * * *'
+    - cron: '16 * * * *'
 jobs:
   build:
     name: Trigger Mail Actions
