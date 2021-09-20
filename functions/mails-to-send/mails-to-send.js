@@ -5,7 +5,7 @@ if (!process.env.NETLIFY) {
   require('dotenv').config()
 }
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
-const {format} = require('date-fns');
+const { isEqual } = require('date-fns');
 
 exports.handler = async function(event, context) {
   const data = JSON.parse(event.body)
@@ -14,8 +14,12 @@ exports.handler = async function(event, context) {
   const sheet = await sheetAPI.getSheet('reservations')
   const rows = await sheetAPI.getRows(sheet)
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(rows)
+  // find rows of which date to be send reminders is today
+  const todayReminders = rows.filter(r => isEqual(r.reminderSend, new Date(),))
+  console.log(todayReminders)
+  if(todayReminders.length > 0) {
+  //  1. send reminder mail
+  //  2. update sheet to indicate has been send
   }
+
 }
