@@ -127,8 +127,10 @@
     {
       "fr": "Année scolaire",
       "nl": "Schooljaar"
+    },
+    {
+      "fr": "Effacer",
+      "nl": "Verwijderen"
     }
-
-
   ]
 }

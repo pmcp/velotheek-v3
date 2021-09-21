@@ -17,12 +17,13 @@
         "
       >
         <ul class="w-full divide-y divide-gray-200">
-          <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class="&quot;w-full">
+          <custom-transition-group>
+          <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class="w-full">
             <!-- TODO: Make component (cos also in bookings page) -->
             <div>
               <div class="flex items-center items-stretch">
-                <div class="p-8 bg- bg-green-100 w-40 flex items-center"><booking-date :date="new Date(b.date)" /></div>
-                <div class="flex-1 flex flex-row px-4 py-4 sm:px-6">
+                <div class="bg-pink-100 text-pink-500 w-40 flex justify-center items-center"><booking-date :date="new Date(b.date)" /></div>
+                <div class="flex-1 flex flex-row pt-3 px-2 py-2">
                   <div class="mt-2 flex text-sm text-gray-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -40,8 +41,8 @@
                       />
                     </svg>
 
-                    <p class="text-sm text-gray-500">
-                      <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
+                    <p class="text-xs text-gray-500">
+                      <span class="font-sm  font-semibold">{{ moments[b.moment].name[lang] }}</span>
                       <span class="block">{{ moments[b.moment].descr[lang] }}</span>
                     </p>
                   </div>
@@ -68,7 +69,7 @@
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <location-address :location="b.location" />
+                    <location-address class="text-xs text-gray-500" :location="b.location" />
                   </div>
 
                   <div class="ml-8 mt-2 flex text-sm text-gray-500" v-if="b.grade !== null">
@@ -87,34 +88,22 @@
                       />
                     </svg>
                     <p>
-                      <span class="font-sm">{{ b.grade }}</span>
+                      <span class="font-sm text-xs">{{ b.grade }}</span>
                     </p>
                   </div>
                 </div>
-                <div class="group flex items-center px-4 py-4 sm:px-6">
+                <div class="group flex items-center px-2 py-2">
                   <button
                     @click="removeFromBookingsSelection({ key })"
-                    class="rounded-full p-3 border-2 border-bg-gray-400 text-gray-700 hover:bg-pink-100 hover:border-pink-500 hover:  text-pink-500"
+                    class="rounded-lg p-3 border-2 border-bg-gray-400 text-gray-700 hover:bg-pink-100 hover:border-pink-500 hover:  text-pink-500"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
+                    <translation :id="32" />
                   </button>
                 </div>
               </div>
             </div>
           </li>
+          </custom-transition-group>
         </ul>
       </div>
     </custom-transition>

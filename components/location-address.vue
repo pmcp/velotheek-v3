@@ -1,7 +1,6 @@
 <template>
 <div>
-	<p v-if="loc" class="text-sm text-gray-500">
-
+	<p v-if="loc">
 		<span v-if="loc.title" class="font-sm font-semibold">{{loc.title}}</span>
 		  <span class="block">{{ loc.street }}</span>
 		  <span class="block">{{loc.zip}} {{ loc.city}}</span>

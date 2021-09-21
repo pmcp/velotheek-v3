@@ -27,7 +27,7 @@ leave-to: Ending state for leave.
 -->
 
 <template>
-  <transition
+  <transition-group
     :enter-active-class="animationStyle.enterActiveClass"
     :enter-class="animationStyle.enterClass"
     :enter-to-class="animationStyle.enterToClass"
@@ -36,7 +36,7 @@ leave-to: Ending state for leave.
     :leave-to-class="animationStyle.leaveToClass"
   >
     <slot />
-  </transition>
+  </transition-group>
 </template>
 <script>
 export default {

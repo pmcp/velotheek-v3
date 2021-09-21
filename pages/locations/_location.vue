@@ -5,7 +5,7 @@
 <!--        <heading-two>-->
 <!--          <translation :id="16" />-->
 <!--        </heading-two>-->
-        <locations-list class=" sticky top-20 z-20" :horizontal="true" />
+        <locations-list class="text-sm text-gray-500 sticky top-20 z-20" :horizontal="true" />
         <heading-two class="mt-10">
           <translation :id="17" />
         </heading-two>
