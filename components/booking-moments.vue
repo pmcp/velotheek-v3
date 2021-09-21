@@ -5,8 +5,10 @@
         <ul class="divide-y divide-gray-200 relative">
           <li>
             <div class="px-4 py-4 sm:px-6">
-              <p class="mt-1 text-md font-bold text-gray-400 mb-5 mt-3"><translation :id="19" />: {{ activeDateReadable }}</p>
-
+              <div class="italic">
+                <p class="text-md text-gray-400 mt-3"><translation :id="31" class="font-bold"/>: {{ activeGrade }}</p>
+                <p class="text-md text-gray-400 mb-5"><translation :id="19" class="font-bold" />: {{ activeDateReadable }}</p>
+              </div>
               <heading-two>
                 <translation :id="2" />
               </heading-two>
@@ -34,28 +36,21 @@
                   @click="selectMoment(key)"
                   :disabled="activeDate == null || !moments[0].available || !moments[1].available"
                   class="
-                    rounded-full
-                    p-3
-                    border-2 border-bg-gray-400
-                    text-gray-700
-                    group-hover:bg-pink-100 group-hover:border-pink-500
-                    hover:text-pink-500
+                    rounded-lg
+                    text-pink-500
+                    italic
+                    text-sm
+                    bg-pink-100
+                    border-2
+                    px-2
+                    py-2
+                    mt-1
+                    text-pink-500
+                    border-pink-500
+                    hover:bg-pink-500 hover:text-pink-100
                   "
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
+                  <translation :id="29" />
                 </button>
               </div>
             </div>
@@ -75,28 +70,21 @@
                   @click="selectMoment(key)"
                   :disabled="activeDate == null || !l.available"
                   class="
-                    rounded-full
-                    p-3
-                    border-2 border-bg-gray-400
-                    text-gray-700
-                    group-hover:bg-pink-100 group-hover:border-pink-500
-                    hover:text-pink-500
+                    rounded-lg
+                    text-pink-500
+                    italic
+                    text-sm
+                    bg-pink-100
+                    border-2
+                    px-2
+                    py-2
+                    mt-1
+                    text-pink-500
+                    border-pink-500
+                    hover:bg-pink-500 hover:text-pink-100
                   "
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
+                  <translation :id="29" />
                 </button>
               </div>
             </div>
@@ -128,6 +116,9 @@ export default {
     },
     activeDateReadable() {
       return this.$store.getters.activeDateReadable
+    },
+    activeGrade() {
+      return this.$store.state.activeGrade
     },
   },
   methods: {

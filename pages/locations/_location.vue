@@ -13,12 +13,12 @@
       </div>
 
       <div class="pl-6 w-2/5">
-        <div class="sticky top-20">
+        <div class="sticky top-20  mb-20">
           <booking-module />
         </div>
       </div>
     </div>
-    <div class="sticky bottom-0 w-full z-10" :class="{ hidden: !user }">
+    <div class="sticky bottom-0 w-full z-30" :class="{ hidden: !user }">
       <div class="flex items-center relative w-full">
         <bookings-session />
       </div>
