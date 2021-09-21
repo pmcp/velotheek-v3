@@ -114,75 +114,70 @@ export const mutations = {
     state.activeGrade = val
   },
   removeFromBookingsSelection(state, key) {
-    const filteredBookings = state.sessionBookings.filter(function(value, index) {
-      return index !== key;
-    });
+    const filteredBookings = state.sessionBookings.filter(function (value, index) {
+      return index !== key
+    })
     state.sessionBookings = [...filteredBookings]
+  },
+  reset(state) {
+    state.activeDate = null
+    state.activeGrade = null
   },
 }
 
-export const actions = {  
-
-
+export const actions = {
   async nuxtServerInit({ commit, dispatch }, { $content }) {
     // Get info from netlify cms
     const siteInfo = await $content('site/info').fetch()
     commit('setSiteInfo', siteInfo)
-    
+
     await dispatch('getTranslations')
     // await dispatch('getLocations')
     const allLocations = await this.$content('locations').fetch()
     // TODO: This solution (altho not scalable), might be too easy
     // Can make it scalable and more cool looking with a reducer
     // But don't really have the time. Almost holiday!
-    // ¯\_(ツ)_/¯ 
+    // ¯\_(ツ)_/¯
     // Will probably drive for three weeks through Croatia
     // ᕕ( ᐛ )ᕗ
-    
-    const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
-    const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
-    
+
+    const locationsFR = allLocations.filter((l) => l.slug.slice(-2) === 'fr')
+    const locationsNL = allLocations.filter((l) => l.slug.slice(-2) === 'nl')
+
     const locByLang = {
       fr: [...locationsFR],
-      nl: [...locationsNL]
+      nl: [...locationsNL],
     }
 
     return commit('setLocations', locByLang)
-    
   },
 
-
-
   async getSheet({ state, dispatch, commit }, { sheet: sheet }) {
-    
     try {
       const resultSheet = await fetch('/.netlify/functions/get-sheet', {
         method: 'POST',
-        body: JSON.stringify({ sheet: sheet})
+        body: JSON.stringify({ sheet: sheet }),
       })
       const bookings = await resultSheet.json()
-      return commit('setBookings', bookings);
+      return commit('setBookings', bookings)
     } catch (err) {
       console.log(err)
       throw 'Unable to fetch sheet'
-
     }
   },
-  
+
   async removeBooking({ state, dispatch, commit }, { id }) {
     try {
       await fetch('/.netlify/functions/remove-item', {
         method: 'POST',
-        body: JSON.stringify({ sheet: 'reservations', id: id})
+        body: JSON.stringify({ sheet: 'reservations', id: id }),
       })
       return await dispatch('getSheet', { sheet: 'reservations' })
     } catch (err) {
       console.log(err)
       throw 'Unable to remove item'
-
     }
   },
-
 
   async getTranslations({ commit }) {
     try {
@@ -194,24 +189,23 @@ export const actions = {
     }
   },
 
-async getLocations({ commit }) {
-  const allLocations = await this.$content('locations').fetch() 
-  // TODO: This solution (altho not scalable), might be too easy 
-  // Can make it scalable and more cool looking with a reducer
-  // But don't really have the time. Almost holiday!
-  // ¯\_(ツ)_/¯ 
-  // Will probably drive for three weeks through Croatia
-  // ᕕ( ᐛ )ᕗ
-  const locationsFR = allLocations.filter(l => l.slug.slice(-2) === 'fr')
-  const locationsNL = allLocations.filter(l => l.slug.slice(-2) === 'nl')
-  
-  const locByLang = {
-    fr: [...locationsFR],
-    nl: [...locationsNL]
-  }
-  return commit('setLocations', locByLang)
-},
+  async getLocations({ commit }) {
+    const allLocations = await this.$content('locations').fetch()
+    // TODO: This solution (altho not scalable), might be too easy
+    // Can make it scalable and more cool looking with a reducer
+    // But don't really have the time. Almost holiday!
+    // ¯\_(ツ)_/¯
+    // Will probably drive for three weeks through Croatia
+    // ᕕ( ᐛ )ᕗ
+    const locationsFR = allLocations.filter((l) => l.slug.slice(-2) === 'fr')
+    const locationsNL = allLocations.filter((l) => l.slug.slice(-2) === 'nl')
 
+    const locByLang = {
+      fr: [...locationsFR],
+      nl: [...locationsNL],
+    }
+    return commit('setLocations', locByLang)
+  },
 
   setActiveDate({ state, commit }, date) {
     commit('setActiveMoment', null)
@@ -223,7 +217,6 @@ async getLocations({ commit }) {
   },
 
   selectMoment({ state, commit, dispatch }, moment) {
-    console.log('selecting moment', moment)
     commit('setActiveMoment', moment)
     dispatch('addBookingToSelection')
   },
@@ -234,8 +227,7 @@ async getLocations({ commit }) {
     const grade = state.activeGrade
     // find location in active location and add details for mail
     // const filteredLocation = state.locations[state.lang].filter(l => l.idInSheet === state.activeLocationId)
-    
-    
+
     const booking = {
       date: date,
       moment: moment,
@@ -243,16 +235,14 @@ async getLocations({ commit }) {
       language: state.lang,
       email: state.auth.user.email,
       name: state.auth.user.username,
-      grade: grade
+      grade: grade,
     }
-    
+
     commit('addToBookingsSelection', booking)
-    
+
     // After adding to selection, reset date and moment
     // commit('setActiveDate', null)
     commit('setActiveMoment', null)
-    
-    
   },
 
   removeFromBookingsSelection({ state, commit }, { key }) {
@@ -260,47 +250,41 @@ async getLocations({ commit }) {
   },
 
   async createBooking({ state, commit, dispatch }) {
-    
     commit('setActiveStatus', 1)
     // Add all bookings to sheet
 
-    if (state.sessionBookings.length === 0) {
-      console.log('there are no bookings')
-      return;
-    }
+    if (state.sessionBookings.length === 0) return
 
     const body = {
       bookings: state.sessionBookings,
       sheet: 'reservations',
       settings: {
-        moments: state.moments
-      }
+        moments: state.moments,
+      },
     }
-    
+
     // Send to netlify function
     await fetch('/.netlify/functions/save-to-sheet', {
       method: 'POST',
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
-    
+
     // TODO: check if succeeded, only then add to bookings
     // 1. Reload the bookings from the db
-      await dispatch('getSheet', { sheet: 'reservations' })
-   
-   commit('setActiveStatus', 2)
-   setTimeout(function(){
-     commit('setActiveStatus', 0)
-     },500);
+    await dispatch('getSheet', { sheet: 'reservations' })
 
-setTimeout(function(){
-    commit('setSessionBookings', [])
-   },500);        
-      // 2. Empty the bookings saved to the session
-      
-      
-   
-    },
-  
+    commit('setActiveStatus', 2)
+    setTimeout(function () {
+      commit('setActiveStatus', 0)
+    }, 500)
+
+    setTimeout(function () {
+      commit('setSessionBookings', [])
+    }, 500)
+    // 2. Reset stuff
+    commit('reset')
+
+  },
 
   setLocation({ state, commit, dispatch }, idInSheet) {
     // Set active id
@@ -311,138 +295,129 @@ setTimeout(function(){
     dispatch('getSheet', { sheet: 'reservations' })
   },
 
-  getBookings({dispatch}){
+  getBookings({ dispatch }) {
     dispatch('getSheet', { sheet: 'reservations' })
   },
 
   async toggleLang({ state, commit }) {
     let lang = 'fr'
-    if(state.lang === lang) { lang = 'nl' }
+    if (state.lang === lang) {
+      lang = 'nl'
+    }
 
     // Change route when changing language.
     // TODO: Should get lang on route change
 
-
     return commit('setLang', lang)
   },
-  
-  removeFromBookingDb({dispatch}, id) {
+
+  removeFromBookingDb({ dispatch }, id) {
     dispatch('removeBooking', { id: id })
-    
-    
-  }
+  },
 }
 
 export const getters = {
-  combinedBookings: state => {
+  combinedBookings: (state) => {
     // Sometimes we want to see the created bookings + the bookings the user is creating
-    return [...state.bookings, ...state.sessionBookings];
+    return [...state.bookings, ...state.sessionBookings]
   },
-  
-  bookingsForActiveLocation: state => {
-    if(state.activeLocationId === null) return null;
-    if(state.combinedBookings.length == 0 || state.combinedBookings == undefined) return null
-    return state.combinedBookings.filter(l => l.location === state.activeLocationId)
+
+  bookingsForActiveLocation: (state) => {
+    if (state.activeLocationId === null) return null
+    if (state.combinedBookings.length == 0 || state.combinedBookings == undefined) return null
+    return state.combinedBookings.filter((l) => l.location === state.activeLocationId)
   },
-  
+
   moments: (state, getters) => {
     // Don't know why, but my spread operator was still returning a "do not mutate vuex store state outside mutation handlers" error.
     // So changed it to parse/stringify
-    const moments = JSON.parse(JSON.stringify(state.moments));
+    const moments = JSON.parse(JSON.stringify(state.moments))
 
-    if (state.activeDate === null) return moments;
-    
+    if (state.activeDate === null) return moments
+
     const datesAreOnSameDay = (first, second) => {
-      return first.getFullYear() === second.getFullYear() &&
+      return (
+        first.getFullYear() === second.getFullYear() &&
         first.getMonth() === second.getMonth() &&
-        first.getDate() === second.getDate();
+        first.getDate() === second.getDate()
+      )
     }
-    
+
     // Filter out only bookings of this day
-    const bookingsForActiveDate = getters.combinedBookings.filter(function(value) {
+    const bookingsForActiveDate = getters.combinedBookings.filter(function (value) {
       return datesAreOnSameDay(new Date(value.date), new Date(state.activeDate))
-    });
+    })
 
     // Filter out bookings for this location
-    const filteredBookings = bookingsForActiveDate.filter(function(value) {
-      return (state.activeLocationId === value.location)
-    });
-
+    const filteredBookings = bookingsForActiveDate.filter(function (value) {
+      return state.activeLocationId === value.location
+    })
 
     // If no bookings on this day, just return as is
-    if (filteredBookings.length < 1) return moments;
+    if (filteredBookings.length < 1) return moments
 
     // If there are bookings that day, loop through bookings, and make moments unavailable
     for (let i = 0; i < filteredBookings.length; i++) {
       const booking = filteredBookings[i]
-      moments[booking.moment].available = false;
-      
+      moments[booking.moment].available = false
     }
 
-    return moments;
-
+    return moments
   },
-  
-  disabledDates: (state, getters) => {
 
+  disabledDates: (state, getters) => {
     // Filter out only bookings with the active location
-    const filteredBookings = getters.combinedBookings.filter(b => b.location === state.activeLocationId)
+    const filteredBookings = getters.combinedBookings.filter((b) => b.location === state.activeLocationId)
 
     // If a date has morning and evening booked, it should also be disabled
     // Using a very simple hack: if this reducer turns up a value of 2, two moments of that day are booked, and it should be disabled
     const bookingsByDay = filteredBookings.reduce((acc, b) => {
       const date = format(new Date(b.date), 'yyyy/MM/dd')
-      if(b.moment === '2') return { ...acc, [date]: 2 }
-      let val = acc[date] || 0;
+      if (b.moment === '2') return { ...acc, [date]: 2 }
+      let val = acc[date] || 0
       val++
       return { ...acc, [date]: val++ }
     }, {})
 
     const bookingsByDayArray = Object.entries(bookingsByDay)
-    if(bookingsByDayArray.length === 0) return []
-    console.log(Object.entries(bookingsByDay))
+    if (bookingsByDayArray.length === 0) return []
     // Filter out only the ones with two
-    const onlyDisabledDates = bookingsByDayArray.filter(b => {
-      if(b[1] === 2) return b
+    const onlyDisabledDates = bookingsByDayArray.filter((b) => {
+      if (b[1] === 2) return b
     })
 
     // Create an array with only the dates
     const onlyDates = onlyDisabledDates.map((b, key) => new Date(b[0]))
-    
+
     // Add dates to disabled dates
-    return [{
+    return [
+      {
         start: null,
-        end: new Date()
+        end: new Date(),
       },
       {
         weekdays: [1, 7],
       },
-      ...onlyDates
+      ...onlyDates,
     ]
-
   },
 
-
-
-  calAttributes: state => {
+  calAttributes: (state) => {
     // Filter: keep only active location
-    const filteredBookings = state.sessionBookings.filter(b => b.location === state.activeLocationId)
+    const filteredBookings = state.sessionBookings.filter((b) => b.location === state.activeLocationId)
 
     // Transform into an object we can easily use for the v-calendar attributes
     const sessionBookingsByTimeslot = filteredBookings.reduce((acc, session) => {
-
-      const sessions = acc[session.moment] || [];
+      const sessions = acc[session.moment] || []
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})
 
-    const bookingsForActiveLocation = state.bookings.filter(b => b.location === state.activeLocationId)
+    const bookingsForActiveLocation = state.bookings.filter((b) => b.location === state.activeLocationId)
 
     const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc, session) => {
-
-      const sessions = acc[session.moment] || [];
+      const sessions = acc[session.moment] || []
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})
-
 
     return [
       {
@@ -455,7 +430,7 @@ export const getters = {
         highlight: {
           class: 'datePicked-after',
         },
-        dates: bookingsByTimeslot[1]
+        dates: bookingsByTimeslot[1],
       },
       {
         highlight: {
@@ -473,7 +448,7 @@ export const getters = {
         highlight: {
           class: 'datePicked-after-session',
         },
-        dates: sessionBookingsByTimeslot[1]
+        dates: sessionBookingsByTimeslot[1],
       },
       {
         highlight: {
@@ -485,64 +460,62 @@ export const getters = {
         highlight: {
           class: 'velo-today',
         },
-        dates: new Date()
+        dates: new Date(),
       },
       {
         highlight: {
           class: 'velo-normalDay',
         },
-        dates: [{
-          start: new Date(),
-          end: null,
-          weekdays: [2, 3, 4, 5, 6],
-        }, ]
+        dates: [
+          {
+            start: new Date(),
+            end: null,
+            weekdays: [2, 3, 4, 5, 6],
+          },
+        ],
       },
       {
         highlight: {
           class: 'velo-selected',
         },
-        dates: []
+        dates: [],
       },
-    ];
+    ]
   },
 
-  canAddBookingToSession: state => {
-    return ((state.activeLocationId !== null) && (state.activeDate !== null) && (state.activeMoment !== null))
+  canAddBookingToSession: (state) => {
+    return state.activeLocationId !== null && state.activeDate !== null && state.activeMoment !== null
   },
-  
-  canSendBookingToDatabase: state => {
-    return (state.sessionBookings.length > 0)
+
+  canSendBookingToDatabase: (state) => {
+    return state.sessionBookings.length > 0
   },
-  
-  
-  localisedLocations: state => {
+
+  localisedLocations: (state) => {
     return state.locations[state.lang]
   },
-  
-  statusDescription: state => {
 
+  statusDescription: (state) => {
     const translationId = state.status[state.activeStatus].translationId
-    return state.translations[translationId][state.lang];
+    return state.translations[translationId][state.lang]
   },
 
-  gradesForUser: state => {
-    return state.grades.map(g => {
+  gradesForUser: (state) => {
+    return state.grades.map((g) => {
       return g.name[state.lang]
-
     })
   },
 
-  activeDateReadable: state => {
+  activeDateReadable: (state) => {
     return format(new Date(state.activeDate), 'd MMMM y')
   },
-  
+
   userBookings: (state) => {
     // TODO: make object with passed / upcoming / today bookings
-    if(state.auth.user) {
-      if(state.bookings) {
-        return state.bookings.filter(b => b.email === state.auth.user.email )
+    if (state.auth.user) {
+      if (state.bookings) {
+        return state.bookings.filter((b) => b.email === state.auth.user.email)
       }
     }
   },
-
 }

@@ -3,21 +3,8 @@
 # TODO
 - Change lang for vue formulate
 - Add Logo
-- Disable button for send when sending
-- Check form before continuing
-- Change site lang on change lang
 - Logo's toevoegen voor homepage
-- Indien ingelogd, meteen naar reserveren
-- Nav kleurrijk maken
-- Algemeen design flow (op basis van design cedric)
-- Kaart: kleiner maken
-- colours voor calendar analyseren en verbeteren
-    - misschien een legende voor alle kleuren
-      - rood veranderen in roze
-      - Geel is vandaag
-      - groen is beschikbaar
-      - grijs is niet beschikbaar
-      - blauw en rood moet zelfde kleur zijn
+- Change site lang on change lang
 - Admin
     - emails toevoegen
         - Confirmation

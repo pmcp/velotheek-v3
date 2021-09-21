@@ -1,12 +1,14 @@
 <template>
   <card class="w-full border-2 rounded-md bg-pink-50 border-pink-500" open>
     <template v-slot:opened>
+
       <div class="px-5 pb-5">
+        {{ activeGrade }}
         <FormulateInput
           :options="grades"
           type="select"
           placeholder="Selecteer"
-          v-model="activeGrade"
+          :value="activeGrade"
           @input="setActiveGrade"
         >
           <template #label="{ id }">
@@ -57,11 +59,13 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      activeGrade: null,
       legendeOpen: false
     }
   },
   computed: {
+    activeGrade() {
+      return this.$store.state.activeGrade
+    },
     ...mapGetters({
       grades: 'gradesForUser',
     }),

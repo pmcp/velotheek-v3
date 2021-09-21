@@ -1,13 +1,16 @@
 export default function ({ route, store, redirect }) {
-
+	let lang = store.state.lang
 	const safeRoute = '/homepage.' + store.state.lang
-	if (route.path === '/') {
-		return redirect(safeRoute)
+	if(store.state.auth.user) {
+	//	Logged in
 	} else {
-		if (!store.state.auth.user && ( route.path.includes("locations") || route.path.includes("bookings"))) {
-			return redirect(safeRoute)
+	//	Not logged in
+		if (route.path === '/' || ( route.path.includes("locations") || route.path.includes("bookings"))) {
+			return redirect('/homepage.fr')
 		}
+
 	}
+
 
 
 	// if (!store.state.auth.user) {

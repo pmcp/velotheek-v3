@@ -1,7 +1,7 @@
 <template>
   <div>
     <custom-transition :id="2">
-      <div v-if="activeDate != null" class="bg-gray-50 border border-gray-200 rounded-lg pt-4 w-full relative -top-5">
+      <div v-if="activeDate != null && activeGrade != null" class="bg-gray-50 border border-gray-200 rounded-lg pt-4 w-full relative -top-5">
         <ul class="divide-y divide-gray-200 relative">
           <li>
             <div class="px-4 py-4 sm:px-6">
