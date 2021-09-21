@@ -3,7 +3,6 @@
     <template v-slot:opened>
 
       <div class="px-5 pb-5">
-        {{ activeGrade }}
         <FormulateInput
           :options="grades"
           type="select"
