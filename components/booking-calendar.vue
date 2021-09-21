@@ -8,6 +8,7 @@
     is-expanded
 		:attributes="calAttributes"
 		:min-date="new Date()"
+    color="gray"
 		show-caps
 	    is-expanded 
 	  />

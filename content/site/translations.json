@@ -61,8 +61,62 @@
       "nl": "Nieuwe reservatie"
     },
     {
-      "fr": "Année scolaire",
-      "nl": "Schooljaar"
+      "fr": "Choisissez l'année scolaire",
+      "nl": "Kies het schooljaar"
+    },
+    {
+      "fr": "Choisissez le Vélotek",
+      "nl": "Kies een Velotheek"
+    },
+    {
+      "fr": "À propos de ce Vélothek",
+      "nl": "Over deze Velotheek"
+    },
+    {
+      "fr": "Sélectionnez une date",
+      "nl": "Selecteer een datum"
+    },
+    {
+      "fr": "Date",
+      "nl": "Datum"
+    },
+    {
+      "fr": "Aujourd'hui",
+      "nl": "Vandaag"
+    },
+    {
+      "fr": "Toute la journée est disponible",
+      "nl": "Hele dag beschikbaar"
+    },
+    {
+      "fr": "Après-midi est disponible",
+      "nl": "Namiddag beschikbaar"
+    },
+    {
+      "fr": "Avant-midi est disponible",
+      "nl": "Voormiddag beschikbaar"
+    },
+    {
+      "fr": "Moments sélectionnés (pour cette Vélotek)",
+      "nl": "Geselecteerde momenten (voor deze locatie)"
+    },
+    {
+      "fr": "Pas disponible",
+      "nl": "Niet beschikbaar"
+    },
+    {
+      "fr": "Montrer la légende",
+      "nl": "Toon legende"
+    },
+    {
+      "fr": "Cacher la légende",
+      "nl": "Verberg legende"
+    },
+    {
+      "fr": "Jour sélectionné",
+      "nl": "Geselecteerde dag"
     }
+
+
   ]
 }

@@ -5,7 +5,6 @@ if (!process.env.NETLIFY) {
 	  require('dotenv').config()
 	}
 	const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
-	const {format} = require('date-fns');
 
 	exports.handler = async function(event, context) {
 	  const data = JSON.parse(event.body)

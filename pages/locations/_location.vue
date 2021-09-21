@@ -2,7 +2,13 @@
   <div>
     <div class="flex min-h-screen">
       <div class="pt-1 w-3/5">
-        <locations-list class="" :horizontal="true" />
+<!--        <heading-two>-->
+<!--          <translation :id="16" />-->
+<!--        </heading-two>-->
+        <locations-list class=" sticky top-20 z-20" :horizontal="true" />
+        <heading-two class="mt-10">
+          <translation :id="17" />
+        </heading-two>
         <location-content :content="location" />
       </div>
 
@@ -22,8 +28,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import HeadingTwo from '~/components/heading-two'
 
 export default {
+  components: { HeadingTwo },
   head: {
     link: [
       {

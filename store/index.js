@@ -1,26 +1,33 @@
-// import Vue from 'vue'
-// import axios from 'axios'
+import { format } from 'date-fns'
 
 export const state = () => ({
   lang: 'nl',
   moments: [
-    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: {nl: 'Van 8u tot 12u', fr: 'de 8h a 12h'}, available: true },
-    { name: { nl: 'Namiddag', fr: 'Après midi' }, descr: {nl: 'Van 12u tot 18u', fr: 'de 12h a 18h'}, available: true },
-    { name: { nl: 'Hele dag', fr: 'Toute la journée' }, descr: {nl: 'Van 9u tot 18u', fr: 'de 9h a 18h'}, available: true }
+    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u tot 12u', fr: 'de 8h a 12h' }, available: true },
+    {
+      name: { nl: 'Namiddag', fr: 'Après midi' },
+      descr: { nl: 'Van 12u tot 18u', fr: 'de 12h a 18h' },
+      available: true,
+    },
+    {
+      name: { nl: 'Hele dag', fr: 'Toute la journée' },
+      descr: { nl: 'Van 9u tot 18u', fr: 'de 9h a 18h' },
+      available: true,
+    },
   ],
   grades: [
-    { name: { nl: 'Eerste Leerjaar', fr: 'Première année' }},
-    { name: { nl: 'Tweede Leerjaar', fr: 'Deuxième année' }},
-    { name: { nl: 'Derde Leerjaar', fr: 'Troisième année' }},
-    { name: { nl: 'Vierde Leerjaar', fr: 'Quatrième année' }},
-    { name: { nl: 'Vijfde Leerjaar', fr: 'Cinquième année' }},
-    { name: { nl: 'Zesde Leerjaar', fr: 'Sixième année' }},
-    { name: { nl: 'Eerste Middelbaar', fr: 'Premier lycée' }},
-    { name: { nl: 'Tweede Middelbaar', fr: 'Deuxième lycée' }},
-    { name: { nl: 'Derde Middelbaar', fr: 'Troisième lycée' }},
-    { name: { nl: 'Vierde Middelbaar', fr: 'Quatrième lycée' }},
-    { name: { nl: 'Vijfde Middelbaar', fr: 'Cinquième lycée' }},
-    { name: { nl: 'Zesde Middelbaar', fr: 'Sixième lycée' }},
+    { name: { nl: 'Eerste Leerjaar', fr: 'Première année' } },
+    { name: { nl: 'Tweede Leerjaar', fr: 'Deuxième année' } },
+    { name: { nl: 'Derde Leerjaar', fr: 'Troisième année' } },
+    { name: { nl: 'Vierde Leerjaar', fr: 'Quatrième année' } },
+    { name: { nl: 'Vijfde Leerjaar', fr: 'Cinquième année' } },
+    { name: { nl: 'Zesde Leerjaar', fr: 'Sixième année' } },
+    { name: { nl: 'Eerste Middelbaar', fr: 'Premier lycée' } },
+    { name: { nl: 'Tweede Middelbaar', fr: 'Deuxième lycée' } },
+    { name: { nl: 'Derde Middelbaar', fr: 'Troisième lycée' } },
+    { name: { nl: 'Vierde Middelbaar', fr: 'Quatrième lycée' } },
+    { name: { nl: 'Vijfde Middelbaar', fr: 'Cinquième lycée' } },
+    { name: { nl: 'Zesde Middelbaar', fr: 'Sixième lycée' } },
   ],
   translations: null,
   activeGrade: null,
@@ -34,40 +41,39 @@ export const state = () => ({
   selectedDates: [],
   activeStatus: 0,
   status: [
-    {description: 'all good',
-  translationId: 8},
-    {description: 'sending', translationId: 9},
-    {description: 'send', translationId: 10}
+    { description: 'all good', translationId: 8 },
+    { description: 'sending', translationId: 9 },
+    { description: 'send', translationId: 10 },
   ],
   animationStyles: [
     {
-      'description': 'simple fade',
-      'enterActiveClass': 'duration-200 ease-out',
-      'enterClass': '-translate-x-full opacity-0',
-      'enterToClass' : 'translate-x-0 opacity-100',
-      'leaveActiveClass' : 'duration-200 ease-in',
-      'leaveClass' : 'translate-x-0 opacity-100',
-      'leaveToClass' : '-translate-x-full opacity-0',
+      description: 'simple fade',
+      enterActiveClass: 'duration-200 ease-out',
+      enterClass: '-translate-x-full opacity-0',
+      enterToClass: 'translate-x-0 opacity-100',
+      leaveActiveClass: 'duration-200 ease-in',
+      leaveClass: 'translate-x-0 opacity-100',
+      leaveToClass: '-translate-x-full opacity-0',
     },
     {
-      'description': 'slide up',
-      'enterClass': 'transform translate-y-full opacity-0',
-      'enterActiveClass': 'duration-200 ease-out',
-      'enterToClass' : 'translate-y-0 opacity-100',
-      'leaveActiveClass' : 'duration-200 ease-in',
-      'leaveClass' : ' translate-y-0 opacity-100',
-      'leaveToClass' : 'transform translate-y-full opacity-0',
+      description: 'slide up',
+      enterClass: 'transform translate-y-full opacity-0',
+      enterActiveClass: 'duration-200 ease-out',
+      enterToClass: 'translate-y-0 opacity-100',
+      leaveActiveClass: 'duration-200 ease-in',
+      leaveClass: ' translate-y-0 opacity-100',
+      leaveToClass: 'transform translate-y-full opacity-0',
     },
     {
-      'description': 'slide down',
-      'enterClass': 'transform -translate-y-full opacity-0',
-      'enterActiveClass': 'duration-200 ease-out',
-      'enterToClass' : 'translate-y-0 opacity-100',
-      'leaveActiveClass' : 'duration-200 ease-in',
-      'leaveClass' : ' translate-y-0 opacity-100',
-      'leaveToClass' : 'transform -translate-y-full opacity-0',
-    }
-  ]
+      description: 'slide down',
+      enterClass: 'transform -translate-y-full opacity-0',
+      enterActiveClass: 'duration-200 ease-out',
+      enterToClass: 'translate-y-0 opacity-100',
+      leaveActiveClass: 'duration-200 ease-in',
+      leaveClass: ' translate-y-0 opacity-100',
+      leaveToClass: 'transform -translate-y-full opacity-0',
+    },
+  ],
 })
 
 export const mutations = {
@@ -335,6 +341,7 @@ export const getters = {
   
   bookingsForActiveLocation: state => {
     if(state.activeLocationId === null) return null;
+    if(state.combinedBookings.length == 0 || state.combinedBookings == undefined) return null
     return state.combinedBookings.filter(l => l.location === state.activeLocationId)
   },
   
@@ -376,14 +383,31 @@ export const getters = {
 
   },
   
-  disabledDates: (state, getters) => {    
-    // Filter out only bookings with a full day booked (moment === 2)
-    const filteredBookings = getters.combinedBookings.filter(function(value) {
-      return value.moment === "2"
-    });
-    
+  disabledDates: (state, getters) => {
+
+    // Filter out only bookings with the active location
+    const filteredBookings = getters.combinedBookings.filter(b => b.location === state.activeLocationId)
+
+    // If a date has morning and evening booked, it should also be disabled
+    // Using a very simple hack: if this reducer turns up a value of 2, two moments of that day are booked, and it should be disabled
+    const bookingsByDay = filteredBookings.reduce((acc, b) => {
+      const date = format(new Date(b.date), 'yyyy/MM/dd')
+      if(b.moment === '2') return { ...acc, [date]: 2 }
+      let val = acc[date] || 0;
+      val++
+      return { ...acc, [date]: val++ }
+    }, {})
+
+    const bookingsByDayArray = Object.entries(bookingsByDay)
+    if(bookingsByDayArray.length === 0) return []
+    console.log(Object.entries(bookingsByDay))
+    // Filter out only the ones with two
+    const onlyDisabledDates = bookingsByDayArray.filter(b => {
+      if(b[1] === 2) return b
+    })
+
     // Create an array with only the dates
-    const onlyDates = filteredBookings.map(b => b.date)
+    const onlyDates = onlyDisabledDates.map((b, key) => new Date(b[0]))
     
     // Add dates to disabled dates
     return [{
@@ -401,8 +425,11 @@ export const getters = {
 
 
   calAttributes: state => {
+    // Filter: keep only active location
+    const filteredBookings = state.sessionBookings.filter(b => b.location === state.activeLocationId)
 
-    const sessionBookingsByTimeslot = state.sessionBookings.reduce((acc, session) => {
+    // Transform into an object we can easily use for the v-calendar attributes
+    const sessionBookingsByTimeslot = filteredBookings.reduce((acc, session) => {
 
       const sessions = acc[session.moment] || [];
       return { ...acc, [session.moment]: [...sessions, session.date] }
@@ -503,6 +530,10 @@ export const getters = {
       return g.name[state.lang]
 
     })
+  },
+
+  activeDateReadable: state => {
+    return format(new Date(state.activeDate), 'd MMMM y')
   },
   
   userBookings: (state) => {
