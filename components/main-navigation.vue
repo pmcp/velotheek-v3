@@ -7,7 +7,7 @@
       <span class="underline text-gray-600 hover:text-gray-900 mr-5">Home</span>
     </nuxt-link>
 
-    <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="p.slug">
+    <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
       <span class="underline text-gray-600 hover:text-gray-900 mr-5">{{ p.title }}</span>
     </nuxt-link>
 
