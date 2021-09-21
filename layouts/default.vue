@@ -1,18 +1,17 @@
 <template>
-  <div class="relative max-w-6xl mx-auto mt-5 bg-gray">
-    <div class="sticky top-0 z-20 bg-white pb-2">
-      <div class="flex flex-row justify-end">
-                    <main-navigation />
-                    <user />
-                    <language-toggle class="ml-5" />
+  <div class="bg-gray-50">
+    <div class="bg-white sticky top-0 z-50 shadow-sm mb-5">
+      <div class="relative max-w-6xl mx-auto">
+        <div class="flex justify-between">
+          <main-navigation />
+          <div class="flex">
+            <user />
+            <language-toggle class="ml-5" />
+          </div>
+        </div>
       </div>
     </div>
-
-    <nuxt class="min-h-screen" />
-
-
-
-
+    <nuxt class="max-w-6xl mx-auto min-h-screen" />
   </div>
 </template>
 
@@ -24,7 +23,6 @@ export default {
     sessionBookings() {
       return this.$store.state.sessionBookings
     },
-
   },
   methods: {
     ...mapActions(['getLocations', 'getTranslations', 'getBookings']),

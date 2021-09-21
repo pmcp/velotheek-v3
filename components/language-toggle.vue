@@ -1,6 +1,6 @@
 <template>
 
-	<button class="bg-white px-3 w-14 h-14 py-2 px-1 rounded-full hover:border-blue-500 border-2" @click="toggle">
+	<button class="my-2 px-1 w-10 h-10 py-1 px-1 rounded-full bg-pink-100 border-2 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100" @click="toggle">
 		<span v-if="lang === 'fr'">NL</span>
 		<span v-else>FR</span>
 	</button>

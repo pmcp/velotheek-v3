@@ -95,6 +95,10 @@ module.exports = {
    */
   loading: { color: '#526488' },
   /*
+   ** Global CSS
+   */
+  css: ['@/assets/css/tailwind.css'],
+  /*
    ** Plugins to load before mounting the App
    */
   plugins: [
@@ -116,22 +120,22 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    transpile: ['vue-youtube-embed'],
     extractCSS: true,
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+    postcss: {
+      plugins: {
+        'postcss-preset-env': postcssPresetEnv({
+          stage: 1,
+          features: {
+            'nesting-rules': false
+          }
+        }),
+        'postcss-easing-gradients': postcssEasingGradients
       }
-    }
+    },
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   },
   /*
    ** Custom additions configuration
@@ -150,9 +154,6 @@ module.exports = {
     mode: 'postcss',
     // ? Safelisting docs: https://purgecss.com/safelisting.html
     safelist: {
-      
-  
-      
       standard: ['vc-bg-blue-600', 'velo-normalDay', 'velo-today', 'velo-selected','dt__range__beginEnd', 'dt-range__selected', 'vc-text-white', 'datePicked-before', 'datePicked-after', 'datePicked-full', 'datePicked-before-session', 'datePicked-after-session', 'datePicked-full-session', 'vc-day-content::selection', 'velo-selected'],
       deep: [/dark/, /light/, /btn/, /icon/, /main/],
       greedy: [
@@ -163,8 +164,7 @@ module.exports = {
         /^nuxt-content/,
         /code/,
         /pre/,
-        /token/,
-        /^vue-content-placeholders/
+        /token/
       ]
     }
   },

@@ -2,13 +2,13 @@
 	<div class="flex items-center">
 		<client-only>
 				<template v-if="user">
-					<button class="underline hover:text-blue-500" @click.prevent="onLogout">
+					<button class="underline text-gray-600 hover:text-gray-900" @click.prevent="onLogout">
 						Log out
 					</button>
 				</template>
 				<template v-else>
 					<button @click.prevent="openLogin">
-						<span class="underline">Log In</span>
+						<span class="underline text-gray-600 hover:text-gray-900">Log In</span>
 					</button>
 					<!-- <button class="btn block " @click.prevent="openSignup">
 						Sign up

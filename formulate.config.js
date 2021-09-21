@@ -56,6 +56,8 @@ export default {
           return 'border border-black px-3 py-2 leading-none focus:border-green-light outline-none border-box w-full mb-1'
         case 'box':
           return 'h-6 w-6'
+        case 'select':
+          return 'rounded border w-full px-2 text-gray-700 h-8 border-gray-400'
         default:
           return 'border border-black px-3 py-2 leading-none focus:border-green-light outline-none border-box w-full mb-1'
       }
