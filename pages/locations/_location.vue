@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="flex min-h-screen">
-      <div class="w-3/5">
-        <locations-list class="my-5" :horizontal="true" />
-<!--        <location-map/>-->
+      <div class="pt-1 w-3/5">
+        <locations-list class="" :horizontal="true" />
         <location-content :content="location" />
       </div>
 
-      <div class="px-6 w-2/5">
+      <div class="pl-6 w-2/5">
         <div class="sticky top-20">
           <booking-module />
         </div>

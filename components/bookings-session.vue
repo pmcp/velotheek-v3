@@ -1,129 +1,146 @@
 <template>
   <div class="w-full relative">
     <custom-transition :id="1">
-    <div v-if="open" class="relative z-10 bg-blue-100 border-gray-300 shadow rounded-t-lg overflow-hidden mx-2 max-h-128 overflow-y-auto">
-    <ul class="w-full divide-y divide-gray-200 " >
-      <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class='"w-full'>
-        <!-- TODO: Make component (cos also in bookings page) -->
-        <div >
-          <div class="flex items-center items-stretch">
-            <div class="p-8 bg- bg-blue-200 w-40 flex items-center"><booking-date :date="new Date(b.date)" /></div>
-            <div class="flex-1 flex flex-row px-4 py-4 sm:px-6">
-              <div class="mt-2 flex text-sm text-gray-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-2"
-                  style="margin-top: 0.1rem"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+      <div
+        v-if="open"
+        class="
+          relative
+          z-10
+          bg-white
+          border-gray-400
+          shadow
+          rounded-t-lg
+          overflow-hidden
+          mx-2
+          max-h-128
+          overflow-y-auto
+        "
+      >
+        <ul class="w-full divide-y divide-gray-200">
+          <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class="&quot;w-full">
+            <!-- TODO: Make component (cos also in bookings page) -->
+            <div>
+              <div class="flex items-center items-stretch">
+                <div class="p-8 bg- bg-green-100 w-40 flex items-center"><booking-date :date="new Date(b.date)" /></div>
+                <div class="flex-1 flex flex-row px-4 py-4 sm:px-6">
+                  <div class="mt-2 flex text-sm text-gray-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-2"
+                      style="margin-top: 0.1rem"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
 
-                <p class="text-sm text-gray-500">
-                  <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
-                  <span class="block">{{ moments[b.moment].descr[lang] }}</span>
-                </p>
-              </div>
+                    <p class="text-sm text-gray-500">
+                      <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
+                      <span class="block">{{ moments[b.moment].descr[lang] }}</span>
+                    </p>
+                  </div>
 
-              <div class="ml-8 mt-2 flex text-sm text-gray-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-2"
-                  style="margin-top: 0.1rem"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <location-address :location="b.location" />
+                  <div class="ml-8 mt-2 flex text-sm text-gray-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-2"
+                      style="margin-top: 0.1rem"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <location-address :location="b.location" />
+                  </div>
+
+                  <div class="ml-8 mt-2 flex text-sm text-gray-500" v-if="b.grade !== null">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    <p>
+                      <span class="font-sm">{{ b.grade }}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="group flex items-center px-4 py-4 sm:px-6">
+                  <button
+                    @click="removeFromBookingsSelection({ key })"
+                    class="rounded-full p-3 border-2 border-bg-gray-400 text-gray-700 hover:bg-pink-100 hover:border-pink-500 hover:  text-pink-500"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="group flex items-center px-4 py-4 sm:px-6">
-              <button
-                @click="removeFromBookingsSelection({ key })"
-                class="rounded-full p-3 border-2 border-blue-700 group-hover:bg-red-100 "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    </div>
+          </li>
+        </ul>
+      </div>
     </custom-transition>
-    <div class="relative z-20 flex justify-between items-center bg-blue-500 border-gray-300 shadow rounded-t-lg ">
+    <div class="relative z-20 flex justify-between items-center bg-white border-gray-300 shadow rounded-t-lg">
+      <!--      <div class="italic text-base font-bold">-->
+      <!--        <translation :id="3" />-->
+      <!--      </div>-->
+      <!--      <div class="italic">-->
+      <!--        <translation :id="4" />-->
+      <!--      </div>-->
 
-
-<!--      <div class="italic text-base font-bold">-->
-<!--        <translation :id="3" />-->
-<!--      </div>-->
-<!--      <div class="italic">-->
-<!--        <translation :id="4" />-->
-<!--      </div>-->
-
-      <div v-if="sessionBookings.length < 1 " class="text-white italic pl-8" >
-        <translation :id="13"/>
+      <div v-if="sessionBookings.length < 1" class="text-gray-700 hover:text-pink-500 italic pl-8">
+        <translation :id="13" />
       </div>
       <div v-else>
-
-        <button
-          v-if="!open"
-          class="m-4 underline text-white font-bold pl-4"
-          @click="open = !open"
-        >
+        <button v-if="!open" class="m-4 underline text-gray-700 hover:text-pink-500 font-bold pl-4" @click="open = !open">
           <translation :id="11" /> ({{ sessionBookings.length }})
-
-
         </button>
 
-
-        <button
-          v-else
-          class="m-4 underline text-white font-bold pl-4"
-          @click="open = !open"
-        >
+        <button v-else class="m-4 underline text-gray-700 hover:text-pink-500 font-bold pl-4" @click="open = !open">
           <translation :id="12" /> ({{ sessionBookings.length }})
-
-
         </button>
-
-
       </div>
+
       <button
-        class="m-4  bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
+        class="bg-pink-100 border-2 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100 font-bold py-2 px-4 rounded m-4"
         :class="{ 'opacity-50': !canSendBookingToDatabase }"
         :disabled="!canSendBookingToDatabase"
         @click="createBooking"
@@ -132,7 +149,6 @@
 
         <span v-else>{{ statusDescription }}</span>
       </button>
-
     </div>
   </div>
 </template>
@@ -167,6 +183,9 @@ export default {
     },
     statusDescription() {
       return this.$store.getters.statusDescription
+    },
+    grades() {
+      return this.$store.state.grades
     },
   },
   methods: {

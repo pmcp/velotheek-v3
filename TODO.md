@@ -12,11 +12,11 @@
 - Kaart: kleiner maken
 - colours voor calendar analyseren en verbeteren
     - misschien een legende voor alle kleuren
-    - rood veranderen in roze
-    - Geel is vandaag
-    - groen is beschikbaar
-    - grijs is niet beschikbaar
-    - blauw en rood moet zelfde kleur zijn
+      - rood veranderen in roze
+      - Geel is vandaag
+      - groen is beschikbaar
+      - grijs is niet beschikbaar
+      - blauw en rood moet zelfde kleur zijn
 - Admin
     - emails toevoegen
         - Confirmation

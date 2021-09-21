@@ -97,7 +97,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.pcss'],
+  css: ['@/assets/css/tailwind.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -154,9 +154,6 @@ module.exports = {
     mode: 'postcss',
     // ? Safelisting docs: https://purgecss.com/safelisting.html
     safelist: {
-      
-  
-      
       standard: ['vc-bg-blue-600', 'velo-normalDay', 'velo-today', 'velo-selected','dt__range__beginEnd', 'dt-range__selected', 'vc-text-white', 'datePicked-before', 'datePicked-after', 'datePicked-full', 'datePicked-before-session', 'datePicked-after-session', 'datePicked-full-session', 'vc-day-content::selection', 'velo-selected'],
       deep: [/dark/, /light/, /btn/, /icon/, /main/],
       greedy: [
@@ -167,8 +164,7 @@ module.exports = {
         /^nuxt-content/,
         /code/,
         /pre/,
-        /token/,
-        /^vue-content-placeholders/
+        /token/
       ]
     }
   },
