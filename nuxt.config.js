@@ -95,10 +95,6 @@ module.exports = {
    */
   loading: { color: '#526488' },
   /*
-   ** Global CSS
-   */
-  css: ['@/assets/css/main.pcss'],
-  /*
    ** Plugins to load before mounting the App
    */
   plugins: [
@@ -120,22 +116,22 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    transpile: ['vue-youtube-embed'],
     extractCSS: true,
-    postcss: {
-      plugins: {
-        'postcss-preset-env': postcssPresetEnv({
-          stage: 1,
-          features: {
-            'nesting-rules': false
-          }
-        }),
-        'postcss-easing-gradients': postcssEasingGradients
-      }
-    },
     /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+    ** You can extend webpack config here
+    */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
   },
   /*
    ** Custom additions configuration
