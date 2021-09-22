@@ -16,7 +16,7 @@ export default {
         case 'box':
           return 'w-full flex justify-start'
         default:
-          return 'py-3  w-full'
+          return 'py-2  w-full'
       }
     },
     label(context) {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col md:flex-row min-h-screen">
-      <div class="pt-1 w-full ">
+      <div class="pt-1 w-full">
         <locations-list class="text-sm text-gray-500 md:sticky top-20 z-20" :horizontal="true" />
         <heading-two class="mt-10">
           <translation :id="17" />
@@ -13,22 +13,25 @@
           </div>
           <div class="relative z-10 w-full">
             <div
-              class="h-40 "
+              class="h-40"
               :class="{ ' h-auto': showContent }"
               style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1); -webkit-linear-gradient(top, rgba(255,255,255,0.001) 0%, #fff 5%, #fff 100%);"
             ></div>
-            <div class="bg-white h-10 ">
-            <button @click="showContent = !showContent" class="italic text-gray-500 rounded border border-gray-500 py-1 px-2 hover:bg-gray-200">
-              <translation v-if="showContent" :id="34" />
-              <translation v-else :id="33" />
-            </button>
+            <div class="bg-white h-10">
+              <button
+                @click="showContent = !showContent"
+                class="italic text-gray-500 rounded border border-gray-500 py-1 px-2 hover:bg-gray-200"
+              >
+                <translation v-if="showContent" :id="34" />
+                <translation v-else :id="33" />
+              </button>
             </div>
-            <div class="bg-white h-10 "></div>
+            <div class="bg-white h-10"></div>
           </div>
         </div>
       </div>
 
-      <div class="md:pl-6 w-full ">
+      <div class="md:pl-6 w-full">
         <div class="sticky top-20 mb-20">
           <booking-module />
         </div>

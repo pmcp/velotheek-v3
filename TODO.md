@@ -1,6 +1,8 @@
 # DOING
-- Hide text on mobile
+
 # TODO
+- Change Pink to mainColor
+- Change fade to white to fade to gray (toon meer-knop)
 - Change lang for vue formulate
 - Logo's toevoegen voor homepage
 - Change site lang on change lang
