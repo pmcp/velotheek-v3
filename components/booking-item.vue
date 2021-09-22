@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="item" class="flex items-center items-stretch">
-      <div class="bg-pink-100 text-pink-500 px-5 md:px-0 md:w-40 flex justify-center items-center">
+      <div class="bg-pink-100 text-pink-500 px-5 md:px-0 w-20 md:w-40 flex justify-center items-center">
         <booking-date :date="new Date(item.data.date)" />
       </div>
       <div class="flex-1 flex flex-col md:flex-row md:pt-3 px-2 md:py-2">
@@ -82,6 +82,8 @@
             p-2
             md:p-3
             border-2 border-bg-gray-400
+            text-xs
+            md:text-sm
             text-gray-700
             hover:bg-pink-100 hover:border-pink-500 hover:
             text-pink-500

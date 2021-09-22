@@ -15,11 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="sticky bottom-0 w-full z-30" :class="{ hidden: !user }">
-      <div class="flex items-center relative w-full">
-        <bookings-session />
-      </div>
-    </div>
+
   </div>
 </template>
 
@@ -45,11 +41,6 @@ export default {
       const location = await $content('locations', params.location).fetch()
       return { location: location }
     }
-  },
-  computed: {
-    ...mapGetters({
-      user: 'auth/user'
-    })
   },
   methods: {
     ...mapActions([

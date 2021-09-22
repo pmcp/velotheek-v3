@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-50 px-4">
+  <div class="bg-gray-50">
     <div class="bg-white md:sticky top-0 z-50 shadow-sm mb-5">
-      <div class="relative max-w-6xl mx-auto">
+      <div class="relative max-w-6xl mx-auto px-4">
         <div class="flex justify-between py-3 md:py-0">
           <main-navigation />
           <div class="flex flex-col md:flex-row justify-between md:justify-center">
@@ -11,7 +11,12 @@
         </div>
       </div>
     </div>
-    <nuxt class="max-w-6xl mx-auto min-h-screen" />
+    <nuxt class="max-w-6xl mx-auto min-h-screen px-4" />
+    <custom-transition :id="1">
+      <div v-if="user && $route.name === 'locations-location'" class="sticky bottom-0 w-full z-30">
+        <bookings-session class="max-w-6xl mx-auto md:px-4" />
+      </div>
+    </custom-transition>
   </div>
 </template>
 
@@ -23,7 +28,11 @@ export default {
     sessionBookings() {
       return this.$store.state.sessionBookings
     },
+    ...mapGetters({
+      user: 'auth/user',
+    }),
   },
+
   methods: {
     ...mapActions(['getLocations', 'getTranslations', 'getBookings']),
   },

@@ -18,14 +18,14 @@
       >
         <ul class="w-full divide-y divide-gray-200">
           <custom-transition-group>
-            <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class="w-full">
-              <booking-item :item="{data: b, key}" v-on:remove="removeFromBookingsSelection(key)"/>
-            </li>
+              <li v-for="(b, key) in sessionBookings" :key="`${key}-sessionBookings`" class="w-full">
+                <booking-item :item="{data: b, key}" v-on:remove="removeFromBookingsSelection(key)"/>
+              </li>
           </custom-transition-group>
         </ul>
       </div>
     </custom-transition>
-    <div class="relative z-20 flex justify-between items-center bg-white border-gray-300 shadow rounded-t-lg md:rounded-t-lg">
+    <div class="relative z-20 flex justify-between items-center bg-white border-gray-300 shadow  md:rounded-t-lg">
       <div v-if="sessionBookings.length < 1" class="text-gray-700 text-sm md:text-md hover:text-pink-500 italic pl-2 md:pl-8">
         <translation :id="13" />
       </div>
