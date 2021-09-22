@@ -1,18 +1,15 @@
 <template>
   <div>
-    <div class="flex min-h-screen">
-      <div class="pt-1 w-3/5">
-<!--        <heading-two>-->
-<!--          <translation :id="16" />-->
-<!--        </heading-two>-->
-        <locations-list class="text-sm text-gray-500 sticky top-20 z-20" :horizontal="true" />
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <div class="pt-1 w-full ">
+        <locations-list class="text-sm text-gray-500 md:sticky top-20 z-20" :horizontal="true" />
         <heading-two class="mt-10">
           <translation :id="17" />
         </heading-two>
         <location-content :content="location" />
       </div>
 
-      <div class="pl-6 w-2/5">
+      <div class="md:pl-6 w-full">
         <div class="sticky top-20  mb-20">
           <booking-module />
         </div>

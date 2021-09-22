@@ -62,7 +62,7 @@
     },
     {
       "fr": "Choisissez l'année scolaire",
-      "nl": "Kies het schooljaar"
+      "nl": "Kies het jaar"
     },
     {
       "fr": "Choisissez le Vélotek",
@@ -122,11 +122,11 @@
     },
     {
       "fr": "Sélectionnez une année scolaire",
-      "nl": "Selecteer een schooljaar"
+      "nl": "Selecteer een jaar"
     },
     {
-      "fr": "Année scolaire",
-      "nl": "Schooljaar"
+      "fr": "Année",
+      "nl": "Jaar"
     },
     {
       "fr": "Effacer",

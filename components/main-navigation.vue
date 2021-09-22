@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center flex-row items-center">
+  <div class="flex flex-col md:flex-row md:justify-center md:items-center">
     <!-- TODO: Problems with hydration, so made it client only. Makes no sense. -->
 
     <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->

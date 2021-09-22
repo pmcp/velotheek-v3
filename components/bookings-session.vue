@@ -22,8 +22,8 @@
             <!-- TODO: Make component (cos also in bookings page) -->
             <div>
               <div class="flex items-center items-stretch">
-                <div class="bg-pink-100 text-pink-500 w-40 flex justify-center items-center"><booking-date :date="new Date(b.date)" /></div>
-                <div class="flex-1 flex flex-row pt-3 px-2 py-2">
+                <div class="bg-pink-100 text-pink-500 px-5 md:px-0 md:w-40 flex justify-center items-center"><booking-date :date="new Date(b.date)" /></div>
+                <div class="flex-1 flex flex-col md:flex-row md:pt-3 px-2 md:py-2">
                   <div class="mt-2 flex text-sm text-gray-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -42,12 +42,12 @@
                     </svg>
 
                     <p class="text-xs text-gray-500">
-                      <span class="font-sm  font-semibold">{{ moments[b.moment].name[lang] }}</span>
-                      <span class="block">{{ moments[b.moment].descr[lang] }}</span>
+                      <span class="font-sm font-semibold">{{ moments[b.moment].name[lang] }}</span>
+                      <span class="block hidden md:block">{{ moments[b.moment].descr[lang] }}</span>
                     </p>
                   </div>
 
-                  <div class="ml-8 mt-2 flex text-sm text-gray-500">
+                  <div class="md:ml-8 mt-1 md:mt-2 flex text-sm text-gray-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-4 w-4 mr-2"
@@ -72,7 +72,7 @@
                     <location-address class="text-xs text-gray-500" :location="b.location" />
                   </div>
 
-                  <div class="ml-8 mt-2 flex text-sm text-gray-500" v-if="b.grade !== null">
+                  <div class="md:ml-8 mt-1 md:mt-2 flex text-sm text-gray-500" v-if="b.grade !== null">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-5 w-5 mr-2"
@@ -95,7 +95,7 @@
                 <div class="group flex items-center px-2 py-2">
                   <button
                     @click="removeFromBookingsSelection({ key })"
-                    class="rounded-lg p-3 border-2 border-bg-gray-400 text-gray-700 hover:bg-pink-100 hover:border-pink-500 hover:  text-pink-500"
+                    class="rounded-lg p-2 md:p-3 border-2 border-bg-gray-400 text-gray-700 hover:bg-pink-100 hover:border-pink-500 hover:  text-pink-500"
                   >
                     <translation :id="32" />
                   </button>
@@ -107,23 +107,16 @@
         </ul>
       </div>
     </custom-transition>
-    <div class="relative z-20 flex justify-between items-center bg-white border-gray-300 shadow rounded-t-lg">
-      <!--      <div class="italic text-base font-bold">-->
-      <!--        <translation :id="3" />-->
-      <!--      </div>-->
-      <!--      <div class="italic">-->
-      <!--        <translation :id="4" />-->
-      <!--      </div>-->
-
-      <div v-if="sessionBookings.length < 1" class="text-gray-700 hover:text-pink-500 italic pl-8">
+    <div class="relative z-20 flex justify-between items-center bg-white border-gray-300 shadow rounded-t-lg md:rounded-t-lg">
+      <div v-if="sessionBookings.length < 1" class="text-gray-700 text-sm md:text-md hover:text-pink-500 italic pl-2 md:pl-8">
         <translation :id="13" />
       </div>
       <div v-else>
-        <button v-if="!open" class="m-4 underline text-gray-700 hover:text-pink-500 font-bold pl-4" @click="open = !open">
+        <button v-if="!open" class="underline text-gray-700 hover:text-pink-500  pl-4 text-left" @click="open = !open">
           <translation :id="11" /> ({{ sessionBookings.length }})
         </button>
 
-        <button v-else class="m-4 underline text-gray-700 hover:text-pink-500 font-bold pl-4" @click="open = !open">
+        <button v-else class=" underline text-gray-700 hover:text-pink-500  pl-4 text-left" @click="open = !open">
           <translation :id="12" /> ({{ sessionBookings.length }})
         </button>
       </div>

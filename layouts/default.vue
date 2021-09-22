@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-gray-50">
-    <div class="bg-white sticky top-0 z-50 shadow-sm mb-5">
+  <div class="bg-gray-50 px-4">
+    <div class="bg-white md:sticky top-0 z-50 shadow-sm mb-5">
       <div class="relative max-w-6xl mx-auto">
-        <div class="flex justify-between">
+        <div class="flex justify-between py-3 md:py-0">
           <main-navigation />
-          <div class="flex">
+          <div class="flex flex-col md:flex-row justify-between md:justify-center">
             <user />
             <language-toggle class="ml-5" />
           </div>

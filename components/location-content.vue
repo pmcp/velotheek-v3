@@ -3,7 +3,7 @@
     <heading-one>
       {{ content.title }}
     </heading-one>
-    <div class="mt-6">
+    <div class="mt-2  md:mt-6">
       <content-wrapper :content="content" />
     </div>
   </section>
