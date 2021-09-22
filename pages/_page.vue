@@ -17,8 +17,8 @@
             <nuxt-content class="prose lg:prose-xl" :document="content" />
           </div>
 
-          <div class="mt-10 sm:flex sm:justify-center lg:justify-start" v-if="user">
-            <div class="rounded-md shadow">
+          <div class="mt-10" v-if="user">
+              <div class="rounded-md">
               <nuxt-link
                 :to="`/locations/4saisons.${lang}`"
                 class="
