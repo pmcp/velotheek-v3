@@ -245,7 +245,7 @@ export const actions = {
     commit('setActiveMoment', null)
   },
 
-  removeFromBookingsSelection({ state, commit }, { key }) {
+  removeFromBookingsSelection({ state, commit }, key ) {
     commit('removeFromBookingsSelection', key)
   },
 
