@@ -39,7 +39,7 @@
       </div>
     </template>
     <template v-else>
-      <div class="text-base max-w-prose mx-auto pt-10">
+      <div class="text-base max-w-prose pt-10">
         <h1
           class="
             py-5
