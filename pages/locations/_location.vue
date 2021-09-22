@@ -6,25 +6,44 @@
         <heading-two class="mt-10">
           <translation :id="17" />
         </heading-two>
-        <location-content :content="location" />
+        <location-content class="hidden md:block" :content="location" />
+        <div class="md:hidden">
+          <div class="h-10 md:h-auto md:mb-0" :class="{ 'overflow-hidden h-auto': showContent }">
+            <location-content :content="location" />
+          </div>
+          <div class="relative z-10 w-full">
+            <div
+              class="h-40 "
+              :class="{ ' h-auto': showContent }"
+              style="background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(255, 255, 255, 1))"
+            ></div>
+            <div class="bg-white h-10 ">
+            <button @click="showContent = !showContent" class="italic text-gray-500 rounded border border-gray-500 py-1 px-2 hover:bg-gray-200">
+              <translation v-if="showContent" :id="34" />
+              <translation v-else :id="33" />
+            </button>
+            </div>
+            <div class="bg-white h-10 "></div>
+          </div>
+        </div>
       </div>
 
-      <div class="md:pl-6 w-full">
-        <div class="sticky top-20  mb-20">
+      <div class="md:pl-6 w-full ">
+        <div class="sticky top-20 mb-20">
           <booking-module />
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import HeadingTwo from '~/components/heading-two'
+import Translation from '~/components/translation'
 
 export default {
-  components: { HeadingTwo },
+  components: { Translation, HeadingTwo },
   head: {
     link: [
       {
@@ -42,10 +61,13 @@ export default {
       return { location: location }
     }
   },
+  data() {
+    return {
+      showContent: false,
+    }
+  },
   methods: {
-    ...mapActions([
-      'setLocation'
-    ]),
+    ...mapActions(['setLocation']),
   },
   mounted() {
     this.setLocation(this.location.idInSheet)

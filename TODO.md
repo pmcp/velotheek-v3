@@ -1,10 +1,9 @@
 # DOING
-
+- Hide text on mobile
 # TODO
 - Change lang for vue formulate
 - Logo's toevoegen voor homepage
 - Change site lang on change lang
-- 
 - Admin
     - emails toevoegen
         - Confirmation

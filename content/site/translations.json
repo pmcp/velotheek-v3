@@ -131,6 +131,14 @@
     {
       "fr": "Effacer",
       "nl": "Verwijderen"
+    },
+    {
+      "fr": "Afficher plus",
+      "nl": "Toon meer"
+    },
+    {
+      "fr": "Afficher moins",
+      "nl": "Toon minder"
     }
   ]
 }
