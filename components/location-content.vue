@@ -1,5 +1,5 @@
 <template>
-  <section class="py-8">
+  <section class="pb-8 pt-2">
     <heading-one>
       {{ content.title }}
     </heading-one>

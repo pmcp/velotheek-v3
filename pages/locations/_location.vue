@@ -13,20 +13,19 @@
           </div>
           <div class="relative z-10 w-full">
             <div
-              class="h-40"
+              class="h-40 readMoreGradient"
               :class="{ ' h-auto': showContent }"
-              style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1); -webkit-linear-gradient(top, rgba(255,255,255,0.001) 0%, #fff 5%, #fff 100%);"
             ></div>
-            <div class="bg-white h-10">
+            <div class="bg-gray-50 h-10">
               <button
                 @click="showContent = !showContent"
-                class="italic text-gray-500 rounded border border-gray-500 py-1 px-2 hover:bg-gray-200"
+                class="italic bg-white text-gray-500 rounded border border-gray-500 py-1 px-2 hover:bg-gray-200"
               >
                 <translation v-if="showContent" :id="34" />
                 <translation v-else :id="33" />
               </button>
             </div>
-            <div class="bg-white h-10"></div>
+            <div class="bg-gray-50 h-10"></div>
           </div>
         </div>
       </div>
