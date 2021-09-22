@@ -1,5 +1,5 @@
 <template>
-  <main class="relative bg-gray-50">
+  <main class="relative bg-gray-50" v-if="content">
     <template v-if="content.title === 'Home'">
       <div class="flex flex-col md:flex-row">
         <div class="relative flex md:w-1/2 mr-4 bg-pink-500 justify-items-stretch items-stretch">
