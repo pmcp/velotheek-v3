@@ -1,5 +1,7 @@
 # DOING
 
+test
+
 # TODO
 - Login more visible
 - Change french names of school years
