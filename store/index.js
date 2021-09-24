@@ -3,15 +3,15 @@ import { format } from 'date-fns'
 export const state = () => ({
   lang: 'nl',
   moments: [
-    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u tot 12u', fr: 'de 8h a 12h' }, available: true },
+    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u30 tot 12u30', fr: 'de 8h30 a 12h30' }, available: true },
     {
       name: { nl: 'Namiddag', fr: 'Après midi' },
-      descr: { nl: 'Van 12u tot 18u', fr: 'de 12h a 18h' },
+      descr: { nl: 'Van 12u30 tot 18u30', fr: 'de 12h30 a 18h30' },
       available: true,
     },
     {
       name: { nl: 'Hele dag', fr: 'Toute la journée' },
-      descr: { nl: 'Van 9u tot 18u', fr: 'de 9h a 18h' },
+      descr: { nl: 'Van 9u30 tot 18u30', fr: 'de 9h30 a 18h30' },
       available: true,
     },
   ],

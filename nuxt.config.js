@@ -4,8 +4,6 @@ const SITE_INFO = require('./content/site/info.json')
 const COLOR_MODE_FALLBACK = require('./utils/globals.js')
 const { $content } = require('@nuxt/content')
 
-
-
 module.exports = {
   target: 'static',
   

@@ -2,3 +2,5 @@
 command = "npm run generate"
 functions = "./functions/"
 publish = "dist"
+[dev]
+  command = "npm run dev" # or serve/dev/watch, depending on the scripts in package.json
