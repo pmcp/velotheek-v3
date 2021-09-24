@@ -1,6 +1,5 @@
 # DOING
 
-test
 
 # TODO
 - Login more visible
