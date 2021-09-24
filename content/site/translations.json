@@ -25,7 +25,7 @@
       "nl": "Boekingen"
     },
     {
-      "fr": "Réserver",
+      "fr": "Confirmer vos réservations",
       "nl": "Reserveer"
     },
     {
@@ -53,27 +53,27 @@
       "nl": "Verberg je geselecteerde momenten"
     },
     {
-      "fr": "Vous n'avez ajouté aucune période",
+      "fr": "Vous n'avez ajouté aucune réservation",
       "nl": "Je hebt nog geen moment toegevoegd"
     },
     {
-      "fr": "Nouvelle reservation",
+      "fr": "Nouvelle réservation",
       "nl": "Nieuwe reservatie"
     },
     {
-      "fr": "Choisissez l'année scolaire",
+      "fr": "Sélectionner le niveau de votre classe",
       "nl": "Kies het jaar"
     },
     {
-      "fr": "Choisissez le Vélotek",
+      "fr": "Choisissez une Vélotek",
       "nl": "Kies een Velotheek"
     },
     {
-      "fr": "À propos de ce Vélothek",
+      "fr": "Matériel disponible dans cette Vélotek",
       "nl": "Over deze Velotheek"
     },
     {
-      "fr": "Sélectionnez une date",
+      "fr": "Choisissez une date",
       "nl": "Selecteer een datum"
     },
     {
@@ -117,7 +117,7 @@
       "nl": "Geselecteerde dag"
     },
     {
-      "fr": "Ajouter reservation",
+      "fr": "Ajouter cette réservation",
       "nl": "Voeg boeking toe"
     },
     {
