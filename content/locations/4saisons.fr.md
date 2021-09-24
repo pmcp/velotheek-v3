@@ -54,3 +54,11 @@ city: Saint-Gilles
 \    Age: 14 ans et plus
 
 \    Taille de l'enfant: 170 cm et plus
+
+1 grande pompe à vélo
+
+1 jeux de plots
+
+1 câble de 10 mètres (pour sécuriser les vélos) 
+
+1 fonte avec outils et matériel de réparation (comprenant une petite pompe)
