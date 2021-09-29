@@ -7,31 +7,22 @@ street: Rue de la Rhétorique 13
 zip: 1060
 city: Saint-Gilles
 ---
-10 draisiennes (code couleur gris, âge de 2 à 5 ans, taille de l'enfant de 95 - 110 cm)                              
+* **10 draisiennes (code couleur gris):**
 
-9 vélos 16 pouces:
+  * âge de 2 à 5 ans
+  * taille de l'enfant de 95 - 110 cm                              
+* **9 vélos 16 pouces (code couleur rouge)**
 
-\    Code couleur: rouge
+  * âge: 5 à 7 ans
+  * taille de l'enfant: 110 - 120 cm   
+* **7 vélos 20 pouces (code couleur: bleu)**
 
-\    Age: 5 à 7 ans
+  *  âge: 7 à 9 ans
+  * taille de l'enfant: 120 - 135 cm
+* **8 vélos 24 pouces (code couleur jaune)**
 
-\    Taille de l'enfant: 110 - 120 cm   
-
-7 vélos 20 pouces:
-
-\    Code couleur: bleu
-
-\    Age: 7 à 9 ans
-
-\    Taille de l'enfant: 120 - 135 cm
-
-8 vélos 24 pouces:
-
-\    Code couleur: jaune
-
-\    Age: 9 à 11 ans
-
-\    Taille de l'enfant: 135 - 145 cm 
+  * âge: 9 à 11 ans
+  * taille de l'enfant: 135 - 145 cm 
 
 6 vélos 26 pouces:
 
