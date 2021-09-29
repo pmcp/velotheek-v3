@@ -6,16 +6,6 @@ info: ""
 street: Place Bethléem 10
 zip: 1060
 city: Saint-Gilles
-mail_confirmation:
-  subject: subjectFR
-  intro: |-
-    Intro
-
-    FR
-  outro: |-
-    Outro
-
-    FR
 ---
 10 draisiennes:  
 

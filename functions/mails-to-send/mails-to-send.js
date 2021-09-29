@@ -37,7 +37,7 @@ exports.handler = async function (event, context) {
         const email = await emailFn.sendEmail({
           copy: copy[b.language],
           to: b.email,
-          replyTo: 'info@velotheek.be',
+          replyTo: 'bookings@schoolvelotek.be',
           subject: subject[b.language],
         })
 

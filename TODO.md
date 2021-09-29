@@ -4,20 +4,23 @@
 # TODO
 - Login more visible
 - Change french names of school years
-- Change Pink to mainColor
-- Change lang for vue formulate
+- Remove logo
 - Logo's toevoegen voor homepage
+- Nouvelle reservation / Your reservation -> als knop
+- "Choissisez votre velothek'
+- "Montrer la legende", change in less heavy button
+
 - Change site lang on change lang
+- Change lang for vue formulate
 - Admin
     - emails toevoegen
         - Confirmation
     - uren kunnen aanpassen in de horaire
     - Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
     - drive arrangeren
-- Remove logo
-- Nouvelle reservation / Your reservation -> als knop
-- "Choissisez votre velothek'
-- "Montrer la legende", change in less heavy button
+- 
+- Change Pink to mainColor
+- Change emails to mail.schoolvelotek.be
 - Reminderdate in excel is niet leesbaar
 - Moments aanpasbaar maken (verschillend per velotheek)
 

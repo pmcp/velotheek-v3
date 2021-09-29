@@ -14,12 +14,11 @@ module.exports = {
       const { $content } = require('@nuxt/content')
       const locations = await $content('locations').fetch()
       const generatedLocations = locations.map((file) => {
+        console.log(file)
         return {
           route: `/locations/${file.slug}`,
           payload: file,
-        };
-
-
+        }
       });
 
       const pages = await $content('pages').fetch()
