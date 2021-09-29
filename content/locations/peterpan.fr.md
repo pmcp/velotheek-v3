@@ -7,31 +7,31 @@ street: Rue de la Rhétorique 13
 zip: 1060
 city: Saint-Gilles
 ---
-* **4 vélos adultes (code couleur blanc)**
+* ###### **4 vélos adultes (code couleur blanc)**
 
-  * \    âge: 14 ans et plus
-  * \    taille de 170 cm et plus
-* **6 vélos 26 pouces (code couleur orange)**
+  * ###### âge: 14 ans et plus
+  * ###### taille de 170 cm et plus
+* ###### **6 vélos 26 pouces (code couleur orange)**
 
-  * \    âge: 11 ans à 14 ans
-  * \    taille de 145 cm à 170 cm
-* **8 vélos 24 pouces (code couleur jaune)**
+  * ###### âge: 11 ans à 14 ans
+  * ###### taille de 145 cm à 170 cm
+* ###### **8 vélos 24 pouces (code couleur jaune)**
 
-  * âge: 9 à 11 ans
-  * taille de 135 - 145 cm 
-* **7 vélos 20 pouces (code couleur bleu)**
+  * ###### âge: 9 à 11 ans
+  * ###### taille de 135 - 145 cm 
+* ###### **7 vélos 20 pouces (code couleur bleu)**
 
-  * âge: 7 à 9 ans
-  * taille de 120 - 135 cm
-* **9 vélos 16 pouces (code couleur rouge)**
+  * ###### âge: 7 à 9 ans
+  * ###### taille de 120 - 135 cm
+* ###### **9 vélos 16 pouces (code couleur rouge)**
 
-  * âge: 5 à 7 ans
-  * taille de 110 - 120 cm  
-* **10 draisiennes (code couleur gris)**
+  * ###### âge: 5 à 7 ans
+  * ###### taille de 110 - 120 cm  
+* ###### **10 draisiennes (code couleur gris)**
 
-  * âge de 2 à 5 ans
-  * taille de 95 - 110 cm                              
-* **1 grande pompe à vélo**
-* **1 jeux de plots**
-* **1 câble de 10 mètres (pour sécuriser les vélos)** 
-* **1 fonte avec outils et matériel de réparation (comprenant une petite pompe)**
+  * ###### âge de 2 à 5 ans
+  * ###### taille de 95 - 110 cm                              
+* ###### **1 grande pompe à vélo**
+* ###### **1 jeux de plots**
+* ###### **1 câble de 10 mètres (pour sécuriser les vélos)** 
+* ###### **1 fonte avec outils et matériel de réparation (comprenant une petite pompe)**
