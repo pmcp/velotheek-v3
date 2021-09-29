@@ -1,28 +1,39 @@
 <template>
-  <div class="flex flex-col md:flex-row md:justify-center md:items-center">
+  <div class="flex flex-row justify-between ">
     <!-- TODO: Problems with hydration, so made it client only. Makes no sense. -->
 
     <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
-    <nuxt-link :to="`/homepage.${lang}`">
-      <span class="underline text-gray-600 hover:text-gray-900 mr-5">Home</span>
-    </nuxt-link>
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+      <nuxt-link :to="`/homepage.${lang}`">
+        <span class="underline text-gray-600 hover:text-gray-900 mr-5">Home</span>
+      </nuxt-link>
 
-    <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
-      <span class="underline text-gray-600 hover:text-gray-900 mr-5">{{ p.title }}</span>
-    </nuxt-link>
+      <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
+        <div class="underline text-gray-600 hover:text-gray-900 mr-5">{{ p.title }}</div>
+      </nuxt-link>
+    </div>
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+      <nuxt-link :to="`/locations/4saisons.${lang}`" class="text-gray-600 hover:text-gray-900 mr-5 border-2 border-gray-400 px-1 py-1 md:py-3 md:px-2 rounded">
+        <translation
+          :id="14"
+          class=""
+          :class="{ hidden: !user }"
+        />
+      </nuxt-link>
 
-    <nuxt-link :to="`/locations/4saisons.${lang}`">
-      <translation :id="14" class="underline text-gray-600 hover:text-gray-900 mr-5" :class="{ hidden: !user }" />
-    </nuxt-link>
-
-    <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
-    <nuxt-link
-      :to="`/bookings.${lang}`"
-      class="mr-5 underline text-gray-600 hover:text-gray-900"
-      :class="{ hidden: !user }"
-    >
-      <translation :id="7" /> ({{ userBookings }})
-    </nuxt-link>
+      <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
+      <nuxt-link
+        :to="`/bookings.${lang}`"
+        class="mr-5 underline text-gray-600 hover:text-gray-900"
+        :class="{ hidden: !user }"
+      >
+        <translation :id="7" /> ({{ userBookings }})
+      </nuxt-link>
+    </div>
+    <div class="py-2 flex flex-col md:flex-row justify-between md:justify-center">
+      <user />
+      <language-toggle class="ml-5" />
+    </div>
   </div>
 </template>
 

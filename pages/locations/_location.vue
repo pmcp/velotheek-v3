@@ -2,8 +2,11 @@
   <div>
     <div class="flex flex-col md:flex-row min-h-screen">
       <div class="pt-1 w-full">
+        <heading-two class="mb-3">
+          <translation :id="35" />
+        </heading-two>
         <locations-list class="text-sm text-gray-500 md:sticky top-20 z-20" :horizontal="true" />
-        <heading-two class="mt-10">
+        <heading-two class="mt-5">
           <translation :id="17" />
         </heading-two>
         <location-content class="hidden md:block" :content="location" />

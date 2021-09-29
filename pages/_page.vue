@@ -3,37 +3,53 @@
     <template v-if="content.title === 'Home'">
       <div class="flex flex-col md:flex-row">
         <div class="relative flex md:w-1/2 mr-4 bg-pink-500 justify-items-stretch items-stretch">
-
           <img class="object-cover" :src="content.image" alt="" />
-          <div class="absolute w-full h-full top-0 left-0 flex justify-center items-center p-5">
-            <svg-logo class="text-white" />
-          </div>
+          <!--          <div class="absolute w-full h-full top-0 left-0 flex justify-center items-center p-5">-->
+          <!--            <svg-logo class="text-white" />-->
+          <!--          </div>-->
         </div>
-        <div class="pb-20 md:w-1/2 ml-4 mt-5">
+
+        <div class="pb-20 md:w-1/2 ml-4 mt-5 flex flex-col">
           <heading-one>
             {{ content.intro }}
           </heading-one>
-          <div class="prose prose-indigo prose-lg text-gray-500 mx-auto">
-            <nuxt-content class="prose lg:prose-xl" :document="content" />
+          <div v-if="!user">
+            <button
+              @click.prevent="openLogin"
+              class="
+                bg-pink-100
+                border-2
+                text-pink-500
+                border-pink-500
+                hover:bg-pink-500 hover:text-pink-100
+                rounded
+                p-2
+                my-4
+              "
+            >
+              Log In
+            </button>
           </div>
+          <nuxt-link
+            v-else
+            :to="`/locations/4saisons.${lang}`"
+            class="
+              bg-pink-100
+              border-2
+              text-pink-500
+              border-pink-500
+              hover:bg-pink-500 hover:text-pink-100
+              rounded
+              p-2
+              w-auto
+              my-4
+            "
+          >
+            <translation :id="14" class="" />
+          </nuxt-link>
 
-          <div class="mt-10" v-if="user">
-              <div class="rounded-md">
-              <nuxt-link
-                :to="`/locations/4saisons.${lang}`"
-                class="
-                  bg-pink-100
-                  border-2
-                  text-pink-500
-                  border-pink-500
-                  hover:bg-pink-500 hover:text-pink-100
-                  rounded
-                  p-4
-                "
-              >
-                <translation :id="14" class="" />
-              </nuxt-link>
-            </div>
+          <div class="prose prose-indigo prose-lg text-gray-500 mx-auto w-full">
+            <nuxt-content class="prose lg:prose-xl" :document="content" />
           </div>
         </div>
       </div>
@@ -64,7 +80,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   // TODO: Check all heads
@@ -74,6 +90,9 @@ export default {
     },
     ...mapGetters({
       user: 'auth/user',
+    }),
+    ...mapActions({
+      openLogin: 'auth/openLogin',
     }),
   },
   async asyncData({ $content, params, error, payload }) {

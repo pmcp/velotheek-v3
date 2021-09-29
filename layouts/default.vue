@@ -2,21 +2,8 @@
   <div class="bg-gray-50">
     <div class="bg-white md:sticky top-0 z-50 shadow-sm mb-5">
       <div class="relative max-w-6xl mx-auto px-4">
-        <div class="flex justify-between">
-          <div class="flex py-2 md:py-0 items-center">
-            <div class="w-10 h-10 mr-5 hidden md:block">
-              <custom-transition :id="2">
-                <!-- <svg-logo v-if="!$route.path.includes('homepage')" class="text-pink-500"/>-->
-                <svg-logo class="text-pink-500" />
-              </custom-transition>
-            </div>
-            <main-navigation />
-          </div>
-          <div class="py-2 flex flex-col md:flex-row justify-between md:justify-center">
-            <user />
-            <language-toggle class="ml-5" />
-          </div>
-        </div>
+        <main-navigation />
+
       </div>
     </div>
     <nuxt class="max-w-6xl mx-auto min-h-screen px-4" />
