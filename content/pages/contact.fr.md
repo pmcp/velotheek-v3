@@ -1,4 +1,4 @@
 ---
 title: Contact
-intro: ""
+intro: Véronique Gallez
 ---

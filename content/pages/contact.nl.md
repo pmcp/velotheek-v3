@@ -1,5 +1,6 @@
 ---
 title: Contact
-intro: Bla Bla
+intro: |
+  Linde Maes
 ---
-Bla Bla
+blabla
