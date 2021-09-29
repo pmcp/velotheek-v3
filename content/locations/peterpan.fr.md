@@ -7,8 +7,6 @@ street: Rue de la Rhétorique 13
 zip: 1060
 city: Saint-Gilles
 ---
-
-
 * **4 vélos adultes (code couleur blanc)**
 
   * \    âge: 14 ans et plus
@@ -21,15 +19,15 @@ city: Saint-Gilles
 
   * âge: 9 à 11 ans
   * taille de 135 - 145 cm 
-* **7 vélos 20 pouces (code couleur: bleu)**
+* **7 vélos 20 pouces (code couleur bleu)**
 
-  *  âge: 7 à 9 ans
+  * âge: 7 à 9 ans
   * taille de 120 - 135 cm
 * **9 vélos 16 pouces (code couleur rouge)**
 
   * âge: 5 à 7 ans
   * taille de 110 - 120 cm  
-* **10 draisiennes (code couleur gris):**
+* **10 draisiennes (code couleur gris)**
 
   * âge de 2 à 5 ans
   * taille de 95 - 110 cm                              
