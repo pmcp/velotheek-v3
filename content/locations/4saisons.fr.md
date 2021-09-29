@@ -24,4 +24,3 @@ city: Saint-Gilles
   * ###### âge: 7 à 9 ans
   * ###### taille de 120 - 135 cm
 * ###### **9 vélos 16 pouces (code couleur rouge)**
-*
