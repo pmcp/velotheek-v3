@@ -7,58 +7,21 @@ street: Place Bethléem 10
 zip: 1060
 city: Saint-Gilles
 ---
-10 draisiennes:  
+ 
 
-\    Code couleur: gris
+* ###### **4 vélos adultes (code couleur blanc)**
 
-\    Age: 2 à 5 ans
+  * ###### âge: 14 ans et plus
+  * ###### taille de 170 cm et plus
+* ###### **6 vélos 26 pouces (code couleur orange)**
 
-\    Taille de l'enfant: 95 - 110 cm                              
+  * ###### âge: 11 ans à 14 ans
+  * ###### taille de 145 cm à 170 cm
+* ###### **8 vélos 24 pouces (code couleur jaune)**
 
-9 vélos 16 pouces:
+  * ###### âge: 9 à 11 ans
+  * ###### taille de 135 - 145 cm 
+* ###### **7 vélos 20 pouces (code couleur bleu)**
 
-\    Code couleur: rouge
-
-\    Age: 5 à 7 ans
-
-\    Taille de l'enfant: 110 - 120 cm   
-
-7 vélos 20 pouces:
-
-\    Code couleur: bleu
-
-\    Age: 7 à 9 ans
-
-\    Taille de l'enfant: 120 - 135 cm 
-
-8 vélos 24 pouces:
-
-\    Code couleur: jaune
-
-\    Age: 9 à 11 ans
-
-\    Taille de l'enfant: 135 - 145 cm 
-
-6 vélos 26 pouces:
-
-\    Code couleur: orange
-
-\    Age: 11 ans à 14 ans
-
-\    Taille de l'enfant: 145 cm à 170 cm
-
-4 vélos adultes:
-
-\    Code couleur: blanc
-
-\    Age: 14 ans et plus
-
-\    Taille de l'enfant: 170 cm et plus
-
-1 grande pompe à vélo
-
-1 jeux de plots
-
-1 câble de 10 mètres (pour sécuriser les vélos) 
-
-1 fonte avec outils et matériel de réparation (comprenant une petite pompe)
+  * ###### âge: 7 à 9 ans
+  * ###### taille de 120 - 135 cm
