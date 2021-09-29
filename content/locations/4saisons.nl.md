@@ -7,4 +7,29 @@ street: Bethlehemplein 10
 zip: 1060
 city: Sint-Gillis
 ---
-Op de dag van uw reservering moet u aanbellen bij het secretariaat van école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit en het feit dat u voor de Vélotheek komt. U haalt de sleutels van de Vélotheek op bij het schoolsecretariaat, verlaat de school en gaat iets verderop tot de Denemarkenstraat. De deur van de Vélotheek bevindt zich in de Denemarkenstraat, twee deuren verder vanbij de ingang de schoolpoort. Daarboven staat "Cité des jeunes". De fietsen worden gestald in een lokaal aan de linkerkant, zo'n 20 meter verderop in de gang. Een bordje "Vélotheek" op de deur geeft aan dat u zich op de juiste plaats bevindt. De lichtschakelaar voor de kamer bevindt zich links 2 m na de deur. Vergeet niet om zowel het licht van het lokaal ui te schakelen als de straatdeur op slot te doen. U geeft dan de sleutels aan het secretariaat voordat u gaat fietsen.
+
+
+* ###### **2 vélos adultes (code couleur blanc)**
+
+  * ###### âge: 14 ans et plus
+  * ###### taille de 170 cm et plus
+* ###### **6 vélos 26 pouces (code couleur orange)**
+
+  * ###### âge: 11 ans à 14 ans
+  * ###### taille de 145 cm à 170 cm
+* ###### **10 vélos 24 pouces (code couleur jaune)**
+
+  * ###### âge: 9 à 11 ans
+  * ###### taille de 135 - 145 cm
+* ###### **5 vélos 20 pouces (code couleur bleu)**
+
+  * ###### âge: 7 à 9 ans
+  * ###### taille de 120 - 135 cm
+* ###### **8 vélos 16 pouces (code couleur rouge)**
+
+  * ###### âge: 5 à 7 ans
+  * ###### taille de 110 - 120 cm
+* ###### **1 grande pompe à vélo**
+* ###### **1 jeux de plots**
+* ###### **1 câble de 10 mètres (pour sécuriser les vélos)**
+* ###### **1 fonte avec outils et matériel de réparation (comprenant une petite pompe)**
