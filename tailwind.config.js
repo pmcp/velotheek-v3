@@ -1,5 +1,8 @@
 const colors = require('tailwindcss/colors')
 module.exports = {
+  plugins: [
+    require(`@tailwindcss/typography`)
+  ],
   theme: {
     screens: {
       sm: '480px',
