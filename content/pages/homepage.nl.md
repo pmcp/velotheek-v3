@@ -5,4 +5,4 @@ intro: |-
   bij de velotheek
 image: /img/christin-hume-zbuh21c9ark-unsplash.jpg
 ---
-Blabla
+School Vélotek geeft schoolleerkrachten toegang tot een vloot fietsen.
