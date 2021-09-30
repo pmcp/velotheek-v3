@@ -1,8 +1,4 @@
 ---
-title: 4 Saisons
-idInSheet: 4saisons
-location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
-info: "\n"
 street: Bethlehemplein 10
 zip: 1060
 city: Sint-Gillis
@@ -11,6 +7,16 @@ confirmationMail:
   intro: this is the intro NL
   outro: this is the outro NL
   from: booking@schoolvelotek.be
+title: 4 Saisons
+idInSheet: 4saisons
+location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
+info: "\n"
+mails:
+  confirmationMail:
+    intro: this is the intro NL
+    outro: this is the outro NL
+    subject: this is the subject NL
+    from: booking@schoolvelotek.be
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
