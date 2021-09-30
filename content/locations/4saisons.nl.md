@@ -6,6 +6,11 @@ info: "\n"
 street: Bethlehemplein 10
 zip: 1060
 city: Sint-Gillis
+confirmationMail:
+  subject: this is the intro NL
+  intro: this is the intro NL
+  outro: this is the outro NL
+  from: booking@schoolvelotek.be
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 

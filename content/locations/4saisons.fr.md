@@ -6,6 +6,11 @@ info: ""
 street: Place Bethléem 10
 zip: 1060
 city: Saint-Gilles
+confirmationMail:
+  from: booking@schoolvelotek.be
+  outro: this is the outro Fr
+  intro: this is the intro FR
+  subject: this is the intro FR
 ---
 * ###### **2 vélos adultes (code couleur blanc)**
 
