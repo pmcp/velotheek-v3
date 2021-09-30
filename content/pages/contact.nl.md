@@ -1,8 +1,7 @@
 ---
 title: Contact
-intro: |-
-  Linde Maes
-  Email: lmaes@stgilles.brussels
-  Tel: 0490/52 30 09
+intro: " "
 ---
-blabla
+Linde Maes
+Email: lmaes@stgilles.brussels
+Tel: 0490/52 30 09blabla
