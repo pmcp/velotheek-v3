@@ -2,26 +2,16 @@
 street: Place Bethléem 10
 zip: 1060
 city: Saint-Gilles
-confirmationMail:
-  from: booking@schoolvelotek.be
-  outro: this is the outro Fr
-  intro: this is the intro FR
-  subject: this is the intro FR
 title: 4 Saisons
 idInSheet: 4saisons
 location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
 info: ""
 mails:
-  confirmationMail:
+  confirmation:
     outro: this is the outro Fr
     intro: this is the intro Fr
     subject: this is the subject Fr
     from: booking@schoolvelotek.be
-  confirmation:
-    from: info@schoolvelothek.be
-    subject: Conf
-    intro: intro
-    outro: outro
   reminder:
     from: info@schoolvelothek.be
     subject: reminder

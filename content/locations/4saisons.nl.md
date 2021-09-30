@@ -2,26 +2,16 @@
 street: Bethlehemplein 10
 zip: 1060
 city: Sint-Gillis
-confirmationMail:
-  subject: this is the intro NL
-  intro: this is the intro NL
-  outro: this is the outro NL
-  from: booking@schoolvelotek.be
 title: 4 Saisons
 idInSheet: 4saisons
 location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
 info: "\n"
 mails:
-  confirmationMail:
+  confirmation:
     intro: this is the intro NL
     outro: this is the outro NL
     subject: this is the subject NL
     from: booking@schoolvelotek.be
-  confirmation:
-    subject: Conf
-    intro: intro
-    outro: outro
-    from: info@schoolvelothek.be
   reminder:
     from: info@schoolvelothek.be
     intro: intro

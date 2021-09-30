@@ -10,7 +10,6 @@ if (!process.env.NETLIFY) {
 	  const data = JSON.parse(event.body)
 	  const sheet = await sheetAPI.getSheet(data.sheet)
 	  const rows = await sheetAPI.getRows(sheet)
-		console.log('ROWS', rows)
 	  return {
 		statusCode: 200,
 		body: JSON.stringify(rows)

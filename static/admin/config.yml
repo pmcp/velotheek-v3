@@ -54,20 +54,6 @@ collections:
             fields:
               - {label: FR, name: fr, widget: string}
               - {label: NL, name: nl, widget: string}
-      - label: 'Emails'
-        name: 'emails'
-        file: 'functions/check-bookings/emails.json'
-        format: 'json'
-        editor:
-          preview: false
-        fields:
-          - label: "Emails"
-            name: "Emails"
-            widget: "list"
-            summary: '{{fields.fr}} - {{fields.nl}}'
-            fields:
-              - { label: FR, name: fr, widget: text }
-              - { label: NL, name: nl, widget: text }
   - name: 'locations'
     i18n: true
     label: 'Locations'
@@ -86,6 +72,33 @@ collections:
       - {label: "Street + number", name: "street", widget: "string", required: true, i18n: true}
       - {label: "Zip", name: "zip", widget: "number", required: true, i18n: true}
       - {label: "City", name: "city", widget: "string", required: true, i18n: true}
+      - label: "Mails"
+        name: "mails"
+        widget: "object"
+        required: true
+        i18n: true
+        fields:
+          - label: "Confirmation mail"
+            name: "confirmation"
+            widget: "object"
+            required: true
+            i18n: true
+            fields:
+              - { label: "Subject", name: "subject", widget: "string", required: true, i18n: true }
+              - { label: "Intro", name: "intro", widget: "string", required: true, i18n: true }
+              - { label: "Outro", name: "outro", widget: "string", required: true, i18n: true }
+              - { label: "From", name: "from", widget: "string", required: true, i18n: true }
+          - label: "Reminder mail"
+            name: "reminder"
+            widget: "object"
+            required: true
+            i18n: true
+            fields:
+              - { label: "Subject", name: "subject", widget: "string", required: true, i18n: true }
+              - { label: "Intro", name: "intro", widget: "string", required: true, i18n: true }
+              - { label: "Outro", name: "outro", widget: "string", required: true, i18n: true }
+              - { label: "From", name: "from", widget: "string", required: true, i18n: true }
+
   - name: 'pages'
     i18n: true
     label: 'Pages'

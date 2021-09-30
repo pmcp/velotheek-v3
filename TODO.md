@@ -1,4 +1,28 @@
 # DOING
+- Emails: 
+  - Confirmation
+    - Email adres
+    - Taal
+      - Reservatie beschrijving: datum - time - Grade - location (op basis van taal)
+  - Reminder
+  - After reservation
+  - All account emails
+
+
+
+
+
+Beste [name]
+
+intro: Je maakte een nieuwe reservatie aan op https://schoolvelotek.be.
+
+Datum: ${b.date},
+Tijdslot: ${b.momentReadable}, ${b.time}
+Graad: ${b.grade}
+Locatie: ${b.location} (voor meer info: https://schoolvelotek.be/locations/${b.location}.fr
+
+Outro
+
 
 
 # TODO
@@ -8,16 +32,19 @@
 - Better Mobile Nav
 - Change site lang on change lang
 - Change lang for vue formulate
-- Admin
-    - emails toevoegen
-        - Confirmation
-    - uren kunnen aanpassen in de horaire
-    - Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
-    - drive arrangeren
+- Contact page behind login
+- Fix homepage flow (_page)
+  - Admin
+      - emails toevoegen
+          - Confirmation
+      - uren kunnen aanpassen in de horaire
+      - Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
+      - drive arrangeren
 - Change Pink to mainColor
 - Change emails to mail.schoolvelotek.be
 - Reminderdate in excel is niet leesbaar
 - Moments aanpasbaar maken (verschillend per velotheek)
+- Run through all todo's in files
 
 # ENHANCE
 - https://katiekodes.com/auth0-netlify-backend/

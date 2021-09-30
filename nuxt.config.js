@@ -4,6 +4,9 @@ const SITE_INFO = require('./content/site/info.json')
 const COLOR_MODE_FALLBACK = require('./utils/globals.js')
 const { $content } = require('@nuxt/content')
 
+// Need this to create a json file for the emails, based on the locations
+const fs = require('fs');
+
 module.exports = {
   target: 'static',
   
@@ -13,13 +16,32 @@ module.exports = {
     async routes () {
       const { $content } = require('@nuxt/content')
       const locations = await $content('locations').fetch()
+
+      // Object to put all mails in for all locations, so we can save that to one big json
+      let mailsPerLocation = {}
       const generatedLocations = locations.map((file) => {
-        console.log(file)
+
+        const { mails } = file
+        mailsPerLocation[file.slug] = file.mails
+
         return {
           route: `/locations/${file.slug}`,
           payload: file,
         }
       });
+
+      // Create a JSON file for each location
+      const dataToJson = JSON.stringify(mailsPerLocation);
+      const path = `functions/data/mails.json`
+      // Write data to file
+      fs.writeFile(path, dataToJson, (err) => {
+        if (err) {
+          throw err;
+        }
+        console.log("JSON data is saved.");
+      });
+
+
 
       const pages = await $content('pages').fetch()
       const generatedPages = pages.map((file) => {

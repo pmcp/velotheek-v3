@@ -18,10 +18,9 @@ exports.handler = async function (event, context) {
   // find rows of which date to be send reminders is today
 
   const todayReminders = rows.filter((r) => {
-    console.log(r.reminderDate, new Date())
     return isSameDay(new Date(r.reminderDate), new Date()) && (r.reminderSend == 'FALSE')
   })
-  console.log(todayReminders)
+
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
       const copy = {
