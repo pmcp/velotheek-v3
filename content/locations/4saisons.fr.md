@@ -8,6 +8,7 @@ confirmationMail:
   intro: this is the intro FR
   subject: this is the intro FR
 title: 4 Saisons
+idInSheet: 4saisons
 location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
 info: ""
 mails:
@@ -16,7 +17,16 @@ mails:
     intro: this is the intro Fr
     subject: this is the subject Fr
     from: booking@schoolvelotek.be
-idInSheet: 4saisons
+  confirmation:
+    from: info@schoolvelothek.be
+    subject: Conf
+    intro: intro
+    outro: outro
+  reminder:
+    from: info@schoolvelothek.be
+    subject: reminder
+    intro: intro
+    outro: outro
 ---
 * ###### **2 vélos adultes (code couleur blanc)**
 

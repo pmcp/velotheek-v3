@@ -8,6 +8,7 @@ confirmationMail:
   outro: this is the outro NL
   from: booking@schoolvelotek.be
 title: 4 Saisons
+idInSheet: 4saisons
 location: '{"type":"Point","coordinates":[4.33828,50.8307297]}'
 info: "\n"
 mails:
@@ -16,7 +17,16 @@ mails:
     outro: this is the outro NL
     subject: this is the subject NL
     from: booking@schoolvelotek.be
-idInSheet: 4saisons
+  confirmation:
+    subject: Conf
+    intro: intro
+    outro: outro
+    from: info@schoolvelothek.be
+  reminder:
+    from: info@schoolvelothek.be
+    intro: intro
+    outro: outro
+    subject: reminder
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
