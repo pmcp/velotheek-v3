@@ -7,33 +7,31 @@ street: Retoricastraat 13
 zip: 1060
 city: Sint-Gillis
 ---
+* ###### **4 volwassen fietsen (kleurcode wit)**
 
+  * ###### leeftijd: 14 jaar en meer
+  * ###### groote: 170 cm en meer
+* ###### **6 26-inch fietsen (kleurcode oranje)**
 
-* ###### **4 vélos adultes (code couleur blanc)**
+  * ###### leeftijd: 11 jaar tot 14 jaar
+  * ###### grotte: 145 cm tot 170 cm
+* ###### **8 24-inch fietsen (kleurcode geel)**
 
-  * ###### âge: 14 ans et plus
-  * ###### taille de 170 cm et plus
-* ###### **6 vélos 26 pouces (code couleur orange)**
+  * ###### leeftijd: 9 jaar tot 11 jaar
+  * ###### grotte: 135 cm tot 145 cm
+* ###### **7 20-inch fietsen (kleurcode blauw)**
 
-  * ###### âge: 11 ans à 14 ans
-  * ###### taille de 145 cm à 170 cm
-* ###### **8 vélos 24 pouces (code couleur jaune)**
+  * ###### leeftijd: 7 jaar tot 9 jaar
+  * ###### grotte: 120cm tot 135 cm
+* ###### **9 16-inch fietsen (kleurcode rode)**
 
-  * ###### âge: 9 à 11 ans
-  * ###### taille de 135 - 145 cm
-* ###### **7 vélos 20 pouces (code couleur bleu)**
+  * ###### leeftijd: 5 jaar tot 7 jaar
+  * ###### grotte: 110 cm tot 120 cm
+* ###### **10 loopfietsen (kleurcode grijs)**
 
-  * ###### âge: 7 à 9 ans
-  * ###### taille de 120 - 135 cm
-* ###### **9 vélos 16 pouces (code couleur rouge)**
-
-  * ###### âge: 5 à 7 ans
-  * ###### taille de 110 - 120 cm
-* ###### **10 draisiennes (code couleur gris)**
-
-  * ###### âge de 2 à 5 ans
-  * ###### taille de 95 - 110 cm
-* ###### **1 grande pompe à vélo**
-* ###### **1 jeux de plots**
-* ###### **1 câble de 10 mètres (pour sécuriser les vélos)**
-* ###### **1 fonte avec outils et matériel de réparation (comprenant une petite pompe)**
+  * ###### leeftijd: 2 jaar tot 5 ans
+  * ###### grotte: 95 cm tot 110 cm
+* ###### **1 groote fietspomp**
+* ###### **1 set pionnen**
+* ###### 1 x 10 meter kabel (voor het vastzetten van fietsen)
+* ###### **1 fietstassen** met gereedschap en reparatiemateriaal (inclusief een kleine pomp)
