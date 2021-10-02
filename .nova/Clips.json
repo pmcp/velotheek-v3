@@ -1,8 +1,0 @@
-{
-  "clips" : [
-    {
-      "content" : "<card position=\"bottom\" class=\"w-full h-full\" open open-text=\"Close\" close-text=\"Open\" open-class=\"\" close-class=\"\">\n  <template v-slot:opened >\n  <\/template>\n  <template v-slot:closed>\n  <\/template>\n<\/card>",
-      "name" : "card"
-    }
-  ]
-}
