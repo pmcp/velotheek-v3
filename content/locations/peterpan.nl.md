@@ -28,7 +28,7 @@ mails:
       Wanneer u binnen gelaten wordt, kan u de sleutel terug in het kluisje
       tegen de muur stoppen. Vergeet niet de cijfers terug van plaats te
       wisselen nadat je de sleutels hebt ingeleverd.
-    subject: confirmation nl
+    subject: bevestiging van uw reservering
     from: booking@schoolvelotek.be
   reminder:
     intro: U heeft fietsen geboekt via School Vélotek
