@@ -110,7 +110,7 @@ ${confirmationMail.outro}
         copy: copy[b.language],
         to: b.email,
         replyTo: confirmationMail.from,
-        subject: `${confirmationMail.subject} (${b.date}),
+        subject: `${confirmationMail.subject} (${b.date})`,
       })
 
       const updatedRow = { ...b, confirmationSend: true }
