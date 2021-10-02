@@ -8,7 +8,7 @@ zip: 1060
 city: Sint-Gillis
 mails:
   confirmation:
-    intro: this is the intro NL
+    intro: Hallo, u heeft fietsen geboekt via Scool Velotek
     outro: Op de dag van uw reservering moet u aanbellen bij het secretariaat van
       école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit
       en het feit dat u voor de Vélotheek komt. U haalt de sleutels van de
@@ -30,7 +30,7 @@ mails:
     from: booking@schoolvelotek.be
   reminder:
     from: info@schoolvelothek.be
-    intro: intro
+    intro: Hallo, u heeft fietsen geboekt via Scool Velotek
     outro: Op de dag van uw reservering moet u aanbellen bij het secretariaat van
       école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit
       en het feit dat u voor de Vélotheek komt. U haalt de sleutels van de

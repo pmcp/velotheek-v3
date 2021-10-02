@@ -27,13 +27,13 @@ mails:
       les vélos et le matériel remis, n’oubliez pas de bien éteindre la lumière
       du local et de fermer à clefs la porte du local ainsi que la porte donnant
       sur la rue. Vous remettrez ensuite les clefs au secrétariat. "
-    intro: this is the intro Fr
+    intro: Bonjour, vous avez réservés des vélos via Scool Vélotek
     subject: this is the subject Fr
     from: booking@schoolvelotek.be
   reminder:
     from: info@schoolvelothek.be
     subject: reminder
-    intro: intro
+    intro: Bonjour, vous avez réservés des vélos via Scool Vélotek
     outro: "Le jour de votre réservation, vous devrez sonner au secrétariat de
       l’école 4 saisons (10 place Bethléem 1060 St Gilles). Veuillez décliner
       votre identité et le fait que vous venez pour la Vélotheek. Vous irez
