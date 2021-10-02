@@ -26,7 +26,7 @@ mails:
       terug te plaatsen. Vergeet niet om na gebruik de lichten uit te doen en de
       deuren goed op slot te doen. Nadien geeft u de sleutels terug aan het
       secretariaat. 
-    subject: this is the subject NL
+    subject: bevestiging van uw reservering
     from: booking@schoolvelotek.be
   reminder:
     from: info@schoolvelothek.be
@@ -48,7 +48,7 @@ mails:
       terug te plaatsen. Vergeet niet om na gebruik de lichten uit te doen en de
       deuren goed op slot te doen. Nadien geeft u de sleutels terug aan het
       secretariaat. 
-    subject: reminder
+    subject: herinnering aan uw reservering
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
