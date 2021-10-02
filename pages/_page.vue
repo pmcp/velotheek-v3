@@ -51,6 +51,17 @@
           <div class="prose prose-indigo prose-lg text-gray-500 mx-auto w-full">
             <nuxt-content class="prose lg:prose-xl" :document="content" />
           </div>
+          <div class="mt-6 grid grid-cols-1 gap-0.5 md:grid-cols-3 lg:mt-8">
+            <div class="col-span-1 flex justify-center py-2 px-2 bg-gray-50">
+              <img class="max-h-12" src="~/assets/logos/provelo.png" alt="Workcation">
+            </div>
+            <div class="col-span-1 flex justify-center py-2 px-2 bg-gray-50">
+              <img class="max-h-12" src="~/assets/logos/saintgilles.jpg" alt="Tuple">
+            </div>
+            <div class="col-span-1 flex justify-center py-2 px-2 bg-gray-50">
+              <img class="max-h-12" src="~/assets/logos/bruxellesmobilite.png" alt="Mirage">
+            </div>
+          </div>
         </div>
       </div>
     </template>

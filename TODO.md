@@ -1,33 +1,11 @@
 # DOING
-- Emails: 
-  - Confirmation
-    - Email adres
-    - Taal
-      - Reservatie beschrijving: datum - time - Grade - location (op basis van taal)
-  - Reminder
-  - After reservation
+- Emails:
   - All account emails
-
-
-
-
-
-Beste [name]
-
-intro: Je maakte een nieuwe reservatie aan op https://schoolvelotek.be.
-
-Datum: ${b.date},
-Tijdslot: ${b.momentReadable}, ${b.time}
-Graad: ${b.grade}
-Locatie: ${b.location} (voor meer info: https://schoolvelotek.be/locations/${b.location}.fr
-
-Outro
-
+  
 
 
 # TODO
-- Change french names of school years
-- Logo's toevoegen voor homepage
+- Use Nuxt image module (already npm installed)
 - "Montrer la legende", change in less heavy button
 - Better Mobile Nav
 - Change site lang on change lang
