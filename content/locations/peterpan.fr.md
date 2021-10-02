@@ -6,6 +6,52 @@ info: ""
 street: Rue de la Rhétorique 13
 zip: 1060
 city: Saint-Gilles
+mails:
+  confirmation:
+    intro: Bonjour, vous avez réservés des vélos via School Vélotek
+    outro: Le jour de la réservation, vous devrez sonner au secrétariat de l’école
+      Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner
+      votre identité et le fait que vous venez pour la Vélotheek. La porte vous
+      sera ouverte. Les clefs de la Vélotheek se trouvent dans une boîte à clef
+      à votre gauche. Le code de la boîte à clefs vous sera donné dans l’email
+      de rappel deux jours avant votre réservation. Merci de bien faire
+      attention de ne pas divulguer le code ainsi que de brouiller celui-ci
+      après ouverture. Les vélos sont stockés dans un local dont l’accès se fait
+      deux portes plus à droite que l’entrée principale de l’école Peter Pan
+      derrière une porte métallique blanche. Les vélos se trouvent au fond du
+      couloir. Une fois que vous aurez pris les vélos que vous désirez, vous
+      sortirez sur le trottoir en n’oubliant pas d’éteindre la lumière et de
+      fermer la porte à clef derrière vous. Vous garderez les clefs pendant
+      votre formation. Une fois votre formation terminée,  vous ouvrez la
+      Vélotheek, remettez les vélos et le matériel à sa place. En sortant
+      n’oubliez pas d’éteindre la lumière et de fermez à clef la porte. Vous
+      sonnerez ensuite à nouveau à la sonnette du secrétariat de l’école Peter
+      pan pour remettre la clef dans la boîte à clef. N’oubliez pas de brouiller
+      le code après avoir remis les clefs. 
+    subject: confirmation fr
+    from: booking@schoolvelotek.be
+  reminder:
+    intro: Bonjour, vous avez réservés des vélos via School Vélotek
+    outro: Le jour de la réservation, vous devrez sonner au secrétariat de l’école
+      Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner
+      votre identité et le fait que vous venez pour la Vélotheek. La porte vous
+      sera ouverte. Les clefs de la Vélotheek se trouvent dans une boîte à clef
+      à votre gauche. Le code d’accès est le 1060. Merci de bien faire attention
+      de ne pas divulguer le code ainsi que de brouiller celui-ci après
+      ouverture. Les vélos sont stockés dans un local dont l’accès se fait deux
+      portes plus à droite que l’entrée principale de l’école Peter Pan derrière
+      une porte métallique blanche. Les vélos se trouvent au fond du couloir.
+      Une fois que vous aurez pris les vélos que vous désirez, vous sortirez sur
+      le trottoir en n’oubliant pas d’éteindre la lumière et de fermer la porte
+      à clef derrière vous. Vous garderez les clefs pendant votre formation. Une
+      fois votre formation terminée,  vous ouvrez la Vélotheek, remettez les
+      vélos et le matériel à sa place. En sortant n’oubliez pas d’éteindre la
+      lumière et de fermez à clef la porte. Vous sonnerez ensuite à nouveau à la
+      sonnette du secrétariat de l’école Peter pan pour remettre la clef dans la
+      boîte à clef. N’oubliez pas de brouiller le code après avoir remis les
+      clefs.
+    subject: Remider nl
+    from: booking@schoolvelotek.be
 ---
 * ###### **4 vélos adultes (code couleur blanc)**
 
