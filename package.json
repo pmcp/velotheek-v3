@@ -1,0 +1,58 @@
+{
+  "name": "Velotheek",
+  "version": "3.0.0",
+  "description": "Velotheek",
+  "author": "Maarten Lauwaert AKA PMCP",
+  "private": true,
+  "scripts": {
+    "postinstall": "netlify-lambda install",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmcp/velotheek-v3.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@braid/vue-formulate": "^2.5.2",
+    "@mapbox/mapbox-gl-geocoder": "^4.7.2",
+    "@nuxt/content": "^1.14.0",
+    "@tailwindcss/typography": "^0.4.1",
+    "axios": "^0.21.1",
+    "cross-env": "^5.2.0",
+    "date-fns": "^2.23.0",
+    "google-spreadsheet": "^3.1.15",
+    "mailgun-js": "^0.22.0",
+    "mapbox-gl": "^2.3.1",
+    "netlify-identity-widget": "^1.9.1",
+    "node-fetch": "^2.6.1",
+    "nuxt": "^2.15.7",
+    "nuxt-highcharts": "^1.0.7",
+    "v-calendar": "^2.3.1"
+  },
+  "devDependencies": {
+    "@nuxt/image": "^0.6.0",
+    "@nuxtjs/color-mode": "^2.0.10",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/svg": "^0.1.12",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "netlify-cli": "^3.39.4",
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^1.11.0",
+    "nuxt-purgecss": "^1.0.0",
+    "postcss": "^8.3.5",
+    "postcss-easing-gradients": "^3.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.3.2",
+    "vue-content-placeholders": "^0.2.1"
+  }
+}

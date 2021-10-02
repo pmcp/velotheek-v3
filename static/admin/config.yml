@@ -1,0 +1,123 @@
+site_url: https://schoolvelotek.be
+logo_url: https://ntn-boilerplate.netlify.app/icon.png
+
+i18n:
+  structure: multiple_files
+  locales: [nl, fr]
+
+backend:
+  name: git-gateway
+  branch: master
+  squash_merges: true
+
+# used together with `npx netlify-cms-proxy-server`. https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
+local_backend: true
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - label: 'Settings'
+    name: 'site'
+    files:
+      - label: 'Info'
+        name: 'info'
+        file: 'content/site/info.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - { label: Site Name, name: sitename, widget: string, hint: 'This is used for the site title' }
+          - {
+              label: Site Description,
+              name: sitedescription,
+              widget: string,
+              hint: 'This is used as descriptive text for links that link to this site',
+            }
+          - {
+              label: Site Language,
+              name: sitelang,
+              widget: string,
+              pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
+            }
+      - label: 'Translations'
+        name: 'translations'
+        file: 'content/site/translations.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - label: "Translations"
+            name: "translations"
+            widget: "list"
+            summary: '{{fields.fr}} - {{fields.nl}}'
+            fields:
+              - {label: FR, name: fr, widget: string}
+              - {label: NL, name: nl, widget: string}
+  - name: 'locations'
+    i18n: true
+    label: 'Locations'
+    folder: 'content/locations'
+    create: true
+    format: 'frontmatter'
+    slug: '{{idInSheet}}'
+    # editor:
+    #   preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true, i18n: true }
+      - { label: 'Id in sheet', name: 'idInSheet', widget: 'string', required: true, i18n: duplicate }
+      - {label: "Location", name: "location", widget: "map", required: true, i18n: duplicate }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true, i18n: true }
+      - {label: "Info", name: "info", widget: "text", required: true, i18n: true}
+      - {label: "Street + number", name: "street", widget: "string", required: true, i18n: true}
+      - {label: "Zip", name: "zip", widget: "number", required: true, i18n: true}
+      - {label: "City", name: "city", widget: "string", required: true, i18n: true}
+      - label: "Mails"
+        name: "mails"
+        widget: "object"
+        required: true
+        i18n: true
+        fields:
+          - label: "Confirmation mail"
+            name: "confirmation"
+            widget: "object"
+            required: true
+            i18n: true
+            fields:
+              - { label: "Subject", name: "subject", widget: "string", required: true, i18n: true }
+              - { label: "Intro", name: "intro", widget: "string", required: true, i18n: true }
+              - { label: "Outro", name: "outro", widget: "string", required: true, i18n: true }
+              - { label: "From", name: "from", widget: "string", required: true, i18n: true }
+          - label: "Reminder mail"
+            name: "reminder"
+            widget: "object"
+            required: true
+            i18n: true
+            fields:
+              - { label: "Subject", name: "subject", widget: "string", required: true, i18n: true }
+              - { label: "Intro", name: "intro", widget: "string", required: true, i18n: true }
+              - { label: "Outro", name: "outro", widget: "string", required: true, i18n: true }
+              - { label: "From", name: "from", widget: "string", required: true, i18n: true }
+
+  - name: 'pages'
+    i18n: true
+    label: 'Pages'
+    label_singular: 'Page'
+    folder: 'content/pages'
+    create: true
+    format: 'frontmatter'
+    # editor:
+    #   preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true, i18n: true }
+      - { label: 'Intro', name: 'intro', widget: 'text', required: true, i18n: true }
+      - { label: 'Content', name: 'body', widget: 'markdown', required: true, i18n: true }
+      - label: "Featured Image"
+        required: false
+        name: "image"
+        widget: "image"
+        choose_url: true
+        i18n: true
+        media_library:
+          config:
+            multiple: false
