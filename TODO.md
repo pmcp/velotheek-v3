@@ -6,6 +6,8 @@
 
 # TODO
 - Try to use git lfg?
+- Fix colors
+  - Change Pink to mainColor etc
 - Use Nuxt image module (already npm installed)
 - "Montrer la legende", change in less heavy button
 - Better Mobile Nav
@@ -13,13 +15,8 @@
 - Change lang for vue formulate
 - Contact page behind login
 - Fix homepage flow (_page)
-  - Admin
-      - emails toevoegen
-          - Confirmation
-      - uren kunnen aanpassen in de horaire
-      - Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
-      - drive arrangeren
-- Change Pink to mainColor
+- Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
+- drive arrangeren
 - Change emails to mail.schoolvelotek.be
 - Reminderdate in excel is niet leesbaar
 - Moments aanpasbaar maken (verschillend per velotheek)
