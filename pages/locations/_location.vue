@@ -9,8 +9,8 @@
         <heading-two class="mt-5">
           <translation :id="17" />
         </heading-two>
-        <location-content class="hidden md:block" :content="location" />
-        <div class="md:hidden">
+<!--        <location-content class="hidden md:block" :content="location" />-->
+        <div >
           <div class="h-10 md:h-auto md:mb-0" :class="{ 'overflow-hidden h-auto': showContent }">
             <location-content :content="location" />
           </div>

@@ -10,10 +10,8 @@
                 <p class="text-md text-gray-400 mb-5"><translation :id="19" class="font-bold" />: {{ activeDateReadable }}</p>
               </div>
               <heading-two>
-                <translation :id="2" />
+                <translation :id="1" />
               </heading-two>
-
-              <p class="mt-1 text-sm text-gray-400"><translation :id="1" /></p>
             </div>
           </li>
 

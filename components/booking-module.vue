@@ -6,7 +6,7 @@
         <FormulateInput
           :options="grades"
           type="select"
-          placeholder="Selecteer"
+          placeholder="Selectioner"
           :value="activeGrade"
           @input="setActiveGrade"
         >

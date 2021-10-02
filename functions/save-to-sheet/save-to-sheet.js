@@ -77,11 +77,11 @@ exports.handler = async function (event, context) {
     const body = { nl: `Datum: ${b.date},
 Tijdslot: ${b.momentReadable}, ${b.time}
 Graad: ${b.grade}
-Locatie: ${b.location} (voor meer info: https://schoolvelotek.be/locations/${b.location}.nl`,
+Locatie: ${b.location}`,
       fr: `Date: ${b.date},
 Moment: ${b.momentReadable}, ${b.time}
 Niveau: ${b.grade}
-Location: ${b.location} (plus d'info: https://schoolvelotek.be/locations/${b.location}.nl`,
+Location: ${b.location}`,
       }
     const copy = {
       nl: `Beste ${b.name},
@@ -110,7 +110,7 @@ ${confirmationMail.outro}
         copy: copy[b.language],
         to: b.email,
         replyTo: confirmationMail.from,
-        subject: confirmationMail.subject,
+        subject: `${confirmationMail.subject} (${b.date}),
       })
 
       const updatedRow = { ...b, confirmationSend: true }

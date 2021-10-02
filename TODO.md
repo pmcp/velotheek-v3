@@ -1,15 +1,19 @@
 # DOING
-- Emails:
-  - All account emails
-  
-
+- Add date to email subject
+- Check reminder email
+- Contact after login
+- Indication in navigation on what page you are
+- Sélectionner (make translatable)
+- Date translable nederlands
+- Make class translable
+- Language in local storage
 
 # TODO
+- "Montrer la legende", change in less heavy button
 - Try to use git lfg?
 - Fix colors
   - Change Pink to mainColor etc
 - Use Nuxt image module (already npm installed)
-- "Montrer la legende", change in less heavy button
 - Better Mobile Nav
 - Change site lang on change lang
 - Change lang for vue formulate
@@ -21,6 +25,8 @@
 - Reminderdate in excel is niet leesbaar
 - Moments aanpasbaar maken (verschillend per velotheek)
 - Run through all todo's in files
+- Add address to email
+- Create info page for location without reservation module
 
 # ENHANCE
 - https://katiekodes.com/auth0-netlify-backend/
