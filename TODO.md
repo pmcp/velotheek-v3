@@ -1,14 +1,12 @@
 # DOING
 
-
+# TODO
 - Check reminder email
 - Indication in navigation on what page you are
 - Sélectionner (make translatable)
 - Date translable nederlands
 - Make class translable
 - Language in local storage
-
-# TODO
 - Contact after login (do better, cos now link is just hidden)
 - Try to use git lfg?
 - Fix colors
