@@ -8,7 +8,7 @@ zip: 1060
 city: Saint-Gilles
 mails:
   confirmation:
-    intro: Bonjour, vous avez réservés des vélos via School Vélotek
+    intro: Vous avez réservés des vélos via School Vélotek
     outro: Le jour de la réservation, vous devrez sonner au secrétariat de l’école
       Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner
       votre identité et le fait que vous venez pour la Vélotheek. La porte vous
@@ -31,7 +31,7 @@ mails:
     subject: confirmation fr
     from: booking@schoolvelotek.be
   reminder:
-    intro: Bonjour, vous avez réservés des vélos via School Vélotek
+    intro: Vous avez réservés des vélos via School Vélotek
     outro: Le jour de la réservation, vous devrez sonner au secrétariat de l’école
       Peter Pan (13 rue de la Rhétorique 1060 St Gilles). Veuillez décliner
       votre identité et le fait que vous venez pour la Vélotheek. La porte vous

@@ -8,7 +8,7 @@ zip: 1060
 city: Sint-Gillis
 mails:
   confirmation:
-    intro: Hallo, u heeft fietsen geboekt via School Vélotek
+    intro: U heeft fietsen geboekt via School Vélotek
     outro: Op de dag van uw reservatie, belt u aan bij het secretariaat van de
       school Peter Pan (Retoricastraat 13). Gelieve uzelf te identificeren en te
       melden dat u voor de Vélotheek komt. Dan zal de deur open gaan en de
@@ -31,7 +31,7 @@ mails:
     subject: confirmation nl
     from: booking@schoolvelotek.be
   reminder:
-    intro: Hallo, u heeft fietsen geboekt via School Vélotek
+    intro: U heeft fietsen geboekt via School Vélotek
     outro: Op de dag van uw reservatie, belt u aan bij het secretariaat van de
       school Peter Pan (Retoricastraat 13). Gelieve uzelf te identificeren en te
       melden dat u voor de Vélotheek komt. Dan zal de deur open gaan en de
