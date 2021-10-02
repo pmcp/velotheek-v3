@@ -28,7 +28,7 @@ mails:
       sonnerez ensuite à nouveau à la sonnette du secrétariat de l’école Peter
       pan pour remettre la clef dans la boîte à clef. N’oubliez pas de brouiller
       le code après avoir remis les clefs. 
-    subject: confirmation fr
+    subject: Confirmation de votre réservation
     from: booking@schoolvelotek.be
   reminder:
     intro: Vous avez réservés des vélos via School Vélotek
@@ -50,7 +50,7 @@ mails:
       sonnette du secrétariat de l’école Peter pan pour remettre la clef dans la
       boîte à clef. N’oubliez pas de brouiller le code après avoir remis les
       clefs.
-    subject: Remider nl
+    subject: Rappel de votre réservation
     from: booking@schoolvelotek.be
 ---
 * ###### **4 vélos adultes (code couleur blanc)**
