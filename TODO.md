@@ -1,7 +1,7 @@
 # DOING
-- Add date to email subject
+
+
 - Check reminder email
-- Contact after login
 - Indication in navigation on what page you are
 - Sélectionner (make translatable)
 - Date translable nederlands
@@ -9,7 +9,7 @@
 - Language in local storage
 
 # TODO
-- "Montrer la legende", change in less heavy button
+- Contact after login (do better, cos now link is just hidden)
 - Try to use git lfg?
 - Fix colors
   - Change Pink to mainColor etc
@@ -17,7 +17,6 @@
 - Better Mobile Nav
 - Change site lang on change lang
 - Change lang for vue formulate
-- Contact page behind login
 - Fix homepage flow (_page)
 - Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
 - drive arrangeren

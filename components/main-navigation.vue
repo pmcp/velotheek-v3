@@ -8,9 +8,11 @@
         <span class="underline text-gray-600 hover:text-gray-900 mr-5">Home</span>
       </nuxt-link>
 
-      <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
-        <div class="underline text-gray-600 hover:text-gray-900 mr-5">{{ p.title }}</div>
-      </nuxt-link>
+      <div v-if="user">
+        <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
+          <div class="underline text-gray-600 hover:text-gray-900 mr-5">{{ p.title }}</div>
+        </nuxt-link>
+      </div>
     </div>
     <div class="flex flex-col md:flex-row md:justify-between md:items-center" :class="{ hidden: !user }">
       <nuxt-link :to="`/locations/4saisons.${lang}`" class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded">

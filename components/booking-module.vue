@@ -22,8 +22,8 @@
           <heading-two class="pb-2 mt-5">
             <translation :id="18" />
           </heading-two>
-          <button @click="legendeOpen = !legendeOpen" v-if="legendeOpen" class="z-10  rounded-t-lg mt-2 text-pink-500 italic text-sm bg-pink-200 border-2 px-2 py-1 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100"><translation :id="27" /></button>
-          <button @click="legendeOpen = !legendeOpen" v-else class="z-10 mt-2 rounded text-pink-500 italic text-sm bg-pink-100 border-2 px-2 py-1 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100"><translation :id="26" /></button>
+          <button @click="legendeOpen = !legendeOpen" v-if="legendeOpen" class="z-10  mt-2 text-pink-500 italic text-sm bg-pink-200 underline px-2 py-1 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100"><translation :id="27" /></button>
+          <button @click="legendeOpen = !legendeOpen" v-else class="z-10 mt-2 rounded text-pink-500 italic text-sm bg-pink-100 underline px-2 py-1 text-pink-500 border-pink-500 hover:bg-pink-500 hover:text-pink-100"><translation :id="26" /></button>
         </div>
         <custom-transition>
           <card v-if="legendeOpen" class="w-full border-2 rounded-b-lg  bg-pink-50 border-pink-500 mb-5 -top-2 relative" open>
