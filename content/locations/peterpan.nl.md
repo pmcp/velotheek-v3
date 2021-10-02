@@ -50,7 +50,7 @@ mails:
       school. Wanneer u binnen gelaten wordt, kan u de sleutel terug in het
       kluisje tegen de muur stoppen. Vergeet niet de cijfers terug van plaats te
       wisselen nadat je de sleutels hebt ingeleverd.
-    subject: Remider Nl
+    subject: herinnering aan uw reservering
     from: booking@schoolvelotek.be
 ---
 * ###### **4 volwassen fietsen (kleurcode wit)**
