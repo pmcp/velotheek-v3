@@ -10,13 +10,14 @@
           <translation :id="17" />
         </heading-two>
 <!--        <location-content class="hidden md:block" :content="location" />-->
-        <div >
-          <div class="h-10 md:h-auto md:mb-0" :class="{ 'overflow-hidden h-auto': showContent }">
+        <div>
+
+          <div class="h-80 overflow-hidden" :class="{ 'h-auto': showContent }">
             <location-content :content="location" />
           </div>
-          <div class="relative z-10 w-full">
+          <div class="relative z-10 -top-20 w-full">
             <div
-              class="h-40 readMoreGradient"
+              class="h-10 relative readMoreGradient"
               :class="{ ' h-auto': showContent }"
             ></div>
             <div class="bg-gray-50 h-10">
