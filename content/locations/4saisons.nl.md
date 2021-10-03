@@ -30,7 +30,7 @@ mails:
     from: booking@schoolvelotek.be
   reminder:
     from: info@schoolvelothek.be
-    intro: U heeft fietsen geboekt via School Velotek
+    intro: U heeft fietsen geboekt via School Vélotek
     outro: Op de dag van uw reservering moet u aanbellen bij het secretariaat van
       école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit
       en het feit dat u voor de Vélotheek komt. U haalt de sleutels van de
