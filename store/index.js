@@ -11,7 +11,7 @@ export const state = () => ({
     },
     {
       name: { nl: 'Hele dag', fr: 'Toute la journée' },
-      descr: { nl: 'Van 9u30 tot 16u30', fr: 'de 9h30 a 16h30' },
+      descr: { nl: 'Van 8u30 tot 16u30', fr: 'de 8h30 a 16h30' },
       available: true,
     },
   ],

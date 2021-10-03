@@ -1,7 +1,7 @@
 # DOING
 
 # TODO
-- Check reminder email
+- Issue with logout - reload
 - Indication in navigation on what page you are
 - Sélectionner (make translatable)
 - Date translable nederlands
