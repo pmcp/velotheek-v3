@@ -8,6 +8,8 @@ const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
 
+const emails = require('../data/mails.json')
+
 exports.handler = async function (event, context) {
   // const data = JSON.parse(event.body)
   // console.log('here', data)
@@ -23,17 +25,47 @@ exports.handler = async function (event, context) {
 
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
-      const copy = {
-        nl: `Herinnering voor je reservatie: ${b.date}, ${b.momentReadable}`,
-        fr: `Rappel pour votre réservation: ${b.date}, ${b.momentReadable}`,
-      }
-      const subject = {
-        nl: `Herinnering: Velotheek reservatie: ${b.date}, ${b.momentReadable}`,
-        fr: `Herinnering: Vélotek reservation: ${b.date}, ${b.momentReadable}`,
+
+      const mailsForLocationId = `${b.location}.${b.language}`
+      const emailsForLocationAndLanguage = emails[mailsForLocationId]
+      const reminderEmail = emailsForLocationAndLanguage['reminder']
+      const body = { nl: `Datum: ${b.date},
+Tijdslot: ${b.momentReadable}, ${b.time}
+Graad: ${b.grade}
+Locatie: ${b.location}`,
+        fr: `Date: ${b.date},
+Moment: ${b.momentReadable}, ${b.time}
+Niveau: ${b.grade}
+Location: ${b.location}`,
       }
 
+
+
+
+      const copy = {
+        nl: `Beste ${b.name},
+      
+${reminderEmail.intro}
+
+${body.nl}
+
+${reminderEmail.outro}
+`,
+
+
+        fr: `Cher ${b.name},
+      
+${reminderEmail.intro}
+
+${body.nl}
+
+${reminderEmail.outro}
+`
+      }
+
+
       try {
-        const email = await emailFn.sendEmail({
+        await emailFn.sendEmail({
           copy: copy[b.language],
           to: b.email,
           replyTo: 'bookings@schoolvelotek.be',

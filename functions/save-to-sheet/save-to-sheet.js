@@ -106,7 +106,7 @@ ${confirmationMail.outro}
 
 
     try {
-      const email = await emailFn.sendEmail({
+      await emailFn.sendEmail({
         copy: copy[b.language],
         to: b.email,
         replyTo: confirmationMail.from,
