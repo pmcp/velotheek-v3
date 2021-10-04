@@ -31,13 +31,14 @@
       </nuxt-link>
 
       <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
-      <nuxt-link
-        :to="`/bookings.${lang}`"
-        class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded"
-        :class="[$route.path == `/bookings.${lang}` ? 'border-2 border-pink-500' : '']"
-      >
-        <translation :id="7" /> ({{ userBookings }})
-      </nuxt-link>
+        <nuxt-link
+          :to="`/bookings.${lang}`"
+          class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded"
+          :class="[$route.path == `/bookings.${lang}` ? 'border-2 border-pink-500' : '']"
+        >
+          <translation :id="7" /> ({{ userBookings }})
+        </nuxt-link>
+
     </div>
     <div class="py-2 flex flex-col md:flex-row justify-between md:justify-center">
       <user />

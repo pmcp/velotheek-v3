@@ -7,11 +7,13 @@
       </div>
     </div>
     <nuxt class="max-w-6xl mx-auto min-h-screen px-4" />
-    <custom-transition :id="1">
-      <div v-if="user && $route.name === 'locations-location'" class="sticky bottom-0 w-full z-30">
-        <bookings-session class="max-w-6xl mx-auto md:px-4" />
-      </div>
-    </custom-transition>
+    <client-only>
+      <custom-transition :id="1">
+        <div v-if="user && $route.name === 'locations-location'" class="sticky bottom-0 w-full z-30">
+          <bookings-session class="max-w-6xl mx-auto md:px-4" />
+        </div>
+      </custom-transition>
+    </client-only>
   </div>
 </template>
 
