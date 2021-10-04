@@ -4,9 +4,6 @@
       <div class="flex flex-col md:flex-row">
         <div class="relative flex md:w-1/2 mr-4 bg-pink-500 justify-items-stretch items-stretch">
           <img class="object-cover" :src="content.image" alt="" />
-          <!--          <div class="absolute w-full h-full top-0 left-0 flex justify-center items-center p-5">-->
-          <!--            <svg-logo class="text-white" />-->
-          <!--          </div>-->
         </div>
 
         <div class="pb-20 md:w-1/2 ml-4 mt-5 flex flex-col">
@@ -101,7 +98,9 @@ export default {
     },
     ...mapGetters({
       user: 'auth/user',
-    }),
+    })
+  },
+  methods: {
     ...mapActions({
       openLogin: 'auth/openLogin',
     }),

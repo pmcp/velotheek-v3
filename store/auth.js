@@ -52,7 +52,7 @@ export const actions = {
   },
   open({ commit }, action) {
 	this.$netlifyIdentity.open(action)
-	this.$netlifyIdentity.on(action, (user) => {
+		this.$netlifyIdentity.on(action, (user) => {
 		console.log(user)
 	  commit('SET_USER', {
 		username: user.user_metadata.full_name,
@@ -61,5 +61,5 @@ export const actions = {
 	  })
 	  this.$netlifyIdentity.close()
 	})
-  }
+	}
 }

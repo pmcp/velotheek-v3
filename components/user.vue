@@ -7,7 +7,7 @@
 					</button>
 				</template>
 				<template v-else>
-					<button @click.prevent="openLogin">
+					<button @click="openLogin">
 						<span class="underline text-gray-600 hover:text-gray-900">Log In</span>
 					</button>
 					<!-- <button class="btn block " @click.prevent="openSignup">
