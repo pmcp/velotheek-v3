@@ -10,12 +10,14 @@
 
       <div v-if="user">
         <nuxt-link v-for="(p, key) in pages" :key="`navPages-${key}`" :to="`/${p.slug}`">
-          <div class="underline  mr-5 " :class="[$route.path == `/${p.slug}` ? 'text-pink-500  hover:text-pink-900' : 'text-gray-600  hover:text-gray-900']">{{ p.title }}</div>
+          <div class="underline  mr-5 " :class="[$route.path == `/${p.slug}` ? 'text-pink-500  hover:text-pink-900' : 'text-gray-600 hover:text-gray-900']">{{ p.title }}</div>
         </nuxt-link>
       </div>
     </div>
     <div class="flex flex-col md:flex-row md:justify-between md:items-center" :class="{ hidden: !user }">
-      <nuxt-link :to="`/locations/4saisons.${lang}`"  class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded">
+      <nuxt-link :to="`/locations/4saisons.${lang}`"  class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded"
+                 :class="[$route.path == `/locations/4saisons.${lang}` ? 'border-2 border-pink-500' : '']">
+
         <translation
           :id="14"
           class=""
@@ -24,13 +26,15 @@
       </nuxt-link>
 
       <!-- HINT: If you put a v-if on a nuxt-link, it breaks hydration, so I'm using display none (class 'hidden') -->
-      <nuxt-link
-        :to="`/bookings.${lang}`"
-        class="mr-5 underline text-gray-600 hover:text-gray-900"
-        :class="{ hidden: !user }"
-      >
-        <translation :id="7" /> ({{ userBookings }})
-      </nuxt-link>
+      <div :class="{ hidden: !user }">
+        <nuxt-link
+          :to="`/bookings.${lang}`"
+          class="text-gray-600 hover:text-gray-900 mr-5 underline px-1 py-1 md:py-3 md:px-2 rounded mr-5"
+          :class="[$route.path == `/bookings.${lang}` ? 'border-2 border-pink-500' : '']"
+        >
+          <translation :id="7" /> ({{ userBookings }})
+        </nuxt-link>
+      </div>
     </div>
     <div class="py-2 flex flex-col md:flex-row justify-between md:justify-center">
       <user />

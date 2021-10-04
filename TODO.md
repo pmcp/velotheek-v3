@@ -1,10 +1,8 @@
 # DOING
 
 # TODO
-- Issue with logout - reload
 - Tracking etc
 - in email: change all dates to more readable
-- Indication in navigation on what page you are
 - Sélectionner (make translatable)
 - Date translable nederlands
 - Make class translable
