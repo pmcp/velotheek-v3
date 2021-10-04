@@ -34,7 +34,7 @@ emailFn.sendEmail = function ({ copy: copy, to: to, replyTo: replyTo, subject: s
       // console.dir(mailgun.messages())
       mailgun.messages().send(data, (error, body) => {        // return
         console.log(error)
-        if(error) reject(error)
+        // if(error) console.log(error)
         resolve(body)
       })
     }
