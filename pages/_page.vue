@@ -1,6 +1,6 @@
 <template>
   <main class="relative bg-gray-50">
-    <template v-if="content.title === 'Home'">
+    <div v-if="content.title === 'Home'">
       <div class="flex flex-col md:flex-row">
         <div class="relative flex md:w-1/2 mr-4 bg-pink-500 justify-items-stretch items-stretch">
           <img class="object-cover" :src="content.image" alt="" />
@@ -63,8 +63,8 @@
           </div>
         </div>
       </div>
-    </template>
-    <template v-else>
+    </div>
+    <div v-else>
       <div class="text-base max-w-prose pt-10">
         <h1
           class="
@@ -85,7 +85,7 @@
 
         <nuxt-content :document="content" />
       </div>
-    </template>
+    </div>
   </main>
 </template>
 
