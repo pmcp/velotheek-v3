@@ -10,7 +10,7 @@
           <heading-one>
             {{ content.intro }}
           </heading-one>
-          <div v-if="!user">
+          <div v-show="!user">
             <button
               @click.prevent="openLogin"
               class="
@@ -27,7 +27,7 @@
               Log In
             </button>
           </div>
-          <div class="my-4" v-else>
+          <div class="my-4" v-show="user">
           <nuxt-link
 
             :to="`/locations/4saisons.${lang}`"
