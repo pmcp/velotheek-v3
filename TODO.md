@@ -1,6 +1,9 @@
 # DOING
 
 # TODO
+- Add address to email
+- Create info page for location without reservation module
+- Better Mobile Nav
 - Tracking etc
 - in email: change all dates to more readable
 - Sélectionner (make translatable)
@@ -12,7 +15,6 @@
 - Fix colors
   - Change Pink to mainColor etc
 - Use Nuxt image module (already npm installed)
-- Better Mobile Nav
 - Change site lang on change lang
 - Change lang for vue formulate
 - Fix homepage flow (_page)
@@ -22,8 +24,6 @@
 - Reminderdate in excel is niet leesbaar
 - Moments aanpasbaar maken (verschillend per velotheek)
 - Run through all todo's in files
-- Add address to email
-- Create info page for location without reservation module
 
 # ENHANCE
 - https://katiekodes.com/auth0-netlify-backend/
