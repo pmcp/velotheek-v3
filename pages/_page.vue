@@ -1,6 +1,6 @@
 <template>
   <main class="relative bg-gray-50">
-    <div v-if="content.title === 'Home'">
+    <div>
       <div class="flex flex-col md:flex-row">
         <div class="relative flex md:w-1/2 mr-4 bg-pink-500 justify-items-stretch items-stretch">
           <img class="object-cover" :src="content.image" alt="" />
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <div v-else>
+    <div>
       <div class="text-base max-w-prose pt-10">
         <h1
           class="
