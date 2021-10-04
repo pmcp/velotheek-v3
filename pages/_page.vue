@@ -27,8 +27,9 @@
               Log In
             </button>
           </div>
+          <div class="my-4" v-else>
           <nuxt-link
-            v-else
+
             :to="`/locations/4saisons.${lang}`"
             class="
               bg-pink-100
@@ -39,11 +40,12 @@
               rounded
               p-2
               w-auto
-              my-4
+
             "
           >
             <translation :id="14" class="" />
           </nuxt-link>
+          </div>
 
           <div class="prose prose-indigo prose-lg text-gray-500 mx-auto w-full">
             <nuxt-content class="prose lg:prose-xl" :document="content" />
