@@ -12,8 +12,8 @@ if (!process.env.MAILGUN_DOMAIN)
 
 var mailgun = require('mailgun-js')({
   apiKey: process.env.MAILGUN_API,
-  // domain: process.env.MAILGUN_DOMAIN
-  domain: 'velotheek.friendlyinter.net'
+  domain: process.env.MAILGUN_DOMAIN
+  // domain: 'velotheek.friendlyinter.net'
 })
 
 
