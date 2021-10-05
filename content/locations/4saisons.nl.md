@@ -48,7 +48,7 @@ mails:
 
       Het School Velote-team
   retour:
-    subject: "Terugbrengen van je "w
+    subject: Terugbrengen van je reservering
     from: info@schoolvelothek.be
     body: >-
       Beste %NAME%,
@@ -67,7 +67,7 @@ mails:
 
 
       Groet,
-
+    
 
       Het School Velote-team
 ---
