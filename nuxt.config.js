@@ -65,14 +65,6 @@ module.exports = {
         : 'http://localhost:3000',
     lang: SITE_INFO.sitelang || 'fr_BE',
   },
-  script: [
-    // Fathom Analytics
-    {
-      src: 'https://cdn.usefathom.com/script.js',
-      'data-site': 'IPCRJCRA',
-      'defer': true
-    }
-  ],
 
   router: {
     middleware: ['auth',  'fathom'],
@@ -90,6 +82,14 @@ module.exports = {
         name: 'description',
         content: SITE_INFO.sitedescription || process.env.npm_package_description || '',
       },
+    ],
+    script: [
+      // Fathom Analytics
+      {
+        src: 'https://cdn.usefathom.com/script.js',
+        'data-site': 'IPCRJCRA',
+        'defer': true
+      }
     ],
     link: [
       {
