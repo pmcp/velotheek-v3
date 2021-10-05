@@ -30,6 +30,23 @@ mails:
       wisselen nadat je de sleutels hebt ingeleverd.
     subject: bevestiging van uw reservering
     from: booking@schoolvelotek.be
+    body: >-
+      Beste %NAME%,
+
+
+      U heeft fietsen geboekt via School Vélotek.
+
+
+      %BOOKING%
+
+
+      Op de dag van uw reservatie, belt u aan bij het secretariaat van de school Peter Pan (Retoricastraat 13). Gelieve uzelf te identificeren en te melden dat u voor de Vélotheek komt. Dan zal de deur open gaan en de sleutels die u toegang geven tot het lokaal van de Vélotheek hangen links in een kastje tegen de muur. De toegangscode is 1060. Wees voorzichtig om de code niet te onthullen en de cijfers terug van plaats te wisselen. Het lokaal van de fietsen bevindt zich achter de tweede deur rechts na de toegangspoort. Na de metalen deur, bevinden de fietsen zich op het einde van de gang. Na het ophalen van de fietsen, ga je naar buiten op het voetpad, vergeet niet het licht uit te doen en de deur achter je op slot te doen. U houdt de sleutels bij gedurende de fietsles/fietsactiviteit. Na de fietsles, kan u met de sleutels binnen gaan in het lokaal van de Vélotheek en het materiaal op een gepaste manier terugzetten. Vergeet niet om bij het verlaten van de Vélotheek het licht uit te schakelen en de fietsenkot op slot te doen. Daarna belt u aan bij het secretariaat van de school. Wanneer u binnen gelaten wordt, kan u de sleutel terug in het kluisje tegen de muur stoppen. Vergeet niet de cijfers terug van plaats te wisselen nadat je de sleutels hebt ingeleverd.
+
+
+      Groet,
+
+
+      Het School Velote-team
   reminder:
     intro: U heeft fietsen geboekt via School Vélotek
     outro: Op de dag van uw reservatie, belt u aan bij het secretariaat van de
@@ -52,6 +69,48 @@ mails:
       wisselen nadat je de sleutels hebt ingeleverd.
     subject: herinnering aan uw reservering
     from: booking@schoolvelotek.be
+    body: >-
+      Beste %NAME%,
+
+
+      U heeft fietsen geboekt via School Vélotek.
+
+
+      %BOOKING%
+
+
+      Op de dag van uw reservatie, belt u aan bij het secretariaat van de school Peter Pan (Retoricastraat 13). Gelieve uzelf te identificeren en te melden dat u voor de Vélotheek komt. Dan zal de deur open gaan en de sleutels die u toegang geven tot het lokaal van de Vélotheek hangen links in een kastje tegen de muur. De toegangscode is 1060. Wees voorzichtig om de code niet te onthullen en de cijfers terug van plaats te wisselen. Het lokaal van de fietsen bevindt zich achter de tweede deur rechts na de toegangspoort. Na de metalen deur, bevinden de fietsen zich op het einde van de gang. Na het ophalen van de fietsen, ga je naar buiten op het voetpad, vergeet niet het licht uit te doen en de deur achter je op slot te doen. U houdt de sleutels bij gedurende de fietsles/fietsactiviteit. Na de fietsles, kan u met de sleutels binnen gaan in het lokaal van de Vélotheek en het materiaal op een gepaste manier terugzetten. Vergeet niet om bij het verlaten van de Vélotheek het licht uit te schakelen en de fietsenkot op slot te doen. Daarna belt u aan bij het secretariaat van de school. Wanneer u binnen gelaten wordt, kan u de sleutel terug in het kluisje tegen de muur stoppen. Vergeet niet de cijfers terug van plaats te wisselen nadat je de sleutels hebt ingeleverd.
+
+
+      Groet,
+
+
+      Het School Velote-team
+  retour:
+    body: >-
+      Beste %NAME%,
+
+
+      U heeft fietsen geboekt via School Vélotek.
+
+
+      %BOOKING%
+
+
+      Ik hoop dat uw fietsreservatie goed verlopen is. Waren er fietsen die defect waren? Indien zo, wil u dat ons dat melden in een antwoord op deze mail met het nummer van de fiets en wat er kapot aan was? Zo kunnen wij de fietsen zo snel mogelijk herstellen.
+
+
+      Tot binnenkort!
+
+
+      Groet,
+
+
+      Het School Velote-team
+    subject: Terugbrengen van je reservatie
+    intro: asdf
+    outro: asdf
+    from: info@schoolvelothek.be
 ---
 * ###### **4 volwassen fietsen (kleurcode wit)**
 
