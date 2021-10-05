@@ -1,6 +1,7 @@
 # DOING
 
 # TODO
+- Implement features of fattom js https://usefathom.com/docs/script/script-advanced
 - Remove unused stuff like darkmode
 - I have a vue formulate config and a plugin, might be a bit too much of a good thing
 - optimize db: start working with uuid's
