@@ -68,7 +68,6 @@ module.exports = {
   script: [
     // Fathom Analytics
     {
-      // Use your Fathom custom domain if you have one
       src: 'https://cdn.usefathom.com/script.js',
       'data-site': 'IPCRJCRA',
       'defer': true
