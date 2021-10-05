@@ -44,7 +44,7 @@ emailFn.getContent = (b, type) => {
   const address = emails[`${b.location}.${b.language}`].address
   const contentFromDb = emails[`${b.location}.${b.language}`].mails[type]
 
-  const body = {
+  const bookingDetails = {
     nl: `Datum: ${date},
 Tijdslot: ${moment}
 Graad: ${b.grade}
@@ -66,13 +66,11 @@ ${address.zip} ${address.city}
     fr: `Cher ${b.name}`,
   }
 
-  const copy = `${salutation[b.language]}
+  const replacements = {'%NAME%': b.name,'%BOOKING%': bookingDetails[b.language]}
 
-${contentFromDb.intro}
-
-${body[b.language]}
-
-${contentFromDb.outro}`
+  const copy = contentFromDb.body.replace(/%\w+%/g, function(all) {
+    return replacements[all] || all;
+  });
 
   return {
     copy: copy,

@@ -44,12 +44,10 @@ module.exports = {
         if (err) {
           throw err
         }
-        console.log('JSON data is saved.')
       })
 
       const pages = await $content('pages').fetch()
       const generatedPages = pages.map((file) => {
-        console.log(file.slug)
         return {
           route: `/${file.slug}`,
           payload: file,

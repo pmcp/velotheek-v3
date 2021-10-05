@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import VueFormulate from '@braid/vue-formulate'
-console.log(VueFormulate)
+
 export const state = () => ({
   lang: 'fr',
   // TODO: Move this to admin, and pull in on generate
