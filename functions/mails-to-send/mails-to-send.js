@@ -7,7 +7,7 @@ if (!process.env.NETLIFY) {
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
-const mailContent = require('../helpers/mail-content')
+
 
 
 exports.handler = async function (event, context) {
