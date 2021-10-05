@@ -49,6 +49,14 @@ mails:
       deuren goed op slot te doen. Nadien geeft u de sleutels terug aan het
       secretariaat. 
     subject: herinnering aan uw reservering
+  retour:
+    subject: Ga terug naar je reservatie
+    intro: U heeft fietsen geboekt via School Vélotek
+    outro: Ik hoop dat uw fietsreservatie goed verlopen is. Waren er fietsen die
+      defect waren? Indien zo, wil u dat ons dat melden in een antwoord op deze
+      mail met het nummer van de fiets en wat er kapot aan was? Zo kunnen wij de
+      fietsen zo snel mogelijk herstellen. Tot binnenkort!
+    from: info@schoolvelothek.be
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
