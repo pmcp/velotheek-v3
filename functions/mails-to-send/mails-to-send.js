@@ -7,8 +7,8 @@ if (!process.env.NETLIFY) {
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
+const mailContent = require('../helpers/mail-content')
 
-const emails = require('../data/mails.json')
 
 exports.handler = async function (event, context) {
   // const data = JSON.parse(event.body)
@@ -25,53 +25,8 @@ exports.handler = async function (event, context) {
 
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
-
-      const mailsForLocationId = `${b.location}.${b.language}`
-      const emailsForLocationAndLanguage = emails[mailsForLocationId]
-      const reminderEmail = emailsForLocationAndLanguage['reminder']
-      const body = { nl: `Datum: ${b.date},
-Tijdslot: ${b.momentReadable}, ${b.time}
-Graad: ${b.grade}
-Locatie: ${b.location}`,
-        fr: `Date: ${b.date},
-Moment: ${b.momentReadable}, ${b.time}
-Niveau: ${b.grade}
-Location: ${b.location}`,
-      }
-
-
-
-
-      const copy = {
-        nl: `Beste ${b.name},
-      
-${reminderEmail.intro}
-
-${body.nl}
-
-${reminderEmail.outro}
-`,
-
-
-        fr: `Cher ${b.name},
-      
-${reminderEmail.intro}
-
-${body.nl}
-
-${reminderEmail.outro}
-`
-      }
-
-
       try {
-        await emailFn.sendEmail({
-          copy: copy[b.language],
-          to: b.email,
-          replyTo: 'bookings@schoolvelotek.be',
-          subject: subject[b.language],
-        })
-
+        await emailFn.sendEmail(emailFn.getContent(b, 'reminder'))
         const updatedRow = { ...b, reminderSend: true, reminderDate: format(new Date(), 'yyyy/MM/dd') }
         await sheetAPI.updateRow(sheet, updatedRow)
       } catch (error) {

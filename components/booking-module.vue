@@ -6,7 +6,7 @@
         <FormulateInput
           :options="grades"
           type="select"
-          placeholder="Sélectionner"
+          :placeholder="$store.state.translations[36][$store.state.lang]"
           :value="activeGrade"
           @input="setActiveGrade"
         >

@@ -1,7 +1,10 @@
 import { format } from 'date-fns'
-
+import VueFormulate from '@braid/vue-formulate'
+console.log(VueFormulate)
 export const state = () => ({
-  lang: 'nl',
+  lang: 'fr',
+  // TODO: Move this to admin, and pull in on generate
+  //  Remark: If I change this here (import from admin), then also change in email functions
   moments: [
     { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u30 tot 12u30', fr: 'de 8h30 a 12h30' }, available: true },
     {
@@ -302,10 +305,13 @@ export const actions = {
 
   async toggleLang({ state, commit }) {
     let lang = 'fr'
+
     if (state.lang === lang) {
       lang = 'nl'
     }
 
+    VueFormulate.setLocale(lang)
+    console.log(VueFormulate)
     // Change route when changing language.
     // TODO: Should get lang on route change
 
