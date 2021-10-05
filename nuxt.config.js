@@ -67,7 +67,7 @@ module.exports = {
   },
 
   router: {
-    middleware: ['auth',  'fathom'],
+    middleware: ['auth'],
   },
   /*
    ** Headers of the page
@@ -82,14 +82,6 @@ module.exports = {
         name: 'description',
         content: SITE_INFO.sitedescription || process.env.npm_package_description || '',
       },
-    ],
-    script: [
-      // Fathom Analytics
-      {
-        src: 'https://cdn.usefathom.com/script.js',
-        'data-site': 'IPCRJCRA',
-        'defer': true
-      }
     ],
     link: [
       {
