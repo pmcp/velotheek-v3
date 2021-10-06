@@ -43,13 +43,16 @@ mails:
       %BOOKING%
 
 
-      Op de dag van uw reservering moet u aanbellen bij het secretariaat van école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit en het feit dat u voor de Vélotheek komt. U haalt de sleutels van de Vélotheek op bij het schoolsecretariaat, verlaat de school en gaat iets verderop tot de Denemarkenstraat. De deur van de Vélotheek bevindt zich in de Denemarkenstraat, twee deuren verder vanbij de ingang de schoolpoort. Daarboven staat "Cité des jeunes". De fietsen worden gestald in een lokaal aan de linkerkant, zo'n 20 meter verderop in de gang. Een bordje "Vélotheek" op de deur geeft aan dat u zich op de juiste plaats bevindt. De lichtschakelaar voor de kamer bevindt zich links 2 m na de deur. Vergeet niet om zowel het licht van het lokaal ui te schakelen als de straatdeur op slot te doen. U geeft dan de sleutels aan het secretariaat voordat u gaat fietsen. Om de fietsen terug te brengen, bel je weer aan bij het secretariaat van de school om de sleutels te vragen en de fietsen terug te plaatsen. Vergeet niet om na gebruik de lichten uit te doen en de deuren goed op slot te doen. Nadien geeft u de sleutels terug aan het secretariaat. 
+      Op de dag van uw reservering moet u aanbellen bij het secretariaat van école 4 Saisons (Betlehemplein 10, 1060 St Gillis). Vermeld uw identiteit en het feit dat u voor de Vélotek komt. U haalt de sleutels van de Vélotek op bij het schoolsecretariaat, verlaat de school en gaat iets verderop tot de Denemarkenstraat. De deur van de Vélotek bevindt zich in de Denemarkenstraat, twee deuren verder vanbij de ingang de schoolpoort. Daarboven staat "Cité des jeunes". De fietsen worden gestald in een lokaal aan de linkerkant, zo'n 20 meter verderop in de gang. Een bordje "Vélotek" op de deur geeft aan dat u zich op de juiste plaats bevindt. De lichtschakelaar voor de kamer bevindt zich links 2 m na de deur. Vergeet niet om zowel het licht van het lokaal ui te schakelen als de straatdeur op slot te doen. U geeft dan de sleutels aan het secretariaat voordat u gaat fietsen. 
+
+
+      Om de fietsen terug te brengen, bel je weer aan bij het secretariaat van de school om de sleutels te vragen en de fietsen terug te plaatsen. Vergeet niet om na gebruik de lichten uit te doen en de deuren goed op slot te doen. Nadien geeft u de sleutels terug aan het secretariaat. 
 
 
       Groet,
 
 
-      Het School Velote-team
+      Het Velotek Team
   retour:
     subject: Terugbrengen van je reservering
     from: info@schoolvelothek.be
@@ -72,7 +75,7 @@ mails:
       Groet,
 
 
-      Het School Velote-team
+      Het Velotek Team
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
