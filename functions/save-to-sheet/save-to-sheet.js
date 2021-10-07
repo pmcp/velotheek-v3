@@ -7,15 +7,18 @@ if (!process.env.NETLIFY) {
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { emailFn } = require('../send-mail/send-mail')
 const { format, add, isEqual } = require('date-fns')
+const supabase = require('../supabase/supabase')
 
 exports.handler = async function (event, context) {
   const data = JSON.parse(event.body)
-
+  console.log('SUP{ABASE',supabase)
+  supabase.addRow('reservations')
   const settings = data.settings
   const moments = settings.moments
   const sheet = await sheetAPI.getSheet(data.sheet)
-
+  // supabase.addRow('reservations')
   // change date to readable format
+  // supabase.getRows('reservations')
   const updatedBookings = data.bookings.map((b) => {
     // Make date readable in Google Sheet
     const date = format(new Date(b.date), 'yyyy/MM/dd')

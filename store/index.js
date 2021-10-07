@@ -141,10 +141,6 @@ export const actions = {
     // TODO: This solution (altho not scalable), might be too easy
     // Can make it scalable and more cool looking with a reducer
     // But don't really have the time. Almost holiday!
-    // ¯\_(ツ)_/¯
-    // Will probably drive for three weeks through Croatia
-    // ᕕ( ᐛ )ᕗ
-
     const locationsFR = allLocations.filter((l) => l.slug.slice(-2) === 'fr')
     const locationsNL = allLocations.filter((l) => l.slug.slice(-2) === 'nl')
 
