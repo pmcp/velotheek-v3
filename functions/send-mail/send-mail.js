@@ -76,7 +76,7 @@ ${address.zip} ${address.city}
     copy: copy,
     to: b.email,
     replyTo: contentFromDb.from,
-    subject: `${contentFromDb.subject} (${b.date})`,
+    subject: `${contentFromDb.subject} (${date})`,
   }
 }
 
