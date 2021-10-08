@@ -75,7 +75,7 @@ mails:
       Groet,
 
 
-      Het Velotek Team
+      Het Vélotek Team
 ---
 * ###### **2 volwassen fietsen (kleurcode wit)**
 
