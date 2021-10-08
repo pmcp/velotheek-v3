@@ -100,7 +100,7 @@ mails:
 * ###### **10 loopfietsen (kleurcode grijs)**
 
   * ###### leeftijd: 2 jaar tot 5 ans
-  * ###### grotte: 95 cm tot 110 cm
+  * ###### grootte: 95 cm tot 110 cm
 * ###### **1 groote fietspomp**
 * ###### **1 set pionnen**
 * ###### **1 x 10 meter kabel (voor het vastzetten van fietsen)**
