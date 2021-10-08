@@ -93,13 +93,13 @@ mails:
 
   * ###### leeftijd: 7 jaar tot 9 jaar
   * ###### grootte: 120cm tot 135 cm
-* ###### **9 16-inch fietsen (kleurcode rode)**
+* ###### **9 16-inch fietsen (kleurcode rood)**
 
   * ###### leeftijd: 5 jaar tot 7 jaar
   * ###### grootte: 110 cm tot 120 cm
 * ###### **10 loopfietsen (kleurcode grijs)**
 
-  * ###### leeftijd: 2 jaar tot 5 ans
+  * ###### leeftijd: 2 jaar tot 5 jaar
   * ###### grootte: 95 cm tot 110 cm
 * ###### **1 grote fietspomp**
 * ###### **1 set pionnen**
