@@ -100,4 +100,4 @@ mails:
 * ###### **1 groote fietspomp**
 * ###### **1 set pionnen**
 * ###### **1 x 10 meter kabel (voor het vastzetten van fietsen)**
-* ###### **1 fietstassen met gereedschap en reparatiemateriaal (inclusief een kleine pomp)**
+* ###### **1 fietstas met gereedschap en reparatiemateriaal (inclusief een kleine pomp)**
