@@ -80,23 +80,23 @@ mails:
 * ###### **4 volwassen fietsen (kleurcode wit)**
 
   * ###### leeftijd: 14 jaar en meer
-  * ###### groote: 170 cm en meer
+  * ###### grootte: 170 cm en meer
 * ###### **6 26-inch fietsen (kleurcode oranje)**
 
   * ###### leeftijd: 11 jaar tot 14 jaar
-  * ###### grotte: 145 cm tot 170 cm
+  * ###### grootte: 145 cm tot 170 cm
 * ###### **8 24-inch fietsen (kleurcode geel)**
 
   * ###### leeftijd: 9 jaar tot 11 jaar
-  * ###### grotte: 135 cm tot 145 cm
+  * ###### grootte: 135 cm tot 145 cm
 * ###### **7 20-inch fietsen (kleurcode blauw)**
 
   * ###### leeftijd: 7 jaar tot 9 jaar
-  * ###### grotte: 120cm tot 135 cm
+  * ###### grootte: 120cm tot 135 cm
 * ###### **9 16-inch fietsen (kleurcode rode)**
 
   * ###### leeftijd: 5 jaar tot 7 jaar
-  * ###### grotte: 110 cm tot 120 cm
+  * ###### grootte: 110 cm tot 120 cm
 * ###### **10 loopfietsen (kleurcode grijs)**
 
   * ###### leeftijd: 2 jaar tot 5 ans
