@@ -1,7 +1,7 @@
 ---
 title: Peter Pan
 idInSheet: peterpan
-location: '{"type":"Point","coordinates":[4.346348,50.8275717]}'
+location: '{"type":"Point","coordinates":[4.3502855,50.8275717]}'
 info: "\n"
 street: Retoricastraat 13
 zip: 1060
