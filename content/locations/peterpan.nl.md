@@ -101,7 +101,7 @@ mails:
 
   * ###### leeftijd: 2 jaar tot 5 ans
   * ###### grootte: 95 cm tot 110 cm
-* ###### **1 grootte fietspomp**
+* ###### **1 grote fietspomp**
 * ###### **1 set pionnen**
 * ###### **1 x 10 meter kabel (voor het vastzetten van fietsen)**
 * ###### **1 fietstas met gereedschap en reparatiemateriaal (inclusief een kleine pomp)**
