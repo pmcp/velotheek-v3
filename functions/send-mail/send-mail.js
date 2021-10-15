@@ -90,7 +90,6 @@ emailFn.sendEmail = ({ copy: copy, to: to, replyTo: replyTo, subject: subject })
       'h:Reply-To': replyTo,
       to: to,
     }
-    console.log('data to send', data)
     if (to) {
       // console.dir(mailgun.messages())
       mailgun.messages().send(data, (error, body) => {

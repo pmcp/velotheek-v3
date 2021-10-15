@@ -31,8 +31,9 @@ exports.handler = async function (event, context) {
     // If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
     let reminderSend = false
     if (isEqual(reminderDate, new Date())) reminderSend = true
-
-    return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate }
+    const reminderDateReadable = format(new Date(b.date), 'yyyy/MM/dd')
+    console.log('dates', { reminderDate }, { reminderDateReadable })
+    return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate: reminderDateReadable }
   })
   const addedRows = await sheetAPI.addRows(sheet, updatedBookings)
   // Check for mails to be send
