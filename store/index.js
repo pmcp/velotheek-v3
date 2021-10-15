@@ -321,7 +321,7 @@ export const actions = {
     }
 
     VueFormulate.setLocale(lang)
-    console.log(VueFormulate)
+
     // Change route when changing language.
     // TODO: Should get lang on route change
 
@@ -429,9 +429,6 @@ export const getters = {
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})
 
-
-
-    console.log(state.bookings, state.unavailable)
     const bookingsForActiveLocation = state.bookings.filter((b) => b.location === state.activeLocationId)
 
     // Add the unavailable moments

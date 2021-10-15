@@ -32,7 +32,6 @@ exports.handler = async function (event, context) {
     let reminderSend = false
     if (isEqual(reminderDate, new Date())) reminderSend = true
     const reminderDateReadable = format(new Date(b.date), 'yyyy/MM/dd')
-    console.log('dates', { reminderDate }, { reminderDateReadable })
     return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate: reminderDateReadable }
   })
   const addedRows = await sheetAPI.addRows(sheet, updatedBookings)
