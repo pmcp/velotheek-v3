@@ -95,6 +95,6 @@ mails:
   * ###### âge: 5 à 7 ans
   * ###### taille de 110 - 120 cm
 * ###### **1 grande pompe à vélo**
-* ###### **1 jeux de plots**
+* ###### **1 jeu de plots**
 * ###### **1 câble de 10 mètres (pour sécuriser les vélos)**
 * ###### **1 fonte avec outils et matériel de réparation (comprenant une petite pompe)**
