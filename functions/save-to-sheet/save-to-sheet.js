@@ -6,7 +6,7 @@ if (!process.env.NETLIFY) {
 
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { emailFn } = require('../send-mail/send-mail')
-const { format, sub, isEqual } = require('date-fns')
+const { format, add, sub, isEqual } = require('date-fns')
 
 exports.handler = async function (event, context) {
   const data = JSON.parse(event.body)
@@ -27,12 +27,14 @@ exports.handler = async function (event, context) {
     const confirmationDate = format(new Date(), 'yyyy/MM/dd')
 
     const reminderDate = sub(new Date(b.date), { days: 2 })
-
-    // If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
+    // TODO: If booking date (b.date) === day after today, don't set reminder -> Set reminderSend as true
     let reminderSend = false
+    const reminderDateReadable = format(new Date(reminderDate), 'yyyy/MM/dd')
+    const retourMailDate = add(new Date(b.date), { days: 1 })
+    const retourMailSend = false
+    const retourDateReadable = format(new Date(retourMailDate), 'yyyy/MM/dd')
     if (isEqual(reminderDate, new Date())) reminderSend = true
-    const reminderDateReadable = format(new Date(b.date), 'yyyy/MM/dd')
-    return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate: reminderDateReadable }
+    return { ...b, date, momentReadable, time, created, confirmationSend, confirmationDate, reminderSend, reminderDate: reminderDateReadable, retourMailDate: retourDateReadable, retourMailSend}
   })
   const addedRows = await sheetAPI.addRows(sheet, updatedBookings)
   // Check for mails to be send

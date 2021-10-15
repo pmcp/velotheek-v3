@@ -8,8 +8,6 @@ const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
 
-
-
 exports.handler = async function (event, context) {
   // const data = JSON.parse(event.body)
   // console.log('here', data)
@@ -17,17 +15,17 @@ exports.handler = async function (event, context) {
   const sheet = await sheetAPI.getSheet('reservations')
   const rows = await sheetAPI.getRows(sheet)
 
+  // REMINDER MAILS
   // find rows of which date to be send reminders is today
-
   const todayReminders = rows.filter((r) => {
-    return isSameDay(new Date(r.reminderDate), new Date()) && (r.reminderSend == 'FALSE')
+    return isSameDay(new Date(r.reminderDate), new Date()) && r.reminderSend == 'FALSE'
   })
 
   if (todayReminders.length > 0) {
     const unresolved = todayReminders.map(async (b) => {
       try {
         await emailFn.sendEmail(emailFn.getContent(b, 'reminder'))
-        const updatedRow = { ...b, reminderSend: true, reminderDate: format(new Date(), 'yyyy/MM/dd') }
+        const updatedRow = { ...b, reminderSend: true }
         await sheetAPI.updateRow(sheet, updatedRow)
       } catch (error) {
         console.error('there was an error', error)
@@ -38,12 +36,34 @@ exports.handler = async function (event, context) {
     })
 
     await Promise.all(unresolved)
+  }
 
+  // REMINDER MAILS
+  // TODO: optimize, because this is the same function as above
+  // find rows of which the booking date = one day ago
+  const todayRetour = rows.filter((r) => {
+    return isSameDay(new Date(r.retourMailDate), new Date()) && r.retourMailSend == 'FALSE'
+  })
+
+  if (todayRetour.length > 0) {
+    const unresolved = todayRetour.map(async (b) => {
+      try {
+        await emailFn.sendEmail(emailFn.getContent(b, 'retour'))
+        const updatedRow = { ...b, retourMailSend: true }
+        await sheetAPI.updateRow(sheet, updatedRow)
+      } catch (error) {
+        console.error('there was an error', error)
+        const updatedRow = { ...b, retourMailSend: 'error' }
+        process.exit(1)
+      }
+      return
+    })
+
+    await Promise.all(unresolved)
   }
 
   return {
     statusCode: 200,
     body: JSON.stringify('done'),
   }
-
 }
