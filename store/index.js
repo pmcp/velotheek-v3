@@ -36,6 +36,7 @@ export const state = () => ({
   translations: null,
   activeGrade: null,
   bookings: [],
+  unavailable: [],
   sessionBookings: [],
   siteInfo: {},
   locations: [],
@@ -92,6 +93,9 @@ export const mutations = {
   },
   setBookings(state, bookings) {
     state.bookings = [...bookings]
+  },
+  setUnavailable(state, unavailable) {
+    state.unavailable = [...unavailable]
   },
   setActiveLocationId(state, location) {
     state.activeLocationId = location
@@ -162,13 +166,15 @@ export const actions = {
         method: 'POST',
         body: JSON.stringify({ sheet: sheet }),
       })
-      const bookings = await resultSheet.json()
-      return commit('setBookings', bookings)
+      const res = await resultSheet.json()
+      if(sheet === 'reservations') return commit('setBookings', res)
+      if(sheet === 'unavailable') return commit('setUnavailable', res)
     } catch (err) {
       console.log(err)
       throw 'Unable to fetch sheet'
     }
   },
+
 
   async removeBooking({ state, dispatch, commit }, { id }) {
     try {
@@ -300,8 +306,12 @@ export const actions = {
   },
 
   getBookings({ dispatch }) {
+    //This is the one that get called in the beginning
     dispatch('getSheet', { sheet: 'reservations' })
+    //  Also call the sheet with the unavailable bookings, set by the organisation
+    dispatch('getSheet', { sheet: 'unavailable' })
   },
+
 
   async toggleLang({ state, commit }) {
     let lang = 'fr'
@@ -419,9 +429,18 @@ export const getters = {
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})
 
+
+
+    console.log(state.bookings, state.unavailable)
     const bookingsForActiveLocation = state.bookings.filter((b) => b.location === state.activeLocationId)
 
-    const bookingsByTimeslot = bookingsForActiveLocation.reduce((acc, session) => {
+    // Add the unavailable moments
+    const unavailableBookingsForActiveLocation = state.unavailable.filter((b) => b.location === state.activeLocationId)
+
+    // Combine bookings and unavailable dates
+    // TODO: Might be better to create a new css class for unavailable bookings
+    const allBookedMoments = [...bookingsForActiveLocation, ...unavailableBookingsForActiveLocation]
+    const bookingsByTimeslot = allBookedMoments.reduce((acc, session) => {
       const sessions = acc[session.moment] || []
       return { ...acc, [session.moment]: [...sessions, session.date] }
     }, {})

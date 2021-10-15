@@ -1,8 +1,8 @@
 # DOING
 
 # TODO
+- A11y Analysis
 - Create new layout for homepage, without nav
-- Implement features of fathom js https://usefathom.com/docs/script/script-advanced
 - Remove unused stuff like darkmode
 - I have a vue formulate config and a plugin, might be a bit too much of a good thing
 - optimize db: start working with uuid's
@@ -15,7 +15,7 @@
 - Create info page for location without reservation module
 - Better Mobile Nav
 - Tracking etc
-- Make class translable
+- Make class translatable
 - Language in local storage
 - Contact after login (do better, cos now link is just hidden)
 - Try to use git lfg?
@@ -24,7 +24,6 @@
 - Use Nuxt image module (already npm installed)
 - Change site lang on change lang
 - Fix homepage flow (_page)
-- Toevoegen van een admin calender om dagen vast te leggen wanneer niet beschikbaar
 - drive arrangeren
 - Change emails to mail.schoolvelotek.be
 - Reminderdate in excel is niet leesbaar
