@@ -385,10 +385,15 @@ export const getters = {
   disabledDates: (state, getters) => {
     // Filter out only bookings with the active location
     const filteredBookings = getters.combinedBookings.filter((b) => b.location === state.activeLocationId)
+    const filteredUnavailable = state.unavailable.filter((b) => b.location === state.activeLocationId)
+
+    const combinedBookings = [...filteredBookings, ...filteredUnavailable]
 
     // If a date has morning and evening booked, it should also be disabled
     // Using a very simple hack: if this reducer turns up a value of 2, two moments of that day are booked, and it should be disabled
-    const bookingsByDay = filteredBookings.reduce((acc, b) => {
+
+
+    const bookingsByDay = combinedBookings.reduce((acc, b) => {
       const date = format(new Date(b.date), 'yyyy/MM/dd')
       if (b.moment === '2') return { ...acc, [date]: 2 }
       let val = acc[date] || 0
@@ -405,6 +410,9 @@ export const getters = {
 
     // Create an array with only the dates
     const onlyDates = onlyDisabledDates.map((b, key) => new Date(b[0]))
+
+
+
 
     // Add dates to disabled dates
     return [

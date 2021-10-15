@@ -1,6 +1,8 @@
 # DOING
+- Pour les dates encodées dans unavailable, le rond vert disparait mais encore possiblité de réserver
 
 # TODO
+- Use attributes for popover etc for calendar: https://vcalendar.io/attributes.html
 - A11y Analysis
 - Create new layout for homepage, without nav
 - Remove unused stuff like darkmode
