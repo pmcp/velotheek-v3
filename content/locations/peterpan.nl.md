@@ -32,7 +32,7 @@ mails:
       Het Vélotek Team
   reminder:
     subject: Herinnering aan uw reservering
-    from: booking@schoolvelotek.be
+    from: info@schoolvelotek.be
     body: >-
       Beste %NAME%,
 
