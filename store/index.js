@@ -6,15 +6,15 @@ export const state = () => ({
   // TODO: Move this to admin, and pull in on generate
   //  Remark: If I change this here (import from admin), then also change in email functions
   moments: [
-    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u30 tot 12u30', fr: 'de 8h30 a 12h30' }, available: true },
+    { name: { nl: 'Voormiddag', fr: 'Matin' }, descr: { nl: 'Van 8u30 tot 12u30', fr: 'de 8h30 à 12h30' }, available: true },
     {
       name: { nl: 'Namiddag', fr: 'Après midi' },
-      descr: { nl: 'Van 12u30 tot 16u30', fr: 'de 12h30 a 16h30' },
+      descr: { nl: 'Van 12u30 tot 16u30', fr: 'de 12h30 à 16h30' },
       available: true,
     },
     {
       name: { nl: 'Hele dag', fr: 'Toute la journée' },
-      descr: { nl: 'Van 8u30 tot 16u30', fr: 'de 8h30 a 16h30' },
+      descr: { nl: 'Van 8u30 tot 16u30', fr: 'de 8h30 à 16h30' },
       available: true,
     },
   ],
