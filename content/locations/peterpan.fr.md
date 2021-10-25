@@ -34,7 +34,7 @@ mails:
 
   reminder:
     subject: Rappel de votre réservation
-    from: booking@schoolvelotek.be
+    from: info@schoolvelotek.be
     body: >
       Cher/Chère %NAME%,
 
