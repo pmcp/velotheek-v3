@@ -48,16 +48,12 @@ emailFn.getContent = (b, type) => {
     nl: `Datum: ${date},
 Tijdslot: ${moment}
 Graad: ${b.grade}
-Velotheek: ${b.location}
-${address.street}
-${address.zip} ${address.city}
+Velotek: ${b.location}, ${address.street} ${address.zip} ${address.city}
 `,
     fr: `Date: ${date},
 Horaire: ${moment}
 Niveau: ${b.grade}
-Vélotek: ${b.location}
-${address.street}
-${address.zip} ${address.city}
+Vélotek: ${b.location}, ${address.street}, ${address.zip} ${address.city}
 `,
   }
 
