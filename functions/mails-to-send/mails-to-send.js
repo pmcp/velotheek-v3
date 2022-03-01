@@ -67,3 +67,6 @@ exports.handler = async function (event, context) {
     body: JSON.stringify('done'),
   }
 }
+
+// Netlify Scheduled function: https://www.netlify.com/blog/quirrel-joins-netlify-and-scheduled-functions-launches-in-beta
+module.exports.handler = schedule("0 9 * * *", handler);
