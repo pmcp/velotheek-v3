@@ -7,8 +7,9 @@ if (!process.env.NETLIFY) {
 const sheetAPI = require('../google-spreadsheet/google-spreadsheet')
 const { isSameDay, format } = require('date-fns')
 const { emailFn } = require('../send-mail/send-mail')
+const { schedule } = require('@netlify/functions')
 
-exports.handler = async function (event, context) {
+const handler = async function (event, context) {
   // const data = JSON.parse(event.body)
   // console.log('here', data)
 
