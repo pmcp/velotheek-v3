@@ -70,4 +70,4 @@ const handler = async function (event, context) {
 }
 
 // Netlify Scheduled function: https://www.netlify.com/blog/quirrel-joins-netlify-and-scheduled-functions-launches-in-beta
-module.exports.handler = schedule("5 10 * * *", handler);
+module.exports.handler = schedule("10 10 * * *", handler);
