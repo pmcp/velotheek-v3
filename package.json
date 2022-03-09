@@ -21,6 +21,7 @@
   "dependencies": {
     "@braid/vue-formulate": "^2.5.2",
     "@mapbox/mapbox-gl-geocoder": "^4.7.2",
+    "@netlify/functions": "^1.0.0",
     "@nuxt/content": "^1.14.0",
     "@tailwindcss/typography": "^0.4.1",
     "axios": "^0.21.1",
