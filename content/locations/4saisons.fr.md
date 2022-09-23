@@ -33,7 +33,7 @@ mails:
   reminder:
     from: info@schoolvelothek.be
     subject: Rappel de votre réservation
-    body: >
+    body: >-
       Cher/Chère %NAME%,
 
 
@@ -43,10 +43,10 @@ mails:
       %BOOKING%
 
 
-      Le jour de votre réservation, vous devrez sonner au secrétariat de l’école 4 saisons (10 place Bethléem 1060 St Gilles). Veuillez décliner votre identité et le fait que vous venez pour la Vélotek. Vous irez chercher les clefs de la Vélotek au secrétariat de l’école, ressortirez de l’école pour vous diriger un peu plus bas sur la rue du Danemark. La porte donnant accès à la Vélotek se trouve sur la rue du Danemark deux portes plus bas que l’entrée de l’école. On peut lire au dessus de celle-ci: “Cité des jeunes”. Les vélos sont stockés dans un local sur la gauche environ 20 mètres plus loin dans le couloir. Un panneau Vélotek sur la porte indique que vous êtes bien au bon endroit. L'interrupteur de la lumière du local se situe sur la gauche 2 m après la porte. N’oubliez pas en sortant de bien éteindre la lumière du local et de fermer à clefs la porte du local ainsi que la porte donnant sur la rue. Vous remettrez ensuite les clefs au secrétariat avant de faire votre formation. 
+      Le jour de votre réservation, vous devrez sonner au secrétariat de l’école 4 saisons (10 place Bethléem 1060 St Gilles). Veuillez décliner votre identité et le fait que vous venez pour la Vélotek. La porte vous sera ouverte. Les clefs de la Vélotek se trouvent dans une boîte à clef à votre gauche. Le code de la boîte à clef est le 4682. Merci de bien faire attention de ne pas divulguer le code ainsi que de brouiller celui-ci après ouverture. Une fois les clefs en votre possession, vous ressortirez de l’école pour vous diriger un peu plus bas sur la rue du Danemark. La porte donnant accès à la Vélotek se trouve sur la rue du Danemark deux portes plus bas que l’entrée de l’école. On peut lire au dessus de celle-ci: “Cité des jeunes”. Les vélos sont stockés dans un local sur la gauche environ 20 mètres plus loin dans le couloir. Un panneau Vélotek sur la porte indique que vous êtes bien au bon endroit. L'interrupteur de la lumière du local se situe sur la gauche 2 m après la porte. N’oubliez pas en sortant de bien éteindre la lumière du local et de fermer à clefs la porte du local ainsi que la porte donnant sur la rue. 
 
 
-      Pour remettre les vélos, vous sonnerez à nouveau au secrétariat de l’école pour chercher les clefs qui vous permettront de remettre les vélos. Une fois les vélos et le matériel remis, n’oubliez pas de bien éteindre la lumière du local et de fermer à clefs la porte du local ainsi que la porte donnant sur la rue. Vous remettrez ensuite les clefs au secrétariat. 
+      Une fois votre formation terminée,  vous ouvrez la Vélotek, remettez les vélos et le matériel à sa place. En sortant n’oubliez pas d’éteindre la lumière et de fermez à clef les deux portes. Vous sonnerez ensuite à nouveau à la sonnette du secrétariat de l’école 4 saisons pour remettre les clefs dans la boîte à clef. N’oubliez pas de brouiller le code après avoir remis les clefs.
 
 
       Bonne route à vous ! 
