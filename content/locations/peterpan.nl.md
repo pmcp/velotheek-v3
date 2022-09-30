@@ -75,7 +75,7 @@ mails:
 
       Het Vélotek Team
     subject: Terugbrengen van je reservatie
-    from: info@schoolvelothek.be
+    from: info@schoolvelotek.be
 ---
 * ###### **4 volwassen fietsen (kleurcode wit)**
 
