@@ -73,7 +73,7 @@ mails:
 
 
       Team Vélotek
-    from: info@schoolvelothek.be
+    from: info@schoolvelotek.be
     subject: Retour de votre réservation
 ---
 * ###### **4 vélos adultes (code couleur blanc)**
