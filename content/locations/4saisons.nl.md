@@ -31,7 +31,7 @@ mails:
 
       Het Velotek Team
   reminder:
-    from: info@schoolvelothek.be
+    from: info@schoolvelotek.be
     subject: Herinnering van uw reservering
     body: >-
       Beste %NAME%,
@@ -55,7 +55,7 @@ mails:
       Het Velotek Team
   retour:
     subject: Terugbrengen van je reservering
-    from: info@schoolvelothek.be
+    from: info@schoolvelotek.be
     body: >-
       Beste %NAME%,
 
