@@ -39,7 +39,7 @@ const handler = async function (event, context) {
     await Promise.all(unresolved)
   }
 
-  // REMINDER MAILS
+  // RETOUR MAILS
   // TODO: optimize, because this is the same function as above
   // find rows of which the booking date = one day ago
   const todayRetour = rows.filter((r) => {
@@ -71,4 +71,5 @@ const handler = async function (event, context) {
 
 // Netlify Scheduled function: https://www.netlify.com/blog/quirrel-joins-netlify-and-scheduled-functions-launches-in-beta
 // Timing is UTC, so 8 instead of 9.
-module.exports.handler = schedule("0 8 * * *", handler);
+// module.exports.handler = schedule("0 8 * * *", handler);
+module.exports.handler = schedule("0 12 15 * *", handler);
