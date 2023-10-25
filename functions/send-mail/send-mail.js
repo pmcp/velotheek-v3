@@ -88,10 +88,12 @@ emailFn.sendEmail = ({ copy: copy, to: to, replyTo: replyTo, subject: subject })
     }
     if (to) {
       // console.dir(mailgun.messages())
+      console.log(`sending mail to ${to}`)
       mailgun.messages().send(data, (error, body) => {
         // return
         console.log(error)
-        // if(error) console.log(error)
+        if(error) console.log(error)
+        console.log(`Mail send to ${to}`)
         resolve(body)
       })
     }
