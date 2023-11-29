@@ -77,7 +77,7 @@ mails:
 
       Het Vélotek Team
 ---
-* ###### **2 volwassen fietsen (kleurcode wit)**
+* ###### **7 volwassen fietsen (kleurcode wit)**
 
   * ###### leeftijd: 14 jaar en ouder
   * ###### grootte: 170 cm en meer
@@ -85,15 +85,15 @@ mails:
 
   * ###### leeftijd: 11 jaar tot 14 jaar
   * ###### grootte: 145 cm tot 170 cm
-* ###### **10 24-inch fietsen (kleurcode geel)**
+* ###### **13 24-inch fietsen (kleurcode geel)**
 
   * ###### leeftijd: 9 jaar tot 11 jaar
   * ###### grootte: 135 cm tot 145 cm
-* ###### **5 20-inch fietsen (kleurcode blauw)**
+* ###### **6 20-inch fietsen (kleurcode blauw)**
 
   * ###### leeftijd: 7 jaar tot 9 jaar
   * ###### grootte: 120cm tot 135 cm
-* ###### **8 16-inch fietsen (kleurcode rode)**
+* ###### **9 16-inch fietsen (kleurcode rode)**
 
   * ###### leeftijd: 5 jaar tot 7 jaar
   * ###### grootte: 110 cm tot 120 cm
