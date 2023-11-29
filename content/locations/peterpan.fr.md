@@ -76,7 +76,7 @@ mails:
     from: info@schoolvelotek.be
     subject: Retour de votre réservation
 ---
-* ###### **4 vélos adultes (code couleur blanc)**
+* ###### **9 vélos adultes (code couleur blanc)**
 
   * ###### âge: 14 ans et plus
   * ###### taille de 170 cm et plus
@@ -84,7 +84,7 @@ mails:
 
   * ###### âge: 11 ans à 14 ans
   * ###### taille de 145 cm à 170 cm
-* ###### **8 vélos 24 pouces (code couleur jaune)**
+* ###### **11 vélos 24 pouces (code couleur jaune)**
 
   * ###### âge: 9 à 11 ans
   * ###### taille de 135 - 145 cm

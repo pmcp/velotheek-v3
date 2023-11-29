@@ -77,7 +77,7 @@ mails:
     subject: Terugbrengen van je reservatie
     from: info@schoolvelotek.be
 ---
-* ###### **4 volwassen fietsen (kleurcode wit)**
+* ###### **9 volwassen fietsen (kleurcode wit)**
 
   * ###### leeftijd: 14 jaar en ouder
   * ###### grootte: 170 cm en meer
@@ -85,7 +85,7 @@ mails:
 
   * ###### leeftijd: 11 jaar tot 14 jaar
   * ###### grootte: 145 cm tot 170 cm
-* ###### **8 24-inch fietsen (kleurcode geel)**
+* ###### **11 24-inch fietsen (kleurcode geel)**
 
   * ###### leeftijd: 9 jaar tot 11 jaar
   * ###### grootte: 135 cm tot 145 cm
